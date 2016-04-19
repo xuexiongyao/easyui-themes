@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Basic TextBox - jQuery EasyUI Demo</title>
+    <link rel="stylesheet" type="text/css" href="../../css/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../css/icon.css">
+    <link rel="stylesheet" type="text/css" href="../../css/iconHover.css">
+    <script type="text/javascript" src="../../../jquery.min.js"></script>
+    <script type="text/javascript" src="../../../jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../../../common.js"></script>
+</head>
+<body>
+
+    <!--<h2>Basic Menu</h2>-->
+    <!--<p>Right click on page to display menu.</p>-->
+    <!--<div style="margin:20px 0;"></div>-->
+
+    <!--<div id="mm" class="easyui-menu" data-options="disabled:true" style="width:120px;">-->
+        <!--<div onclick="javascript:alert('new')">New</div>-->
+        <!--<div>-->
+            <!--<span>Open</span>-->
+            <!--<div style="width:150px;">-->
+                <!--<div><b>Word</b></div>-->
+                <!--<div>Excel</div>-->
+                <!--<div>PowerPoint</div>-->
+                <!--<div>-->
+                    <!--<span>M1</span>-->
+                    <!--<div style="width:120px;">-->
+                        <!--<div>sub1</div>-->
+                        <!--<div>sub2</div>-->
+                        <!--<div>-->
+                            <!--<span>Sub</span>-->
+                            <!--<div style="width:80px;">-->
+                                <!--<div onclick="javascript:alert('sub21')">sub21</div>-->
+                                <!--<div>sub22</div>-->
+                                <!--<div>sub23</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div>sub3</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div>-->
+                    <!--<span>Window Demos</span>-->
+                    <!--<div style="width:120px;">-->
+                        <!--<div data-options="href:'window.html'">Window</div>-->
+                        <!--<div data-options="href:'dialog.html'">Dialog</div>-->
+                        <!--<div><a href="http://www.jeasyui.com" target="_blank">EasyUI</a></div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div data-options="iconCls:'icon-save'">Save</div>-->
+        <!--<div data-options="iconCls:'icon-print',disabled:false">Print</div>-->
+        <!--<div class="menu-sep"></div>-->
+        <!--<div>Exit</div>-->
+    <!--</div>-->
+    <!--<script>-->
+        <!--$(function(){-->
+            <!--$('#mm').menu('show', {-->
+                <!--left: 100,-->
+                <!--top: 200-->
+            <!--});-->
+
+    			<!--$(document).bind('contextmenu',function(e){-->
+    				<!--e.preventDefault();-->
+    				<!--$('#mm').menu('show', {-->
+    					<!--left: e.pageX,-->
+    					<!--top: e.pageY-->
+    				<!--});-->
+    			<!--});-->
+        <!--});-->
+    <!--</script>-->
+
+    <!--<h2>Custom Menu Item</h2>-->
+    <!--<p>Right click on page to display menu, move to the 'Open' item to display its custom sub content.</p>-->
+    <!--<div style="margin:20px 0;"></div>-->
+    <!--<div id="mm1" class="easyui-menu" style="width:120px;">-->
+        <!--<div>New</div>-->
+        <!--<div>-->
+            <!--<span>Open</span>-->
+            <!--<div class="menu-content" style="text-align:left;padding:10px">-->
+                <!--<div style="font-weight:bold;font-size:16px">Select your Language:</div>-->
+                <!--<ul style="margin:0;padding:0 0 0 40px">-->
+                    <!--<li><a href="javascript:void(0)">Java</a></li>-->
+                    <!--<li><a href="javascript:void(0)">Basic</a></li>-->
+                    <!--<li><a href="javascript:void(0)">C++</a></li>-->
+                    <!--<li><a href="javascript:void(0)">Fortran</a></li>-->
+                    <!--<li>-->
+                        <!--<span>Other</span>-->
+                        <!--<input>-->
+                    <!--</li>-->
+                <!--</ul>-->
+                <!--<div style="padding:10px 0 0 30px">-->
+                    <!--<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-ok'">Ok</a>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div data-options="iconCls:'icon-save'">Save</div>-->
+        <!--<div data-options="iconCls:'icon-print'">Print</div>-->
+        <!--<div class="menu-sep"></div>-->
+        <!--<div>Exit</div>-->
+    <!--</div>-->
+    <!--<script>-->
+        <!--$(function(){-->
+            <!--$(document).bind('contextmenu',function(e){-->
+                <!--e.preventDefault();-->
+                <!--$('#mm1').menu('show', {-->
+                    <!--left: e.pageX,-->
+                    <!--top: e.pageY-->
+                <!--});-->
+            <!--});-->
+        <!--});-->
+    <!--</script>-->
+
+    <!--<h2>Menu Events</h2>-->
+    <!--<p>Right click on page to display menu and click an item.</p>-->
+    <!--<div style="margin:20px 0;"></div>-->
+    <!--<div id="mm2" class="easyui-menu" data-options="onClick:menuHandler" style="width:120px;">-->
+        <!--<div data-options="name:'new'">New</div>-->
+        <!--<div data-options="name:'save',iconCls:'icon-save'">Save</div>-->
+        <!--<div data-options="name:'print',iconCls:'icon-print'">Print</div>-->
+        <!--<div class="menu-sep"></div>-->
+        <!--<div data-options="name:'exit'">Exit</div>-->
+    <!--</div>-->
+    <!--<div id="log" class="easyui-panel" title="Event Log" style="height:250px;padding:10px">-->
+    <!--</div>-->
+    <!--<script>-->
+        <!--function menuHandler(item){-->
+            <!--$('#log').prepend('<p>Click Item: '+item.name+'</p>');-->
+        <!--}-->
+        <!--$(function(){-->
+            <!--$(document).bind('contextmenu',function(e){-->
+                <!--e.preventDefault();-->
+                <!--$('#mm2').menu('show', {-->
+                    <!--left: e.pageX,-->
+                    <!--top: e.pageY-->
+                <!--});-->
+            <!--});-->
+        <!--});-->
+    <!--</script>-->
+
+    <h2>Keyboard Navigation in Menu</h2>
+    <p>Press Alt+W to focus the menu. Once the menu get focus, you will be able to navigate menu using keyboard keys.</p>
+    <div style="margin:20px 0;"></div>
+
+    <div class="easyui-panel" title="Menu" style="width:150px;">
+        <div id="mm" data-options="inline:true" style="width:100%">
+            <div onclick="javascript:alert('new')">New</div>
+            <div>
+                <span>Open</span>
+                <div style="width:150px;">
+                    <div><b>Word</b></div>
+                    <div>Excel</div>
+                    <div>PowerPoint</div>
+                    <div>
+                        <span>M1</span>
+                        <div style="width:120px;">
+                            <div>sub1</div>
+                            <div>sub2</div>
+                            <div>
+                                <span>Sub</span>
+                                <div style="width:80px;">
+                                    <div>sub21</div>
+                                    <div>sub22</div>
+                                    <div>sub23</div>
+                                </div>
+                            </div>
+                            <div>sub3</div>
+                        </div>
+                    </div>
+                    <div>
+                        <span>Window Demos</span>
+                        <div style="width:120px;">
+                            <div>Window</div>
+                            <div>Dialog</div>
+                            <div>EasyUI</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-options="iconCls:'icon-save'">Save</div>
+            <div data-options="iconCls:'icon-print',disabled:true">Print</div>
+            <div class="menu-sep"></div>
+            <div>Exit</div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        (function($){
+            function getParentMenu(rootMenu, menu){
+                return findParent(rootMenu);
+
+                function findParent(pmenu){
+                    var p = undefined;
+                    $(pmenu).find('.menu-item').each(function(){
+                        if (!p && this.submenu){
+                            if ($(this.submenu)[0] == $(menu)[0]){
+                                p = pmenu;
+                            } else {
+                                p = findParent(this.submenu);
+                            }
+                        }
+                    });
+                    return p;
+                }
+            }
+
+            $.extend($.fn.menu.methods, {
+                enableNav: function(jq, rootMenu){
+                    var firstItemSelector = '.menu-item:not(.menu-item-disabled):first';
+                    var lastItemSelector = '.menu-item:not(.menu-item-disabled):last';
+                    return jq.each(function(){
+                        var menu = $(this);
+                        rootMenu = $(rootMenu).length ? $(rootMenu) : menu;
+                        menu.attr('tabindex','0').css('outline','none').unbind('.menu').bind('keydown.menu', function(e){
+                            var item = $(this).find('.menu-active');
+                            switch(e.keyCode){
+                                case 13:  // enter
+                                    item.trigger('click');
+                                    break;
+                                case 27:  // esc
+                                    rootMenu.find('.menu-active').trigger('mouseleave');
+                                    break;
+                                case 38:  // up
+                                    var prev = item.length ? item.prevAll(firstItemSelector) : menu.find(lastItemSelector);
+                                    prev.trigger('mouseenter');
+                                    return false;
+                                case 40:  // down
+                                    var next = item.length ? item.nextAll(firstItemSelector) : menu.find(firstItemSelector);
+                                    next.trigger('mouseenter');
+                                    return false;
+                                case 37:  // left
+                                    var pmenu = getParentMenu(rootMenu, menu);
+                                    if (pmenu){
+                                        item.trigger('mouseleave');
+                                        pmenu.focus();
+                                    }
+                                    return false;
+                                case 39:  // right
+                                    if (item.length && item[0].submenu){
+                                        $(item[0].submenu).menu('enableNav', rootMenu).find(firstItemSelector).trigger('mouseenter');
+                                        $(item[0].submenu).focus();
+                                    }
+                                    return false;
+                            }
+                        });
+                    });
+                }
+            });
+        })(jQuery);
+
+        $(function(){
+            $('#mm').menu().menu('enableNav');
+            $(document).keydown(function(e){
+                if (e.altKey && e.keyCode == 87){
+                    $('#mm').focus();
+                }
+            })
+        })
+    </script>
+
+    <script>
+        $(function () {
+            changeLinkButtonIcon();
+        })
+    </script>
+
+</body>
+</html>

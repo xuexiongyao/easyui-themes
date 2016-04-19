@@ -1,0 +1,66 @@
+@charset "utf-8";
+
+/*searchbox*/
+//---------------------------------
+.searchbox {
+    @include inline-block;
+    background: colors(white);
+    white-space: nowrap;
+    @include attrMarginPadding;
+    border: 1px solid colors(borderColor);
+    overflow: hidden;
+    .searchbox-text {
+        font-size: fontSize(small);
+        @include attrMarginBorder;
+        padding: 0 2px;
+        vertical-align: top;
+    }
+    .searchbox-prompt {
+        font-size: fontSize(small);
+        color: colors(textColor);
+    }
+    .l-btn-plain {
+        background: colors(white);
+        @include attrPaddingBorder;
+        vertical-align: top;
+        @include opacity(0.6);
+        @include prefix(border,radius,0);
+        &:hover{
+            @include opacity(1);
+        }
+    }
+    a.m-btn-plain-active {
+        @include prefix(border,radius,0);
+    }
+    .m-btn-active {
+        border-width: 0 1px 0 0;
+        @include prefix(border,radius,0);
+    }
+    .textbox-button-right {
+        border-width: 0 0 0 1px;
+    }
+    .textbox-button-left {
+        border-width: 0 1px 0 0;
+    }
+    .l-btn-plain-disabled{
+        @include opacity(0.6);
+        &:hover{
+            @extend .l-btn-plain-disabled;
+        }
+    }
+}
+.textbox-invalid {
+    border-color: colors(red);
+    background-color: colors(white);
+}
+.searchbox-button {
+    @include size(18px,20px);
+    overflow: hidden;
+    @include inline-block(top);
+    cursor: pointer;
+    @include opacity(0.6);
+    background: url('images/searchbox_button.png') no-repeat center center;
+}
+.searchbox-button-hover {
+    @include opacity(1);
+}

@@ -1,0 +1,326 @@
+@charset "utf-8";
+
+/*dategrid*/
+//-----------------------------
+.datagrid{
+    .panel-header{
+        background-color: colors(lightBlueBg);
+        border-color: colors(lightBlueBg);
+        .panel-title{
+            font-weight:bold;
+        }
+    }
+    .panel-body {
+        @include containerBox;
+    }
+    .datagrid-pager {
+        display: block;
+        margin: 0;
+        border-width: 1px 0 0 0;
+        border-style: solid;
+        border-color: colors(borderColor);
+    }
+    .datagrid-pager-top {
+        border-width: 0 0 1px 0;
+    }
+}
+.datagrid-view {
+    @include containerBox;
+    .datagrid-editable-input {
+        margin: 0;
+        padding: 2px 4px;
+        @include border(1px,solid,colors(borderColor));
+        font-size: fontSize(small);
+        outline-style: none;
+        @include prefix(border,radius,0);
+    }
+}
+.datagrid-view1 {
+    @include containerBox(absolute);
+    top: 0;
+    left: 0;
+    .datagrid-body-inner {
+        padding-bottom: 20px;
+    }
+    .datagrid-body {
+        overflow: hidden;
+    }
+}
+.datagrid-view2 {
+    @include containerBox(absolute);
+    top: 0;
+    right: 0;
+}
+.datagrid-mask {
+    left: 0;
+    top: 0;
+    @include positionDisplay;
+    @include square(100%);
+    @include opacity(0.3);
+    background: #ccc;
+}
+.datagrid-mask-msg {
+    @include positionDisplay;
+    top: 50%;
+    margin-top: -20px;
+    padding: 10px 5px 10px 30px;
+    width: auto;
+    height: 16px;
+    @include border(2px,solid,colors(borderColor));
+    background: colors(white) url('images/loading.gif') no-repeat scroll 5px center;
+}
+.datagrid-sort-icon {
+    padding: 0;
+    display: none;
+}
+.datagrid-toolbar {
+    background: #F4F4F4;
+    height: auto;
+    padding: 1px 2px;
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    border-color:colors(borderColor);
+}
+.datagrid-btn-separator {
+    @include float(left);
+    height: 24px;
+    border-left: 1px solid colors(borderColor);
+    border-right: 1px solid colors(borderColor);
+    margin: 2px 1px;
+}
+.datagrid-header {
+    font-weight:bold;
+    overflow: hidden;
+    cursor: default;
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    border-color: colors(borderColor);
+    background-color: colors(tableBgcolor);
+    //background: -webkit-linear-gradient(top,#F9F9F9 0,#efefef 100%);
+    //background: -moz-linear-gradient(top,#F9F9F9 0,#efefef 100%);
+    //background: -o-linear-gradient(top,#F9F9F9 0,#efefef 100%);
+    //background: linear-gradient(to bottom,#F9F9F9 0,#efefef 100%);
+    //background-repeat: repeat-x;
+    //filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#F9F9F9,endColorstr=#efefef,GradientType=0);
+    td{
+        border-width: 0 1px 1px 0;
+        border-style: solid;
+        border-color: colors(borderColor);
+        @include attrMarginPadding;
+    }
+    td.datagrid-header-over {
+        background: colors(white);
+        color: colors(textColor);
+        cursor: default;
+    }
+    .datagrid-cell {
+        height: auto;
+        span {
+            font-size: fontSize(small);
+        }
+    }
+}
+.datagrid-header-inner {
+    @include float(left);
+    width: 10000px;
+}
+.datagrid-header-row,.datagrid-row {
+    height: 30px;
+}
+.datagrid-body{
+    @include attrMarginPadding;
+    overflow: auto;
+    zoom: 1;
+    td {
+        border-width: 0 1px 1px 0;
+        border-style: solid;
+        border-color: colors(borderColor);
+        @include attrMarginPadding;
+    }
+    .datagrid-editable {
+        @include attrMarginPadding;
+        table {
+            @include square(100%);
+        }
+        td {
+           @include attrMarginPaddingBorder;
+        }
+    }
+}
+//datagrid border
+.datagrid-border-right{
+    .datagrid-body{
+        td{
+            border-bottom: 1px solid transparent;
+        }
+    }
+}
+
+.datagrid-border-bottom{
+    .datagrid-body{
+        td{
+            border-right: 1px solid transparent;
+        }
+    }
+}
+
+.datagrid-no-border{
+    .datagrid-body{
+        td{
+            border-right: 1px solid transparent;
+            border-bottom: 1px solid transparent;
+        }
+    }
+}
+
+.datagrid-footer{
+    overflow: hidden;
+    td {
+        border-width: 0 1px 1px 0;
+        border-style: solid;
+        border-color: colors(borderColor);
+        background: colors(tableBgcolor);
+        @include attrMarginPadding;
+    }
+}
+.datagrid-footer-inner {
+    border-width: 1px 0 0 0;
+    border-style: solid;
+    border-color: colors(borderColor);
+    width: 10000px;
+    @include float(left);
+}
+
+.datagrid-cell{
+    i{
+        font-size: fontSize(base);
+        cursor: pointer;
+        margin: 0 4px;
+    }
+    //详情
+    i.details{
+        color: colors(blue);
+    }
+    //注销
+    i.remove{
+        color: colors(red);
+    }
+    //添加
+    i.add{
+        color: colors(yellow);
+    }
+    //编辑
+    i.edit{
+        color: colors(green);
+    }
+}
+.datagrid-cell, .datagrid-cell-group, .datagrid-header-rownumber, .datagrid-cell-rownumber{
+    margin: 0;
+    padding: 0 4px;
+    white-space: nowrap;
+    word-wrap: normal;
+    overflow: hidden;
+    @include text-vertical-center(18px);
+    font-size: fontSize(small);
+}
+.datagrid-cell-group {
+    @include text-align(center);
+    @include text-overflow;
+}
+.datagrid-header-rownumber{
+    color: colors(black);
+}
+.datagrid-header-rownumber, .datagrid-cell-rownumber {
+    width: 30px;
+    @include text-align(center);
+    @include attrMarginPadding;
+}
+.datagrid-row-editing{
+    .datagrid-cell {
+        height: auto;
+    }
+    .textbox-text,.textbox{
+        @include prefix(border,radius,0);
+    }
+}
+.datagrid-header-check{
+    padding: 0;
+    @include size(27px,18px);
+    font-size: 1px;
+    @include text-align(center);
+    overflow: hidden;
+    input {
+        @include attrMarginPadding;
+        @include size(15px,18px);
+    }
+}
+.datagrid-cell-check{
+    @extend .datagrid-header-check;
+}
+.datagrid-resize-proxy {
+    @include positionDisplay;
+    @include size(1px,10000px);
+    top: 0;
+    cursor: e-resize;
+    background: #aac5e7;
+}
+@mixin disPadding{
+    display: inline;
+    padding: 0 13px 0 0;
+}
+.datagrid-sort{
+    .datagrid-sort-icon {
+        @include disPadding;
+        background: url('images/datagrid_icons.png') no-repeat -64px center;
+    }
+}
+.datagrid-sort-desc {
+    .datagrid-sort-icon {
+        @include disPadding;
+        background: url('images/datagrid_icons.png') no-repeat -16px center;
+    }
+}
+.datagrid-sort-asc {
+    .datagrid-sort-icon {
+        @include disPadding;
+        background: url('images/datagrid_icons.png') no-repeat 0 center;
+    }
+}
+.datagrid-row-collapse {
+    background: url('images/datagrid_icons.png') no-repeat -48px center;
+}
+.datagrid-row-expand {
+    background: url('images/datagrid_icons.png') no-repeat -32px center;
+}
+.datagrid-mask-msg {
+    background: colors(white) url('images/loading.gif') no-repeat scroll 5px center;
+}
+.datagrid-td-rownumber{
+    background-color: colors(white);
+    //background: -webkit-linear-gradient(top,#F9F9F9 0,#efefef 100%);
+    //background: -moz-linear-gradient(top,#F9F9F9 0,#efefef 100%);
+    //background: -o-linear-gradient(top,#F9F9F9 0,#efefef 100%);
+    //background: linear-gradient(to bottom,#F9F9F9 0,#efefef 100%);
+    //background-repeat: repeat-x;
+    //filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#F9F9F9,endColorstr=#efefef,GradientType=0);
+
+}
+.datagrid-cell-rownumber {
+    color: colors(black);
+}
+.datagrid-htable, .datagrid-btable, .datagrid-ftable {
+    color: colors(black);
+    border-collapse: separate;
+}
+.datagrid-row-alt {
+    background: #fafafa;
+}
+.datagrid-row-over, .datagrid-header td.datagrid-header-over {
+    background: colors(tableHeadHover);
+    color: colors(black);
+    cursor: default;
+}
+.datagrid-row-selected {
+    background: colors(primary);
+    color: colors(white);
+}

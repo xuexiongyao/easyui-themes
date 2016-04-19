@@ -1,0 +1,119 @@
+@charset "utf-8";
+
+/*datelist*/
+//------------------------------
+.datalist{
+    .datagrid-header {
+        border-width: 0;
+    }
+    .datagrid-group{
+        @include text-vertical-center(25px);
+        font-weight: bold;
+        overflow: hidden;
+        background-color: colors(white);
+        border-style: solid;
+        border-width: 0 0 1px 0;
+        border-color: colors(borderColor);
+    }
+    .datagrid-group-expander {
+        display: none;
+    }
+    .datagrid-group-title {
+        padding: 0 4px;
+    }
+    .datagrid-btable {
+        width: 100%;
+        table-layout: fixed;
+    }
+    .datagrid-row td {
+        border-style: solid;
+        border-left-color: transparent;
+        border-right-color: transparent;
+        border-bottom-width: 0;
+    }
+    .datagrid-cell{
+        @include square(auto);
+        padding: 2px 4px;
+        line-height: 18px;
+        position: relative;
+        @include containerBox;
+        white-space: nowrap;
+        @include text-overflow;
+    }
+}
+.datalist-lines{
+    .datagrid-row{
+        td {
+            border-bottom-width: 1px;
+        }
+    }
+}
+.m-list{
+    @include attrMarginPadding;
+    list-style: none;
+    .m-list-group {
+        padding: 0 4px;
+    }
+    li{
+        border-style: solid;
+        border-width: 0 0 1px 0;
+        border-color: colors(borderColor);
+        @include square(auto);
+        padding: 2px 4px;
+        line-height: 18px;
+        position: relative;
+        @include containerBox;
+        white-space: nowrap;
+        @include text-overflow;
+        >a{
+            @include containerBox;
+            display: block;
+            cursor: pointer;
+            color: colors(black);
+            text-decoration: none;
+            margin: -2px -4px;
+            padding: 2px 16px 2px 4px;
+            line-height: 18px;
+            white-space: nowrap;
+            @include text-overflow;
+        }
+        >a::after {
+            @include div-vertical-center;
+            display: block;
+            @include square(8px);
+            content: '';
+            right: 6px;
+            margin-top: -4px;
+            border-style: solid;
+            border-width: 1px 1px 0 0;
+            @include rotate(45deg);
+        }
+        >a:hover {
+            background: #eaf2ff;
+            color: #000000;
+        }
+    }
+}
+.datalist-link{
+    @include containerBox;
+    display: block;
+    cursor: pointer;
+    color: colors(black);
+    text-decoration: none;
+    margin: -2px -4px;
+    padding: 2px 16px 2px 4px;
+    line-height: 18px;
+    white-space: nowrap;
+    @include text-overflow;
+    ::after{
+        @include div-vertical-center;
+        display: block;
+        @include square(8px);
+        content: '';
+        right: 6px;
+        margin-top: -4px;
+        border-style: solid;
+        border-width: 1px 1px 0 0;
+        @include rotate(45deg);
+    }
+}

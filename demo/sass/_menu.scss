@@ -1,0 +1,93 @@
+@charset "utf-8";
+
+/*menu*/
+//-------------------------------
+.menu {
+    @include containerBox(absolute);
+    margin: 0;
+    //padding: 2px;
+    //@include border(1px,solid,colors(borderColor));
+    //background-color: colors(white);
+    color: colors(textColor);
+}
+.menu-inline {
+    position: relative;
+}
+.menu-item {
+    @include containerBox;
+    @include attrMarginPadding;
+    white-space: nowrap;
+    cursor: pointer;
+    @include border(1px,solid,colors(borderColor));
+    border-color: transparent;
+    _border-color: colors(white);
+}
+.menu-text {
+    @include text-vertical-center(20px);
+    @include float(left);
+    padding-left: 28px;
+    font-size: fontSize(small);
+    span{
+        font-size: fontSize(small);
+    }
+}
+.menu-icon,.menu-rightarrow{
+    @include div-vertical-center;
+    @include square(16px);
+    margin-top: -8px;
+}
+.menu-icon{
+    left: 2px;
+}
+.menu-rightarrow {
+    background: url('images/menu_arrows.png') no-repeat -32px center;
+    right: 0;
+}
+.menu-line {
+    position: absolute;
+    left: 26px;
+    top: 0;
+    height: 2000px;
+    font-size: 1px;
+    border-left: 1px solid colors(borderColor);
+    border-right: 1px solid colors(white);
+}
+.menu-sep {
+    margin: 3px 0 3px 25px;
+    font-size: 1px;
+    border-top: 1px solid colors(borderColor);
+    border-bottom: 1px solid colors(white);
+}
+.menu-noline{
+    .menu-line {
+        display: none;
+    }
+    .menu-sep {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+.menu-active {
+    @include prefix(border,radius,3px);
+    //border-color: colors(borderColor);
+    color: colors(white);
+    background: colors(red);
+}
+.menu-active-disabled {
+    border-color: transparent;
+    background: transparent;
+    color: colors(textColor);
+}
+.menu-item-disabled {
+    @include opacity(0.5);
+    cursor: not-allowed;
+}
+.menu-shadow {
+    position: absolute;
+    background: colors(white);
+    @include prefix(border,radius,3px);
+    @include box-shadow(1px 5px 10px rgba(0,0,0,0.5));
+}
+.menu-content {
+    background: colors(white);
+}

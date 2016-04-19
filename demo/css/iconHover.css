@@ -1,0 +1,96 @@
+.icon-blank-hover{
+    background:url('iconsHover/blank.gif') no-repeat center center;
+}
+.icon-add-hover{
+    background:url('iconsHover/edit_add.png') no-repeat center center;
+}
+.icon-edit-hover{
+    background:url('iconsHover/pencil.png') no-repeat center center;
+}
+.icon-clear-hover{
+    background:url('iconsHover/clear.png') no-repeat center center;
+}
+.icon-remove-hover{
+    background:url('iconsHover/edit_remove.png') no-repeat center center;
+}
+.icon-save-hover{
+    background:url('iconsHover/filesave.png') no-repeat center center;
+}
+.icon-cut-hover{
+    background:url('iconsHover/cut.png') no-repeat center center;
+}
+.icon-ok-hover{
+    background:url('iconsHover/ok.png') no-repeat center center;
+}
+.icon-no-hover{
+    background:url('iconsHover/no.png') no-repeat center center;
+}
+.icon-cancel-hover{
+    background:url('iconsHover/cancel.png') no-repeat center center;
+}
+.icon-reload-hover{
+    background:url('iconsHover/reload.png') no-repeat center center;
+}
+.icon-search-hover{
+    background:url('iconsHover/search.png') no-repeat center center;
+}
+.icon-print-hover{
+    background:url('iconsHover/print.png') no-repeat center center;
+}
+.icon-help-hover{
+    background:url('iconsHover/help.png') no-repeat center center;
+}
+.icon-undo-hover{
+    background:url('iconsHover/undo.png') no-repeat center center;
+}
+.icon-redo-hover{
+    background:url('iconsHover/redo.png') no-repeat center center;
+}
+.icon-back-hover{
+    background:url('iconsHover/back.png') no-repeat center center;
+}
+.icon-sum-hover{
+    background:url('iconsHover/sum.png') no-repeat center center;
+}
+.icon-tip-hover{
+    background:url('iconsHover/tip.png') no-repeat center center;
+}
+.icon-filter-hover{
+    background:url('iconsHover/filter.png') no-repeat center center;
+}
+.icon-man-hover{
+    background:url('iconsHover/man.png') no-repeat center center;
+}
+.icon-lock-hover{
+    background:url('iconsHover/lock.png') no-repeat center center;
+}
+.icon-more-hover{
+    background:url('iconsHover/more.png') no-repeat center center;
+}
+
+
+.icon-mini-add-hover{
+    background:url('iconsHover/mini_add.png') no-repeat center center;
+}
+.icon-mini-edit-hover{
+    background:url('iconsHover/mini_edit.png') no-repeat center center;
+}
+.icon-mini-refresh-hover{
+    background:url('iconsHover/mini_refresh.png') no-repeat center center;
+}
+
+.icon-large-picture-hover{
+    background:url('iconsHover/large_picture.png') no-repeat center center;
+}
+.icon-large-clipart-hover{
+    background:url('iconsHover/large_clipart.png') no-repeat center center;
+}
+.icon-large-shapes-hover{
+    background:url('iconsHover/large_shapes.png') no-repeat center center;
+}
+.icon-large-smartart-hover{
+    background:url('iconsHover/large_smartart.png') no-repeat center center;
+}
+.icon-large-chart-hover{
+    background:url('iconsHover/large_chart.png') no-repeat center center;
+}

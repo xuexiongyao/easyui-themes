@@ -1,0 +1,26 @@
+@charset "utf-8";
+
+/*progressbar*/
+//-----------------------------
+.progressbar {
+    @include border(1px,solid,colors(borderColor));
+    @include prefix(border,radius,3px);
+    @include containerBox;
+}
+.progressbar-text {
+    @include text-align(center);
+    position: absolute;
+    color: colors(black);
+    font-size: fontSize(small);
+}
+.progressbar-value {
+    @include containerBox;
+    width: 0;
+    @include prefix-all-round(border,radius,3px,0,0,3px);
+}
+.progressbar-value{
+    .progressbar-text {
+        background-color: colors(green);
+        color: colors(white);
+    }
+}

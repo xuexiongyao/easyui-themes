@@ -1,0 +1,28 @@
+@charset "utf-8";
+/*combobox*/
+//------------------------------
+.combobox-item{
+    font-size: fontSize(small);
+    padding: 3px;
+    padding-right: 0;
+}
+.combobox-group{
+    @extend .combobox-item;
+}
+.combobox-item-disabled {
+    @include opacity(0.5);
+}
+.combobox-gitem {
+    padding-left: 10px;
+}
+.combobox-group {
+    font-weight: bold;
+}
+.combobox-item-hover {
+    background-color: colors(primary);
+    color: colors(white);
+}
+.combobox-item-selected {
+    background-color: colors(primary);
+    color: colors(white);
+}

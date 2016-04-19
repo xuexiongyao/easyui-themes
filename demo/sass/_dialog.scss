@@ -1,0 +1,35 @@
+@charset "utf-8";
+
+/*dialog*/
+//------------------------------
+.dialog-content {
+    overflow: auto;
+}
+.dialog-toolbar {
+    padding: 2px 5px;
+    background: colors(white);
+    //@include border(1px,solid,colors(borderColor));
+    border-bottom:1px solid colors(borderColor);
+}
+.dialog-tool-separator {
+    @include float;
+    height: 24px;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #fff;
+    margin: 2px 1px;
+}
+.dialog-button {
+    padding: 5px;
+    @include text-align(center);
+    background: colors(white);
+    //@include border(1px,solid,colors(borderColor));
+    .l-btn {
+        margin-left: 5px;
+    }
+}
+//.dialog-toolbar {
+//    border-color: #95B8E7 #95B8E7 #dddddd #95B8E7;
+//}
+//.dialog-button {
+//    border-color: #dddddd #95B8E7 #95B8E7 #95B8E7;
+//}

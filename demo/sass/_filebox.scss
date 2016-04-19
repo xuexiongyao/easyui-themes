@@ -1,0 +1,23 @@
+@charset "utf-8";
+
+/*file box*/
+//-----------------------------
+.filebox .textbox-value {
+    @include inline-block(top);
+    position: absolute;
+    top: 0;
+    left: -5000px;
+}
+.filebox-label {
+    display: inline-block;
+    position: absolute;
+    @include square(100%);
+    cursor: pointer;
+    left: 0;
+    top: 0;
+    z-index: zindex(dropdown);
+    //background: url('images/blank.gif') no-repeat;
+}
+.l-btn-disabled .filebox-label {
+    cursor: not-allowed;
+}

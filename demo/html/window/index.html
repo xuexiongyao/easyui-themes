@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Basic TextBox - jQuery EasyUI Demo</title>
+    <link rel="stylesheet" type="text/css" href="../../css/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../css/icon.css">
+    <link rel="stylesheet" type="text/css" href="../../css/iconHover.css">
+    <script type="text/javascript" src="../../../jquery.min.js"></script>
+    <script type="text/javascript" src="../../../jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../../../common.js"></script>
+</head>
+<body>
+    <!--<h2>Basic Window</h2>-->
+    <!--<p>Window can be dragged freely on screen.</p>-->
+    <!--<div style="margin:20px 0;">-->
+        <!--<a href="javascript:void(0)" class="easyui-linkbutton c6" onclick="$('#w').window('open')">Open</a>-->
+        <!--<a href="javascript:void(0)" class="easyui-linkbutton c6" onclick="$('#w').window('close')">Close</a>-->
+    <!--</div>-->
+    <!--<div id="w" class="easyui-window" title="Basic Window" data-options="" style="width:500px;height:200px;padding:10px;">-->
+        <!--The window content.-->
+    <!--</div>-->
+
+    <!--<h2>Custom Window Tools</h2>-->
+    <!--<p>Click the right top buttons to perform actions.</p>-->
+    <!--<div style="margin:20px 0;">-->
+        <!--<a href="javascript:void(0)" class="easyui-linkbutton" onclick="$('#w').window('open')">Open</a>-->
+        <!--<a href="javascript:void(0)" class="easyui-linkbutton" onclick="$('#w').window('close')">Close</a>-->
+    <!--</div>-->
+    <!--<div id="w" class="easyui-window" title="Custom Window Tools" data-options="iconCls:'icon-save',minimizable:false,tools:'#tt'" style="width:500px;height:200px;padding:10px;">-->
+        <!--The window content.-->
+    <!--</div>-->
+    <!--<div id="tt">-->
+        <!--<a href="javascript:void(0)" class="icon-add" onclick="javascript:alert('add')"></a>-->
+        <!--<a href="javascript:void(0)" class="icon-edit" onclick="javascript:alert('edit')"></a>-->
+        <!--<a href="javascript:void(0)" class="icon-cut" onclick="javascript:alert('cut')"></a>-->
+        <!--<a href="javascript:void(0)" class="icon-help" onclick="javascript:alert('help')"></a>-->
+    <!--</div>-->
+
+    <!--<h2>Fluid Window</h2>-->
+    <!--<p>This example shows how to set the width of Window to a percentage of its parent container.</p>-->
+    <!--<div style="margin:20px 0;"></div>-->
+    <!--<div id="w" class="easyui-window" title="Fluid Window" style="width:80%;height:200px;padding:10px;" data-options="-->
+			<!--iconCls:'icon-save',-->
+			<!--onResize:function(){-->
+				<!--$(this).window('hcenter');-->
+			<!--}">-->
+        <!--<p>The window has a width of 80%.</p>-->
+    <!--</div>-->
+
+    <!--<h2>Window with a Footer</h2>-->
+    <!--<p>This example shows how to attach a footer bar to the window.</p>-->
+    <!--<div style="margin:20px 0;">-->
+        <!--<a href="javascript:void(0)" class="easyui-linkbutton" onclick="$('#w').window('open')">Open</a>-->
+        <!--<a href="javascript:void(0)" class="easyui-linkbutton" onclick="$('#w').window('close')">Close</a>-->
+    <!--</div>-->
+    <!--<div id="w" class="easyui-window" title="Window with a Footer" data-options="iconCls:'icon-save',footer:'#footer'" style="width:500px;height:200px;padding:10px;">-->
+        <!--The window content.-->
+    <!--</div>-->
+    <!--<div id="footer">Footer Content.</div>-->
+
+    <!--<h2>Inline Window</h2>-->
+    <!--<p>The inline window stay inside its parent.</p>-->
+    <!--<div style="margin:20px 0;">-->
+        <!--<a href="javascript:void(0)" class="easyui-linkbutton" onclick="$('#w').window('open')">Open</a>-->
+        <!--<a href="javascript:void(0)" class="easyui-linkbutton" onclick="$('#w').window('close')">Close</a>-->
+    <!--</div>-->
+    <!--<div class="easyui-panel" style="position:relative;width:500px;height:300px;overflow:auto;">-->
+        <!--<div id="w" class="easyui-window" data-options="title:'Inline Window',inline:true" style="width:250px;height:150px;padding:10px">-->
+            <!--This window stay inside its parent-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <h2>Modal Window</h2>
+    <p>Click the open button below to open the modal window.</p>
+    <div style="margin:20px 0;">
+        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="$('#w').window('open')">Open</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="$('#w').window('close')">Close</a>
+    </div>
+    <div id="w" class="easyui-window" title="Modal Window" data-options="modal:true,closed:true,iconCls:'icon-save'" style="width:500px;height:200px;padding:10px;">
+        The window content.
+    </div>
+
+    <!--<h2>Window Layout</h2>-->
+    <!--<p>Using layout on window.</p>-->
+    <!--<div style="margin:20px 0;">-->
+        <!--<a href="javascript:void(0)" class="easyui-linkbutton" onclick="$('#w').window('open')">Open</a>-->
+        <!--<a href="javascript:void(0)" class="easyui-linkbutton" onclick="$('#w').window('close')">Close</a>-->
+    <!--</div>-->
+    <!--<div id="w" class="easyui-window" title="Window Layout" data-options="iconCls:'icon-save'" style="width:500px;height:200px;padding:5px;">-->
+        <!--<div class="easyui-layout" data-options="fit:true">-->
+            <!--<div data-options="region:'east',split:true" style="width:100px"></div>-->
+            <!--<div data-options="region:'center'" style="padding:10px;">-->
+                <!--jQuery EasyUI framework help you build your web page easily.-->
+            <!--</div>-->
+            <!--<div data-options="region:'south',border:false" style="text-align:right;padding:5px 0 0;">-->
+                <!--<a class="easyui-linkbutton" data-options="iconCls:'icon-ok'" href="javascript:void(0)" onclick="javascript:alert('ok')" style="width:80px">Ok</a>-->
+                <!--<a class="easyui-linkbutton" data-options="iconCls:'icon-cancel'" href="javascript:void(0)" onclick="javascript:alert('cancel')" style="width:80px">Cancel</a>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <script>
+        $(function () {
+            changeLinkButtonIcon();
+        })
+    </script>
+
+</body>
+</html>

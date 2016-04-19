@@ -1,0 +1,42 @@
+@charset "utf-8";
+
+/*combo*/
+//----------------------
+.combo {
+    @include inline-block;
+    @include attrMarginPadding;
+    //@include border(1px,solid,colors(borderColor));
+    background: colors(white);
+    white-space: nowrap;
+    overflow: hidden;
+    .combo-text{
+        font-size: fontSize(small);
+        @extend %attrMarginBorder;
+        padding: 0 2px;
+        vertical-align: baseline;
+    }
+    .textbox-icon-disabled:hover {
+        cursor: default;
+    }
+}
+.combo-arrow {
+    @include size(18px,20px);
+    @include inline-block(top);
+    @include opacity(0.6);
+    overflow: hidden;
+    cursor: pointer;
+    background: url('images/combo_arrow.png') no-repeat center center;
+}
+.combo-arrow-hover{
+    @include opacity(1);
+}
+.combo-panel{
+    overflow: auto;
+    background: colors(white);
+    //box-shadow
+    //@include box-shadow(0 5px 15px rgba(0,0,0,0.5));
+}
+.textbox-invalid {
+    border-color: colors(red);
+    background-color: colors(white);
+}

@@ -1,0 +1,37 @@
+@charset "utf-8";
+
+//-----------------------------------
+//container
+
+//stub 存根
+.container{
+    @include border(5px,solid,#000);
+    position: absolute;
+    overflow: hidden;
+    left:50%;
+    top:50%;
+    .container-inner{
+        margin:1px;
+        @include border(1px,solid,#000);
+    }
+}
+.container-stub{
+    @include size(343px,878px);
+    margin-left:-171.5px;
+    margin-top:-439px;
+    .container-stub-inner{
+        @include size(329px,864px);
+        padding: 5px;
+    }
+}
+
+//拘留证
+.container-warrant{
+    @include size(600px,878px);
+    margin-left:-300px;
+    margin-top:-439px;
+    .container-warrant-inner{
+        @include size(586px,864px);
+        padding: 5px;
+    }
+}

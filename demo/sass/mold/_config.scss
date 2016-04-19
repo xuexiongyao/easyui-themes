@@ -1,0 +1,215 @@
+@charset "utf-8";
+
+//------------------------
+//config
+body{
+    margin: 0;
+    padding:0;
+    font-family:fontFamily(cn);
+    color: #000;
+}
+ul,li{
+    list-style-type: none;
+    margin: 0;
+    padding:0;
+}
+//字体
+.song{
+    font-family:'宋体';
+}
+.fang-song{
+    font-family:'仿宋','Adobe 仿宋 Std R';
+}
+.founder{
+    font-family:'方正';
+}
+// 字号
+.chu-hao{
+    font-size: 56px;
+}
+.xiao-chu{
+    font-size: 48px;
+}
+.yi-hao{
+    font-size: 34.66666667px;
+}
+.xiao-yi{
+    font-size: 32px;
+}
+.er-hao{
+    font-size: 29.3333333px;
+}
+.xiao-er{
+    font-size: 24px;
+}
+.san-hao{
+    font-size: 21.33333333px;
+}
+.xiao-san{
+    font-size: 20px;
+}
+.si-hao{
+    font-size: 18.66666667px;
+}
+.xiao-si{
+    font-size: 16px;
+}
+.wu-hao{
+    font-size: 14px;
+}
+.xiao-wu{
+    font-size: 12px;
+}
+//粗体
+.bold{
+    font-weight: bold;
+}
+//斜体
+.italic{
+    font-style: italic;
+}
+//下划线
+.under-line{
+    text-decoration: underline;
+}
+//删除线
+.line-through{
+    text-decoration: line-through;
+}
+//居中
+.align-center{
+    text-align: center;
+}
+//靠左对齐
+.align-left{
+    text-align: left;
+}
+//靠右对齐
+.align-right{
+    text-align: right;
+}
+//两端对齐
+.align-both{
+    text-align: justify;
+}
+//垂直居中
+.v-middle{
+    vertical-align: middle;
+}
+//靠顶部对齐
+.align-top{
+    vertical-align: top;
+}
+//靠底部对齐
+.align-bottom{
+    vertical-align: bottom;
+}
+//字间距
+.lp-1{
+    letter-spacing:1px;
+}
+.lp-2{
+    letter-spacing:2px;
+}
+.lp-3{
+    letter-spacing:3px;
+}
+.lp-4{
+    letter-spacing:4px;
+}
+.lp-5{
+    letter-spacing:5px;
+}
+.lp-6{
+    letter-spacing:6px;
+}
+.lp-7{
+    letter-spacing:7px;
+}
+.lp-8{
+    letter-spacing:8px;
+}
+.lp-9{
+    letter-spacing:9px;
+}
+.lp-10{
+    letter-spacing:10px;
+}
+.lp-15{
+    letter-spacing:15px;
+}
+.lp-20{
+    letter-spacing:20px;
+}
+.lp-30{
+    letter-spacing:30px;
+}
+.lp-40{
+    letter-spacing:40px;
+}
+//空白
+.blank{
+    content: '';
+    width:100%;
+    margin:0;
+    padding:0;
+}
+.blank-10{
+    height:10px;
+}
+.blank-20{
+    height:20px;
+}
+//hr
+.hr{
+    border-color: #c0c2cc;
+    border-style: solid;
+    border-width: 1px;
+}
+//首行缩进
+.text-indent{
+    text-indent: 2em;
+}
+//落款印章
+.stamp-right{
+    padding-right: 100px;
+}
+
+//日期
+.date-right{
+    padding-right: 70px;
+}
+.date-left{
+    padding-left: 70px;
+}
+
+//------------------------------
+//input 输入框样式初始化
+
+input{
+    outline: none;
+    margin:0;
+    padding:0;
+    display: table-cell;
+    border-color: #000;
+    border-style: solid;
+    border-width: 0 0 1px 0;
+    vertical-align: bottom;
+    background: transparent;
+}
+textarea{
+    outline: none;
+    margin:0;
+    padding:0;
+    border-color: #000;
+    border-style: solid;
+    border-width: 0 0 1px 0;
+    resize: none;
+    height:auto;
+    vertical-align: bottom;
+    overflow: hidden;
+    background: transparent;
+}
+.noborder{
+    border:0;
+}

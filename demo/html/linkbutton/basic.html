@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Basic LinkButton - jQuery EasyUI Demo</title>
+    <link rel="stylesheet" type="text/css" href="../../css/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../css/icon.css">
+    <link rel="stylesheet" href="../../css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/iconHover.css">
+    <script type="text/javascript" src="../../../jquery.min.js"></script>
+    <script type="text/javascript" src="../../../jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../../../common.js"></script>
+</head>
+<body style="background-color: #005100;">
+    <h2>Basic LinkButton</h2>
+    <p>Buttons can be created from &lt;a&gt; or &lt;button&gt; elements.</p>
+    <div style="margin:10px 0 40px 0;"></div>
+    <p>Basic Buttons</p>
+    <div style="padding:5px 0;">
+        <a href="#" class="easyui-linkbutton" data-options="plain:true">
+            <i class="fa fa-plus"></i>增加
+        </a>
+        <a href="#" class="easyui-linkbutton" data-options="" style="">
+            <i class="fa fa-minus"></i>
+            Remove
+        </a>
+        <a href="#" class="easyui-linkbutton" data-options="">
+            <i class="fa fa-save"></i>
+            Save
+        </a>
+        <a href="#" class="easyui-linkbutton" data-options="disabled:true">
+            <i class="fa fa-cut"></i>
+            Cut
+        </a>
+        <a href="#" class="easyui-linkbutton">Text Button</a>
+    </div>
+    <h2>Plain LinkButton</h2>
+    <p>The buttons with plain style have transparent background.</p>
+    <div style="margin:10px 0 40px 0;"></div>
+    <div class="easyui-panel" style="padding:5px;">
+        <a href="#" class="easyui-linkbutton" data-options="plain:true">
+            <i class="fa fa-times"></i>
+            Cancel
+        </a>
+        <a href="#" class="easyui-linkbutton" data-options="plain:true">
+            <i class="fa fa-refresh"></i>
+            Refresh
+        </a>
+        <a href="#" class="easyui-linkbutton" data-options="plain:true">
+            <i class="fa fa-search"></i>
+            Search
+        </a>
+        <a href="#" class="easyui-linkbutton" data-options="plain:true">Text Button</a>
+        <a href="#" class="easyui-linkbutton" data-options="plain:true">
+            <i class="fa fa-print"></i>
+            Print
+        </a>
+        <a href="#" class="easyui-linkbutton" data-options="">
+            <i class="fa fa-question-circle"></i>
+        </a>
+        <a href="#" class="easyui-linkbutton" data-options="plain:true">
+            <i class="fa fa-save"></i>
+        </a>
+        <a href="#" class="easyui-linkbutton" data-options="plain:true">
+            <i class="fa fa-arrow-left"></i>
+        </a>
+    </div>
+
+    <!--<h2>Fluid LinkButton</h2>-->
+    <!--<p>This example shows how to set the width of LinkButton to a percentage of its parent container.</p>-->
+    <!--<div style="margin:10px 0 40px 0;"></div>-->
+    <!--<p>width: 10%</p>-->
+    <!--<div style="padding:5px 0;">-->
+        <!--<a href="#" class="easyui-linkbutton" data-options="" style="width:10%">-->
+            <!--<i class="fa fa-times"></i>-->
+            <!--Cancel-->
+        <!--</a>-->
+        <!--<a href="#" class="easyui-linkbutton" data-options="" style="width:10%">-->
+            <!--<i class="fa fa-minus"></i>-->
+            <!--Remove-->
+        <!--</a>-->
+        <!--<a href="#" class="easyui-linkbutton" data-options="" style="width:10%">-->
+            <!--<i class="fa fa-save"></i>-->
+            <!--Save-->
+        <!--</a>-->
+        <!--<a href="#" class="easyui-linkbutton" data-options="disabled:true" style="width:15%">-->
+            <!--<i class="fa fa-cut"></i>-->
+            <!--Cut-->
+        <!--</a>-->
+        <!--<a href="#" class="easyui-linkbutton" style="width:10%">Text Button</a>-->
+    <!--</div>-->
+    <!--<h2>Button Group</h2>-->
+    <!--<p>In a button group only one button can be selected.</p>-->
+    <!--<div class="easyui-panel" style="padding:5px;">-->
+        <!--<a href="#" class="easyui-linkbutton" data-options="toggle:true,group:'g1'">Button 1</a>-->
+        <!--<a href="#" class="easyui-linkbutton" data-options="toggle:true,group:'g1',selected:true">Button 2</a>-->
+        <!--<a href="#" class="easyui-linkbutton" data-options="toggle:true,group:'g1'">Button 3</a>-->
+        <!--<a href="#" class="easyui-linkbutton" data-options="toggle:true,group:'g1'">Button 4</a>-->
+        <!--<a href="#" class="easyui-linkbutton" data-options="toggle:true,group:'g1'">Button 5</a>-->
+    <!--</div>-->
+    <!--<div style="margin:20px 0;"></div>-->
+    <!--<div class="easyui-panel" style="padding:5px;">-->
+        <!--<a href="#" class="easyui-linkbutton" data-options="toggle:true,group:'g2',plain:true">Button 1</a>-->
+        <!--<a href="#" class="easyui-linkbutton" data-options="toggle:true,group:'g2',plain:true,selected:true">Button 2</a>-->
+        <!--<a href="#" class="easyui-linkbutton" data-options="toggle:true,group:'g2',plain:true">Button 3</a>-->
+        <!--<a href="#" class="easyui-linkbutton" data-options="toggle:true,group:'g2',plain:true">Button 4</a>-->
+        <!--<a href="#" class="easyui-linkbutton" data-options="toggle:true,group:'g2',plain:true">Button 5</a>-->
+    <!--</div>-->
+    <!--<p>Fixed Width Buttons</p>-->
+    <!--<div style="padding:5px 0;">-->
+        <!--<a href="#" class="easyui-linkbutton" data-options="size:'large',iconAlign:'left'" style="width: 120px;">-->
+            <!--<i class="fa fa-search"></i>-->
+            <!--Search-->
+        <!--</a>-->
+        <!--<a href="#" class="easyui-linkbutton" data-options="" style="width:120px">-->
+            <!--<i class="fa fa-print"></i>-->
+            <!--Print-->
+        <!--</a>-->
+        <!--<a href="#" class="easyui-linkbutton" data-options="" style="width:120px">-->
+            <!--<i class="fa fa-refresh"></i>-->
+            <!--Reload</a>-->
+        <!--<a href="#" class="easyui-linkbutton" data-options="" style="width:120px">-->
+            <!--<i class="fa fa-question-circle"></i>-->
+            <!--Help-->
+        <!--</a>-->
+    <!--</div>-->
+
+    <!--<h2>Icon Align on LinkButton</h2>-->
+    <!--<p>Change the icon align to place icon on left, right, top or bottom of button.</p>-->
+    <!--<div style="margin:10px 0 40px 0;"></div>-->
+    <!--<div style="margin:10px 0 20px 0">-->
+        <!--<span>Select Icon Align: </span>-->
+        <!--<select onchange="$('#button-bar a').linkbutton({iconAlign:this.value})">-->
+            <!--<option value="left">Left</option>-->
+            <!--<option value="right">Right</option>-->
+            <!--<option value="top">Top</option>-->
+            <!--<option value="bottom">Bottom</option>-->
+        <!--</select>-->
+    <!--</div>-->
+    <!--<div id="button-bar">-->
+        <!--<a href="#" class="easyui-linkbutton" data-options="">-->
+            <!--<i class="fa fa-plus"></i>-->
+            <!--Add-->
+        <!--</a>-->
+        <!--<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove'">Remove</a>-->
+        <!--<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-save'">Save</a>-->
+        <!--<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-cut',disabled:true">Cut</a>-->
+    <!--</div>-->
+
+
+    <!--<p>Large Buttons</p>-->
+    <!--<div style="padding:5px 0;">-->
+        <!--<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-save',size:'large',iconAlign:'left'">Picture</a>-->
+        <!--<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-large-clipart',size:'large',iconAlign:'top'">Clip Art</a>-->
+        <!--<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-large-shapes',size:'large',iconAlign:'top'">Shapes</a>-->
+        <!--<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-large-smartart',size:'large',iconAlign:'top'">SmartArt</a>-->
+        <!--<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-large-chart',size:'large',iconAlign:'top'">Chart</a>-->
+    <!--</div>-->
+    <!--<h2>Style LinkButton</h2>-->
+    <!--<p>This example shows how to style a linkbutton.</p>-->
+    <!--<div style="margin:10px 0 40px 0;"></div>-->
+    <!--<div style="margin:20px 0">-->
+        <!--<a href="#" class="easyui-linkbutton c1" style="width:120px">c1</a>-->
+        <!--<a href="#" class="easyui-linkbutton c2" style="width:120px">c2</a>-->
+        <!--<a href="#" class="easyui-linkbutton c3" style="width:120px">c3</a>-->
+        <!--<a href="#" class="easyui-linkbutton c4" style="width:120px">c4</a>-->
+    <!--</div>-->
+    <!--<div style="margin:20px 0">-->
+        <!--<a href="#" class="easyui-linkbutton c5" style="width:120px">c5</a>-->
+        <!--<a href="#" class="easyui-linkbutton c6" style="width:120px">c6</a>-->
+        <!--<a href="#" class="easyui-linkbutton c7" style="width:120px">c7</a>-->
+        <!--<a href="#" class="easyui-linkbutton c8" style="width:120px">c8</a>-->
+    <!--</div>-->
+    <!--<h2>Toggle Button</h2>-->
+    <!--<p>Click the button below to switch its selected state.</p>-->
+    <!--<div style="margin:10px 0 40px 0;"></div>-->
+    <!--<div style="padding:5px 0;">-->
+        <!--<a href="javascript:;" class="easyui-linkbutton" data-options="toggle:true">-->
+            <!--<i class="fa fa-plus"></i>-->
+            <!--Add-->
+        <!--</a>-->
+        <!--<a href="javascript:;" class="easyui-linkbutton" data-options="toggle:true">-->
+            <!--<i class="fa fa-minus"></i>-->
+            <!--Remove-->
+        <!--</a>-->
+        <!--<a href="javascript:;" class="easyui-linkbutton" data-options="toggle:true">-->
+            <!--<i class="fa fa-save"></i>-->
+            <!--Save-->
+        <!--</a>-->
+        <!--<a href="javascript:;" class="easyui-linkbutton" data-options="toggle:true">-->
+            <!--<i class="fa fa-cut"></i>-->
+            <!--Cut-->
+        <!--</a>-->
+        <!--<a href="javascript:;" class="easyui-linkbutton" data-options="toggle:true"><i class="fa fa-check"></i>Text Button</a>-->
+    <!--</div>-->
+
+
+<script>
+    $(function () {
+        changeLinkButtonIcon();
+
+
+        //选中样式
+//        function selectedBtn(){
+//            $(".l-btn").linkbutton({
+//                onClick: function () {
+//                    var v = $(".l-btn").linkbutton('options').toggle;
+//                }
+//            });
+//        }
+
+
+    })
+</script>
+</body>
+</html>

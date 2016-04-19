@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Basic DataGrid - jQuery EasyUI Demo</title>
+    <link rel="stylesheet" type="text/css" href="../../themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="../demo.css">
+    <script type="text/javascript" src="../../jquery.min.js"></script>
+    <script type="text/javascript" src="../../jquery.easyui.min.js"></script>
+
+    <script type="text/javascript" charset="GB2312" src="http://172.29.213.201:7010/EzServerClient/js/EzMapAPI.js"></script>
+    <script type="text/javascript" src="map.js"></script>
+    <script type="text/javascript" src="mapApi.js"></script>
+    <script type="text/javascript">
+        var ezMapServer = "http://172.29.213.201:7010/EzServer/Maps/JWCHSL|1|新版矢量地图|shiliang1.png";
+        var centerAtMBR = "120.91827,38.22943,123.52752,40.77575";
+        var mapInitMaxZoom = "16,18,0";
+        var centerAtLatLng = "121.61263,38.91223";
+        var bjzbz = "";
+        if (typeof SyrkGl == "undefined" || !SyrkGl) {
+            var SyrkGl = {};
+        }
+        ;
+        SyrkGl = function () {
+            this.pk = Math.random();
+        };
+        SyrkGl.initMarkerArr = new Array();//放点对象
+        SyrkGl.setInt = "";//记录延时
+        SyrkGl.initMarker = "";//记录点击列表点
+        SyrkGl.mapName = "SyrkGl.map"; //名称直接在 类后面加一个'.map'，必须这么命名
+
+        SyrkGl.zbx = "jzd_zbx"; //描点时x坐标的字段名
+        SyrkGl.zby = "jzd_zby";//描点时y坐标的字段名
+        SyrkGl.title = "productname";//描点时标题坐标的字段名
+        SyrkGl.datagrid = "dg";//页面esayUi的列表显示id
+        /**
+         * @title:Jquery
+         * @description:初始化地址管理
+         * @author: zhang_guoliang@founder.com
+         * @param
+         * @date:2015-04-14 10:10:54
+         */
+        $(function () {
+            onloadMap("mapDiv", "toolDiv", SyrkGl, bjzbz);
+            $('#dg').datagrid({
+                rowStyler: function (index, row) {
+                    if (row.jzd_dzxz != "" && row.jzd_dzid == "") {
+                        return 'color:red;';
+                    }
+                }
+            });
+
+            $('#dg').datagrid({
+                onClickRow: function (index, row) {
+                    addClickMarker(index, SyrkGl);
+                }
+            });
+        });
+
+        /**
+         * @title:buldHtml
+         * @description:构造点击后地图上展示的html样式
+         * @author: zhou_lijun@founder.com
+         * @param
+         * @date:2016-04-5 10:10:54
+         */
+        SyrkGl.buldHtml = function (rowData) {
+            //获取基本信息内容
+            var ryid = rowData.ryid;
+            var zjhm = rowData.zjhm;
+            var cyzjdm = rowData.cyzjdm;
+            var jzdz = "";
+            if (rowData.jzd_dzxz != null) {
+                jzdz = rowData.jzd_dzxz;
+            } else {
+                jzdz = rowData.jzd_mlpxz;
+            }
+            var xbmc = "性别";
+            var mzmc = "名族";
+
+            var openHtml = "";
+            if (rowData.syrkywlxdm == "4") {
+                openHtml = "<table width='360'><tr>" +
+                        "<td valign='top' align='left' width='260'>" +
+                        "<table cellpadding='0' cellspacing='0' style='margin-left: 5px;padding-top:12px;'>" +
+                        "<tr><td class='infoTable' width='80'>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</td><td class='infoTable1' colspan='2'>" + rowData.xm + "</td></tr>" +
+                        "<tr><td class='infoTable' width='80'>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：</td><td class='infoTable1'>" + xbmc + "</td></tr>" +
+                        "<tr><td class='infoTable' width='80'>出生日期：</td><td class='infoTable1' colspan='2'>" + rowData.csrq + "</td></tr>" +
+                        "<tr><td class='infoTable' width='80'>证件号码：</td><td class='infoTable1' colspan='2'><a class='infoTable' style='text-decoration:underline;' href='javascript:void(0)' onclick='SyrkGl.doEdit(" + row + ")'>" + rowData.zjhm + "</a></td></tr>";
+                if (rowData.jzd_mlpdm != "" && rowData.jzd_dzid != "") {
+                    openHtml += "<tr><td class='infoTable' width='80'>现居地址：</td><td class='infoTable1' colspan='2'><a class='infoTable' style='text-decoration:underline;' href='javascript:void(0)' onclick='SyrkGl.doBuildingShow(" + row + ")'>" + jzdz + "</a></td></tr>";
+                } else {
+                    openHtml += "<tr><td class='infoTable' width='80'>现居地址：</td><td class='infoTable1' colspan='2'>" + jzdz + "</td></tr>";
+                }
+                openHtml += "</table></td>" +
+                        "<td><div><img id='topPhotoid' width='160' height='200' alt='' src= '" + contextPath + "/zpfjPtryzp/queryPtryzpSingle.jpg?pk=" + Math.random() + "&ryid=" + ryid + "&zjhm=" + zjhm + "&cyzjdm=" + cyzjdm + "'/></div></td>" +
+                        "</tr>" +
+                        "</table>";
+            } else {
+                openHtml = "<table width='420'><tr>" +
+                        "<td valign='top' align='left' width='260'>" +
+                        "<table cellpadding='0' cellspacing='0' style='margin-left: 5px;padding-top:6px;'>" +
+                        "<tr><td class='infoTable' width='80'>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</td><td class='infoTable1' colspan='2'>" + rowData.xm + "</td></tr>" +
+                        "<tr><td class='infoTable' width='80'>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：</td><td class='infoTable1'>" + xbmc + "</td>" +
+                        "<td class='infoTable'>民&nbsp;族：<span class='infoTable1'>" + mzmc + "</span></td></tr>" +
+                        "<tr><td class='infoTable' width='80'>出生日期：</td><td class='infoTable1' colspan='2'>" + rowData.csrq + "</td></tr>" +
+                        "<tr><td class='infoTable' width='80'>证件号码：</td><td class='infoTable1' colspan='2'><a class='infoTable' style='text-decoration:underline;' href='javascript:void(0)' onclick='SyrkGl.doEdit()'>" + rowData.zjhm + "</a></td></tr>"
+                // "<tr><td class='infoTable' width='80'>户籍地址描述：</td><td class='infoTable1' colspan='2'>"+hjdz+"</td></tr>";
+                if (rowData.jzd_mlpdm != "" && rowData.jzd_dzid != "") {
+                    openHtml += "<tr><td class='infoTable' width='80'>现居地址：</td><td class='infoTable1' colspan='2'><a class='infoTable' style='text-decoration:underline;' href='javascript:void(0)' onclick='SyrkGl.doBuildingShow()'>" + jzdz + "</a></td></tr>";
+                } else {
+                    openHtml += "<tr><td class='infoTable' width='80'>现居地址：</td><td class='infoTable1' colspan='2'>" + jzdz + "</td></tr>";
+                }
+                openHtml += "</table></td>" +
+                        "<td><div><img id='topPhotoid' width='160' height='200' alt='' src= '/zpfjPtryzp/queryPtryzpSingle.jpg?pk=" + Math.random() + "&ryid=" + ryid + "&zjhm=" + zjhm + "&cyzjdm=" + cyzjdm + "'/></div></td>" +
+                        "</tr>" +
+                        "</table>";
+            }
+            return openHtml;
+        };
+    </script>
+
+</head>
+<body>
+<h2>Basic DataGrid</h2>
+<p>The DataGrid is created from markup, no JavaScript code needed.</p>
+<div style="margin:20px 0;"></div>
+
+<table id="dg" class="easyui-datagrid" title="Basic DataGrid" style="width:700px;height:250px"
+       data-options="onLoadSuccess:function(data){loadPoint(SyrkGl,data);},singleSelect:true,collapsible:true,url:'datagrid_data1.json',method:'get',onClickRow:onClickRow">
+    <thead>
+    <tr>
+        <th data-options="field:'itemid',width:80">Item ID</th>
+        <th data-options="field:'productid',width:100">Product</th>
+        <th data-options="field:'listprice',width:80,align:'right'">List Price</th>
+        <th data-options="field:'unitcost',width:80,align:'right'">Unit Cost</th>
+        <th data-options="field:'attr1',width:250">Attribute</th>
+        <th data-options="field:'status',width:60,align:'center'">Status</th>
+        <th data-options="field:'status',width:60,align:'center'">Status</th>
+    </tr>
+    </thead>
+</table>
+<div id="mapDiv" class="map" style="width:100%; height:520px;"></div>
+<div id="toolDiv"></div>
+</body>
+
+</html>

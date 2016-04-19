@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Basic TextBox - jQuery EasyUI Demo</title>
+    <link rel="stylesheet" type="text/css" href="../../css/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../css/icon.css">
+    <link rel="stylesheet" type="text/css" href="../../css/iconHover.css">
+    <script type="text/javascript" src="../../../jquery.min.js"></script>
+    <script type="text/javascript" src="../../../jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../../../common.js"></script>
+</head>
+<body>
+
+    <h2>Basic Slider</h2>
+    <p>Drag the slider to change value.</p>
+    <div style="margin:20px 0 50px 0;"></div>
+    <input class="easyui-slider" style="width:300px" data-options="showTip:true">
+
+    <h2>Fluid Slider</h2>
+    <p>This example shows how to set the width of Slider to a percentage of its parent container.</p>
+    <div style="margin:20px 0 50px 0;"></div>
+    <p>width: 50%</p>
+    <input class="easyui-slider" value="50" data-options="showTip:true" style="width:50%;">
+    <p>width: 30%</p>
+    <input class="easyui-slider" value="50" data-options="showTip:true" style="width:30%;">
+
+
+    <h2>Format Tip Information</h2>
+    <p>This sample shows how to format tip information.</p>
+    <div style="margin:20px 0 50px 0;"></div>
+    <input class="easyui-slider" value="12" style="width:300px" data-options="
+			showTip: true,
+			rule: [0,'|',25,'|',50,'|',75,'|',100],
+			tipFormatter: function(value){
+				return value+'px';
+			},
+			onChange: function(value){
+				$('#ff').css('font-size', value);
+			}">
+    <div id="ff" style="margin-top:50px;font-size:12px">jQuery EasyUI</div>
+
+
+    <h2>Non Linear Slider</h2>
+    <p>This example shows how to create a slider with a non-linear scale.</p>
+    <div style="margin:20px 0 50px 0;"></div>
+    <div style="padding:2px">
+        <input class="easyui-slider" style="width:400px" data-options="
+			showTip:true,
+			rule: [0,'PI/4','PI/2'],
+			min:0,
+			max:300,
+			tipFormatter:function(value){
+				return (value/300.0).toFixed(4);
+			},
+			converter:{
+				toPosition:function(value,size){
+					var opts = $(this).slider('options');
+					return Math.asin(value/opts.max)/(Math.PI)*2*size;
+				},
+				toValue:function(pos,size){
+					var opts = $(this).slider('options');
+					return Math.sin(pos/size*Math.PI/2)*opts.max;
+				}
+			},
+			onChange:function(v){
+				var opts = $(this).slider('options');
+				var pos = opts.converter.toPosition.call(this, v, opts.width);
+				var p = $('<div class=point></div>').appendTo('#cc');
+				p.css('top', v);
+				p.css(opts.reversed?'right':'left', pos);
+			}
+			">
+    </div>
+    <div style="margin-bottom:30px"></div>
+    <div id="cc" class="easyui-panel" style="position:relative;width:404px;height:304px;">
+    </div>
+
+    <style scoped="scoped">
+        .point{
+            position:absolute;
+            width:2px;
+            height:2px;
+            font-size:0;
+            background:red;
+        }
+    </style>
+
+
+    <h2>Range Slider</h2>
+    <p>This sample shows how to define a range slider.</p>
+    <div style="margin:20px 0 50px 0;"></div>
+    <input class="easyui-slider" style="width:300px" data-options="
+				showTip: true,
+				range: true,
+				value: [20,60],
+				rule: [0,'|',25,'|',50,'|',75,'|',100]
+			">
+
+    <h2>Slider Rule</h2>
+    <p>This sample shows how to define slider rule.</p>
+    <div style="margin:20px 0 50px 0;"></div>
+    <input class="easyui-slider" style="width:300px" data-options="
+				showTip:true,
+				rule: [0,'|',25,'|',50,'|',75,'|',100]
+			">
+
+    <h2>Vertical Slider</h2>
+    <p>This sample shows how to create a vertical slider.</p>
+    <div style="margin:20px 0 50px 0;"></div>
+    <div style="margin:0 50px">
+        <input class="easyui-slider" style="height:300px" data-options="
+				showTip: true,
+				mode: 'v',
+				reversed: false,
+				rule: [0,'|',25,'|',50,'|',75,'|',100]
+			">
+    </div>
+
+    <script>
+        $(function () {
+            changeLinkButtonIcon();
+        })
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Basic TextBox - jQuery EasyUI Demo</title>
+    <link rel="stylesheet" type="text/css" href="../../css/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../css/icon.css">
+    <link rel="stylesheet" type="text/css" href="../../css/iconHover.css">
+    <script type="text/javascript" src="../../../jquery.min.js"></script>
+    <script type="text/javascript" src="../../../jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../../../common.js"></script>
+</head>
+<body>
+    <h2>Basic NumberSpinner</h2>
+    <p>Click spinner button to change value.</p>
+    <div style="margin:20px 0;"></div>
+    <input class="easyui-numberspinner" style="width:80px;" data-options="
+                    onChange: function(value){
+                        $('#vv').text(value);
+                    }
+                ">
+    <div style="margin:10px 0;">
+        Value: <span id="vv"></span>
+    </div>
+
+    <h2>Fluid NumberSpinner</h2>
+    <p>This example shows how to set the width of NumberSpinner to a percentage of its parent container.</p>
+    <div style="margin:20px 0;"></div>
+    <p>width: 50%</p>
+    <input class="easyui-numberspinner" style="width:50%;">
+    <p>width: 30%</p>
+    <input class="easyui-numberspinner" style="width:30%;">
+
+    <h2>Increment Number</h2>
+    <p>The sample shows how to set the increment step.</p>
+    <div style="margin:20px 0;"></div>
+    <input class="easyui-numberspinner" value="1000" data-options="increment:100" style="width:120px;">
+
+
+    <h2>Number Range</h2>
+    <p>The value is constrained to a range between 10 and 100.</p>
+    <div style="margin:20px 0;"></div>
+    <input class="easyui-numberspinner" data-options="min:10,max:100,required:true" style="width:80px;">
+
+
+    <script>
+        $(function () {
+            changeLinkButtonIcon();
+        })
+    </script>
+
+</body>
+</html>

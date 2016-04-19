@@ -1,0 +1,19 @@
+@charset "utf-8";
+
+//------------------------------
+//div设置A4大小
+.mold-Container{
+    position: relative;
+    @include square(100%);
+    background: #c0c2cc;
+    padding:20px 0;
+}
+.mold-a4{
+    position: relative;
+    width:210mm;
+    height:297mm;
+    background: colors(white);
+    color: colors(black);
+    margin:0 auto;
+    @include box-shadow(0 0 10px rgba(0,0,0,0.5));
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Basic TextBox - jQuery EasyUI Demo</title>
+    <link rel="stylesheet" type="text/css" href="../../css/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../css/icon.css">
+    <link rel="stylesheet" type="text/css" href="../../css/iconHover.css">
+    <script type="text/javascript" src="../../../jquery.min.js"></script>
+    <script type="text/javascript" src="../../../jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../../../common.js"></script>
+</head>
+<body>
+
+    <h2>Basic Pagination</h2>
+    <p>The user can change page number and page size on page bar.</p>
+    <div style="margin:20px 0;"></div>
+    <div class="easyui-panel">
+        <div class="easyui-pagination" data-options="total:114"></div>
+    </div>
+
+    <h2>Attaching Other Components</h2>
+    <p>Any other components can be attached to page bar.</p>
+    <div style="margin:20px 0;"></div>
+    <div class="easyui-panel">
+        <div class="easyui-pagination" data-options="showPageList:false,total:114,buttons:$('#buttons')"></div>
+    </div>
+    <div id="buttons">
+        <table style="border-spacing:0">
+            <tr>
+                <td>
+                    <input class="easyui-searchbox" style="width:150px">
+                </td>
+                <td>
+                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true"></a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <h2>Custom Pagination Buttons</h2>
+    <p>The customized buttons can be appended to page bar.</p>
+    <div style="margin:20px 0;"></div>
+    <div class="easyui-panel">
+        <div class="easyui-pagination" data-options="total:114,buttons:buttons"></div>
+    </div>
+    <script>
+        var buttons = [{
+            iconCls:'icon-add',
+            handler:function(){
+                alert('add');
+            }
+        },{
+            iconCls:'icon-cut',
+            handler:function(){
+                alert('cut');
+            }
+        },{
+            iconCls:'icon-save',
+            handler:function(){
+                alert('save');
+            }
+        }];
+    </script>
+
+    <h2>Pagination Layout</h2>
+    <p>The pagination layout supports various types of pages which you can choose.</p>
+    <div style="margin:20px 0;"></div>
+    <div class="easyui-panel">
+        <div id="pp" class="easyui-pagination" data-options="
+					total:114,
+					layout:['first','prev','next','last']
+				"></div>
+    </div>
+    <div style="margin-top:10px">
+        <select onchange="setLayout(this.value)">
+            <option value="1">Previous Next</option>
+            <option value="2">Manual Page Input</option>
+            <option value="3">Numeric Links</option>
+            <option value="4">Previous Links Next</option>
+            <option value="5">Go To Page</option>
+        </select>
+    </div>
+    <script>
+        function setLayout(type){
+            var p = $('#pp');
+            switch(parseInt(type)){
+                case 1:
+                    p.pagination({layout:['first','prev','next','last']});
+                    break;
+                case 2:
+                    p.pagination({
+                        layout:['list','sep','first','prev','sep','manual','sep','next','last','sep','refresh'],
+                        beforePageText:'Page',
+                        afterPageText:'of {pages}'
+                    });
+                    break;
+                case 3:
+                    p.pagination({layout:['links']});
+                    break;
+                case 4:
+                    p.pagination({layout:['first','prev','links','next','last']});
+                    break;
+                case 5:
+                    p.pagination({
+                        layout:['first','prev','next','last','sep','links','sep','manual'],
+                        beforePageText:'Go Page',
+                        afterPageText:''
+                    });
+                    break;
+            }
+        }
+    </script>
+
+    <h2>Pagination Links</h2>
+    <p>The example shows how to customize numbered pagination links.</p>
+    <div style="margin:20px 0;"></div>
+    <div class="easyui-panel">
+        <div class="easyui-pagination" data-options="
+					total:114,
+					layout:['list','sep','first','prev','links','next','last','sep','refresh']
+				"></div>
+    </div>
+
+    <h2>Simplify Pagination</h2>
+    <p>The sample shows how to simplify pagination.</p>
+    <div style="margin:20px 0;"></div>
+    <div class="easyui-panel">
+        <div class="easyui-pagination" data-options="
+					total: 114,
+					showPageList: false,
+					showRefresh: false,
+					displayMsg: ''
+				"></div>
+    </div>
+
+    <script>
+        $(function () {
+            changeLinkButtonIcon();
+        })
+    </script>
+
+</body>
+</html>

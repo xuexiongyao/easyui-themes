@@ -1,0 +1,117 @@
+@charset "utf-8";
+
+/*layout*/
+//---------------------------------
+.layout {
+    @include containerBox;
+    @include attrMarginPadding;
+    z-index: 0;
+}
+.layout-panel {
+    @include containerBox(absolute);
+}
+.layout-body {
+    min-width: 1px;
+    min-height: 1px;
+}
+.layout-panel-east, .layout-panel-west {
+    z-index: 2;
+}
+.layout-panel-north, .layout-panel-south {
+    z-index: 3;
+}
+.layout-expand {
+    position: absolute;
+    padding: 0;
+    font-size: 1px;
+    cursor: pointer;
+    z-index: 1;
+    background-color: colors(white);
+    .panel-header{
+        background: transparent;
+        filter: none;
+        overflow: hidden;
+        border-bottom-width: 0;
+    }
+    .panel-body {
+        @include containerBox;
+        background: transparent;
+        filter: none;
+        .panel-icon {
+            margin-top: 0;
+            top: 0;
+            left: 50%;
+            margin-left: -8px;
+        }
+    }
+    .panel-body-noheader{
+        .layout-expand-title,.panel-icon{
+            top: 5px;
+        }
+        .layout-expand-with-icon {
+            top: 23px;
+        }
+    }
+}
+.layout-expand-west .panel-header .panel-icon, .layout-expand-east .panel-header .panel-icon {
+    display: none;
+}
+.layout-expand-title {
+    position: absolute;
+    top: 0;
+    left: 21px;
+    white-space: nowrap;
+    word-wrap: normal;
+    @include rotate(90deg);
+    @include transform-origin(0 0);
+}
+.layout-expand-with-icon {
+    top: 18px;
+}
+.layout-split-proxy-h, .layout-split-proxy-v {
+    @include positionDisplay;
+    font-size: 1px;
+    z-index: 5;
+    background-color: colors(primary);
+}
+.layout-split-proxy-h {
+    width: 5px;
+    cursor: e-resize;
+}
+.layout-split-proxy-v {
+    height: 5px;
+    cursor: n-resize;
+}
+.layout-mask {
+    position: absolute;
+    background: colors(white);
+    @include opacity(0.1);
+    z-index: 4;
+}
+.layout-button-up {
+    background: url('images/layout_arrows.png') no-repeat -16px -16px;
+}
+.layout-button-down {
+    background: url('images/layout_arrows.png') no-repeat -16px 0;
+}
+.layout-button-left {
+    background: url('images/layout_arrows.png') no-repeat 0 0;
+}
+.layout-button-right {
+    background: url('images/layout_arrows.png') no-repeat 0 -16px;
+}
+.layout-split-north {
+    border-bottom: 5px solid colors(borderColor);
+}
+.layout-split-south {
+    border-top: 5px solid colors(borderColor);
+}
+.layout-split-east {
+    border-left: 5px solid colors(borderColor);
+}
+.layout-split-west {
+    border-right: 5px solid colors(borderColor);
+}
+.layout-expand-over {
+    background-color: colors(lightBlueBg);
+}

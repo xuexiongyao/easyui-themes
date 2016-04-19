@@ -1,0 +1,387 @@
+@charset "utf-8";
+
+/*tabs*/
+//--------------------------------
+.tabs-container {
+    overflow: hidden;
+}
+.tabs-header {
+    @include border(1px,solid,colors(borderColor));
+    background-color: colors(tabsBg);
+    border-bottom-width:0;
+    padding: 2px 0 0;
+    @include containerBox;
+    .tabs-pill {
+        li {
+            a.tabs-inner {
+                @include prefix(border, radius, 3px);
+            }
+        }
+        li.tabs-selected {
+            a.tabs-inner {
+                background: colors(lightblueBg);
+                color: colors(textColor);
+                filter: none;
+                border-color: colors(borderColor);
+            }
+        }
+    }
+}
+.tabs-scroller-left,.tabs-scroller-right{
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    width: 18px;
+    font-size: 1px;
+    display: none;
+    cursor: pointer;
+    @include border(1px,solid,colors(borderColor));
+}
+.tabs-scroller-left {
+    left: -1px;
+    background: colors(white) url('images/tabs_icons.png') no-repeat 1px center;
+}
+.tabs-scroller-right {
+    right: -1px;
+    background: colors(white) url('images/tabs_icons.png') no-repeat -15px center;
+}
+.tabs-tool {
+    @include containerBox(absolute);
+    bottom: 0;
+    padding: 1px;
+    background-color: colors(white);
+    @include border(1px,solid,colors(borderColor));
+}
+.tabs-header-plain {
+    background: transparent;
+    border: 0;
+    .tabs-tool {
+        padding: 0 1px;
+    }
+}
+.tabs-wrap {
+    @include containerBox;
+    left: 0;
+    width: 100%;
+    @include attrMarginPadding;
+}
+.tabs-scrolling {
+    margin-left: 18px;
+    margin-right: 18px;
+}
+.tabs-disabled {
+    @include opacity(0.3);
+}
+.tabs {
+    list-style-type: none;
+    @include attrMarginPadding;
+    @include size(50000px,26px);
+    padding-left: 4px;
+    border-style: solid;
+    border-width: 0 0 1px 0;
+    li{
+        @include float;
+        display: inline-block;
+        @include attr-all-around(margin,0,2px,-1px,0);
+        @include attrPaddingBorder;
+        position: relative;
+        a.tabs-inner {
+            display: inline-block;
+            text-decoration: none;
+            margin: 0;
+            padding: 0 10px;
+            @include text-vertical-center(25px);
+            white-space: nowrap;
+            @include text-align(center);
+            border:0;
+            //@include border(1px,solid,colors(borderColor));
+            @include prefix-all-round(border,radius,3px,3px,0,0);
+            color: colors(textColor);
+            background-color: colors(tabsBtnBlur);
+            background-repeat: repeat-x;
+            //background: -webkit-linear-gradient(top,#ffffff 0,#F2F2F2 100%);
+            //background: -moz-linear-gradient(top,#ffffff 0,#F2F2F2 100%);
+            //background: -o-linear-gradient(top,#ffffff 0,#F2F2F2 100%);
+            //background: linear-gradient(to bottom,#ffffff 0,#F2F2F2 100%);
+            //filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff,endColorstr=#F2F2F2,GradientType=0);
+            &:hover{
+                background: colors(lightBlueBg);
+                filter: none;
+            }
+        }
+        a.tabs-close{
+            @include containerBox(absolute);
+            font-size: 1px;
+            display: block;
+            height: 12px;
+            padding: 0;
+            top: 50%;
+            margin-top: -6px;
+            width: 12px;
+            right: 5px;
+            @include opacity(0.6);
+            background: url('images/tabs_icons.png') no-repeat -34px center;
+        }
+    }
+    li.tabs-selected{
+        a{
+            &:hover{
+                .tabs-inner {
+                    cursor: default;
+                }
+                .tabs-close{
+                    @include opacity(1);
+                    cursor: pointer;
+                    background-color: colors(white);
+                }
+            }
+        }
+        a.tabs-inner {
+            //font-weight: bold;
+            outline: none;
+            background-color: colors(lightBlueBg);
+            color: colors(textColor);
+            background-repeat: repeat-x;
+            //border-bottom: 1px solid colors(white);
+            //background: -webkit-linear-gradient(top,#ffffff 0,#ffffff 100%);
+            //background: -moz-linear-gradient(top,#ffffff 0,#ffffff 100%);
+            //background: -o-linear-gradient(top,#ffffff 0,#ffffff 100%);
+            //background: linear-gradient(to bottom,#ffffff 0,#ffffff 100%);
+            //filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff,endColorstr=#ffffff,GradientType=0);
+        }
+    }
+}
+.tabs-p-tool{
+    @include containerBox(absolute);
+    font-size: 1px;
+    display: block;
+    height: 12px;
+    padding: 0;
+    top: 50%;
+    right: 16px;
+    margin-top: -6px;
+    a {
+        display: inline-block;
+        font-size: 1px;
+        @include square(12px);
+        margin: 0;
+        @include opacity(0.6);
+        &:hover{
+            @include opacity(1);
+            cursor: pointer;
+            background-color: colors(white);
+        }
+    }
+}
+.tabs-with-icon {
+    padding-left: 18px;
+}
+.tabs-icon {
+    @extend %div-vertical-center;
+    @include square(16px);
+    left: 10px;
+    margin-top: -8px;
+}
+.tabs-title {
+    font-size: fontSize(small);
+}
+.tabs-closable {
+    padding-right: 8px;
+}
+.tabs-panels {
+    @include attrMarginPadding;
+    @include border(1px,solid,colors(borderColor));
+    border-top-width: 0;
+    overflow: hidden;
+}
+.tabs-panels-top {
+    border-width: 1px 1px 0 1px;
+}
+.tabs-panels-right {
+    @include text-align(right);
+    border-width: 1px 1px 1px 0;
+}
+.tabs-panels-left {
+    @include text-align(left);
+    border-width: 1px 0 1px 1px;
+}
+.tabs-header-noborder, .tabs-panels-noborder {
+    border: 0;
+}
+.tabs-header-bottom {
+    border-width: 0 1px 1px 1px;
+    padding: 0 0 2px 0;
+    .tabs {
+        border-width: 1px 0 0 0;
+        li {
+            margin: -1px 2px 0 0;
+            a.tabs-inner {
+                @include prefix-all-round(border,radius,0,0,3px,3px);
+            }
+        }
+        li.tabs-selected {
+            a.tabs-inner {
+                background-repeat: repeat-x;
+                background-color: colors(lightblueBg);
+                //border-top: 1px solid colors(white);
+            }
+        }
+    }
+    .tabs-tool {
+        top: 0;
+    }
+    .tabs-scroller-left,.tabs-scroller-right {
+        top: 0;
+        bottom: auto;
+    }
+    .tabs-pill {
+        padding-top: 3px;
+        padding-bottom: 0;
+    }
+    .tabs-narrow{
+        li {
+            margin-left: 0;
+            margin-right: -1px;
+        }
+        li.tabs-last {
+            margin-right: 0;
+        }
+    }
+}
+.tabs-header-left {
+    float: left;
+    border-width: 1px 0 1px 1px;
+    padding: 0;
+    .tabs-wrap {
+        height: 100%;
+    }
+    .tabs {
+        height: 100%;
+        padding: 4px 0 0 2px;
+        border-width: 0 1px 0 0;
+    }
+    .tabs{
+        li{
+            display: block;
+            width: 100%;
+            position: relative;
+            left: auto;
+            right: 0;
+            margin: 0 -1px 2px 0;
+            float: right;
+            a.tabs-inner {
+                display: block;
+                text-align: left;
+                padding-left: 10px;
+                padding-right: 10px;
+                @include prefix-all-round(border,radius,3px,0,0,3px);
+            }
+        }
+        li.tabs-selected{
+            a.tabs-inner {
+                background-repeat: repeat-y;
+                background: colors(lightblueBg);
+                //border-right: 1px solid colors(white);
+            }
+        }
+    }
+    .tabs-pill {
+        padding-right: 3px;
+    }
+    .tabs-narrow {
+        padding-top: 0;
+    }
+    .tabs-narrow {
+        li {
+            margin-bottom: -1px;
+            margin-right: -1px;
+        }
+        li.tabs-last {
+            margin-bottom: 0;
+        }
+    }
+}
+.tabs-header-right {
+    float: right;
+    border-width: 1px 1px 1px 0;
+    padding: 0;
+    .tabs-wrap {
+        height: 100%;
+    }
+    .tabs {
+        height: 100%;
+        padding: 4px 2px 0 0;
+        border-width: 0 0 0 1px;
+    }
+    .tabs{
+        li {
+            display: block;
+            width: 100%;
+            position: relative;
+            left: 0;
+            right: auto;
+            margin: 0 0 2px -1px;
+            float: left;
+            a.tabs-inner {
+                display: block;
+                text-align: left;
+                padding-left: 10px;
+                padding-right: 10px;
+                @include prefix-all-round(border,radius,0,3px,3px,0);
+            }
+        }
+        li.tabs-selected{
+            a.tabs-inner {
+                background-repeat: repeat-y;
+                background: colors(lightblueBg);
+                //border-left: 1px solid colors(white);
+            }
+        }
+    }
+    .tabs-pill {
+        padding-left: 3px;
+    }
+    .tabs-narrow {
+        padding-top: 0;
+    }
+    .tabs-narrow li.tabs-last {
+        margin-bottom: 0;
+    }
+    .tabs-narrow li {
+        margin-bottom: -1px;
+        margin-left: -1px;
+    }
+}
+.tabs-justified li a.tabs-inner {
+    padding-left: 0;
+    padding-right: 0;
+}
+.tabs-pill {
+    padding-bottom: 3px;
+}
+.tabs-header-narrow{
+    padding: 0;
+    .tabs-narrow {
+        @extend .tabs-header-narrow;
+    }
+}
+.tabs-narrow{
+    li{
+        margin-left: 0;
+        margin-right: -1px;
+    }
+    li.tabs-last {
+        margin-right: 0;
+    }
+}
+.tabs-header, .tabs-scroller-left, .tabs-scroller-right, .tabs-tool, .tabs, .tabs-panels,
+.tabs li a.tabs-inner, .tabs li.tabs-selected a.tabs-inner, .tabs-header-bottom .tabs li.tabs-selected a.tabs-inner,
+.tabs-header-left .tabs li.tabs-selected a.tabs-inner, .tabs-header-right .tabs li.tabs-selected a.tabs-inner {
+    border-color: colors(borderColor);
+}
+.tabs-p-tool a:hover, .tabs-scroller-over {
+    background-color: colors(lightBlueBg);
+}
+.tabs li a:hover.tabs-close{
+    background-color: colors(white);
+}

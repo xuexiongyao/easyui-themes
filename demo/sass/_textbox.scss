@@ -1,0 +1,105 @@
+@charset "utf-8";
+
+/*textbox*/
+//----------------------
+.textbox{
+    @include containerBox;
+    @include attrMarginPadding;
+    border: 1px solid colors(borderColor);
+    background-color: colors(white);
+    @include inline-block;
+    white-space: nowrap;
+    @include prefix(border,radius,3px);
+    .textbox-text{
+        font-size: fontSize(small);
+        border: 0;
+        margin: 0;
+        padding: 4px;
+        white-space: normal;
+        outline-style: none;
+        resize: none;
+        @include inline-block(top);
+        @include prefix(border,radius,3px);
+    }
+    textarea.textbox-text {
+        white-space: pre-wrap;
+    }
+    .textbox-prompt {
+        font-size: fontSize(small);
+        color: #aaa;
+    }
+    .textbox-button{
+        position: absolute;
+        background: colors(inputColor);
+        top: 0;
+        padding: 0;
+        vertical-align: top;
+        @include prefix(border,radius,0);
+        @include animation-name(disNoneAnimation);
+        @include disableBtn;
+        &:hover{
+            @extend .textbox-button;
+            color: colors(primary);
+            background: darken(colors(inputColor),10);
+        }
+    }
+}
+.textbox-button-right{
+    border-width: 0 0 0 1px;
+    border-color: colors(borderColor);
+    &:hover{
+        @extend .textbox-button-right;
+    }
+}
+.textbox-button-left{
+    border-width: 0 1px 0 0;
+    border-color: colors(borderColor);
+    &:hover{
+        @extend .textbox-button-left;
+    }
+}
+.textbox-addon {
+    position: absolute;
+    top: 0;
+    background: colors(inputColor);
+    border-color: colors(borderColor);
+    border-style: solid;
+}
+.textbox-addon-right{
+    border-width: 0 0 0 1px;
+}
+.textbox-addon-left{
+    border-width: 0 1px 0 0;
+}
+.textbox-icon {
+    @include inline-block(top);
+    @include size(18px,20px);
+    @include opacity(0.6);
+    overflow: hidden;
+    background-position: center center;
+    cursor: pointer;
+    text-decoration: none;
+    outline-style: none;
+    &:hover{
+        @include opacity(1);
+    }
+}
+.textbox-icon-disabled, .textbox-icon-readonly {
+    cursor: default;
+}
+.textbox-icon-disabled:hover{
+    @include opacity(0.6);
+}
+.textbox-focused {
+    border-color: colors(borderFocus)!important;
+    @include box-shadow(0 0 3px 0 colors(borderFocus));
+}
+.textbox-invalid {
+    border-color: colors(red);
+    @include box-shadow(0 0 3px 0 colors(red));
+    background-color: colors(white);
+}
+//新增样式
+.textbox-disabled:hover input{
+    cursor: not-allowed !important;
+}

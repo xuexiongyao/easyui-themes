@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Basic TextBox - jQuery EasyUI Demo</title>
+    <link rel="stylesheet" type="text/css" href="../../css/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../css/icon.css">
+    <link rel="stylesheet" type="text/css" href="../../css/iconHover.css">
+    <script type="text/javascript" src="../../../jquery.min.js"></script>
+    <script type="text/javascript" src="../../../jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../../../common.js"></script>
+</head>
+<body style="margin: 100px 10px;">
+    <h2>Basic TreeGrid</h2>
+    <p>TreeGrid allows you to expand or collapse group rows.</p>
+    <div style="margin:20px 0;"></div>
+    <table title="Folder Browser" class="easyui-treegrid" style="width:700px;height:250px"
+           data-options="
+                    url: 'treegrid_data1.json',
+                    method: 'get',
+                    rownumbers: true,
+                    idField: 'id',
+                    treeField: 'name'
+                ">
+        <thead>
+        <tr>
+            <th data-options="field:'name'" width="220">Name</th>
+            <th data-options="field:'size'" width="100" align="right">Size</th>
+            <th data-options="field:'date'" width="150">Modified Date</th>
+        </tr>
+        </thead>
+    </table>
+
+    <h2>TreeGrid Actions</h2>
+    <p>Click the buttons below to perform actions.</p>
+    <div style="margin:20px 0;">
+        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="collapseAll()">CollapseAll</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="expandAll()">ExpandAll</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="expandTo()">ExpandTo</a>
+    </div>
+    <table id="tg" class="easyui-treegrid" title="TreeGrid Actions" style="width:700px;height:250px"
+           data-options="
+				iconCls: 'icon-ok',
+				rownumbers: true,
+				animate: true,
+				collapsible: true,
+				fitColumns: true,
+				url: 'treegrid_data2.json',
+				method: 'get',
+				idField: 'id',
+				treeField: 'name'
+			">
+        <thead>
+        <tr>
+            <th data-options="field:'name',width:180">Task Name</th>
+            <th data-options="field:'persons',width:60,align:'right'">Persons</th>
+            <th data-options="field:'begin',width:80">Begin Date</th>
+            <th data-options="field:'end',width:80">End Date</th>
+            <th data-options="field:'progress',width:120,formatter:formatProgress">Progress</th>
+        </tr>
+        </thead>
+    </table>
+    <script type="text/javascript">
+        function formatProgress(value){
+            if (value){
+                var s = '<div style="width:100%;border:1px solid #ccc">' +
+                        '<div style="width:' + value + '%;background:#cc0000;color:#fff">' + value + '%' + '</div>'
+                '</div>';
+                return s;
+            } else {
+                return '';
+            }
+        }
+        function collapseAll(){
+            $('#tg').treegrid('collapseAll');
+        }
+        function expandAll(){
+            $('#tg').treegrid('expandAll');
+        }
+        function expandTo(){
+            $('#tg').treegrid('expandTo',21).treegrid('select',21);
+        }
+    </script>
+
+    <h2>Client Side Pagination in TreeGrid</h2>
+    <p>This sample shows how to implement client side pagination in TreeGrid.</p>
+    <div style="margin:20px 0;"></div>
+    <table id="tg1" title="Client Side Pagination" style="width:700px;height:250px"
+           data-options="
+				iconCls: 'icon-ok',
+				rownumbers: true,
+				animate: true,
+				collapsible: true,
+				fitColumns: true,
+				url: 'treegrid_data2.json',
+				method: 'get',
+				idField: 'id',
+				treeField: 'name',
+				pagination: true,
+				pageSize: 2,
+				pageList: [2,5,10]
+			">
+        <thead>
+        <tr>
+            <th data-options="field:'name',width:180">Task Name</th>
+            <th data-options="field:'persons',width:60,align:'right'">Persons</th>
+            <th data-options="field:'begin',width:80">Begin Date</th>
+            <th data-options="field:'end',width:80">End Date</th>
+            <th data-options="field:'progress',width:120,formatter:formatProgress">Progress</th>
+        </tr>
+        </thead>
+    </table>
+    <script type="text/javascript">
+        (function($){
+            function pagerFilter(data){
+                if ($.isArray(data)){    // is array
+                    data = {
+                        total: data.length,
+                        rows: data
+                    }
+                }
+                var target = this;
+                var tg = $(target);
+                var state = tg.data('treegrid');
+                var opts = tg.treegrid('options');
+                if (!state.allRows){
+                    state.allRows = data.rows;
+                }
+                if (!opts.remoteSort && opts.sortName){
+                    var names = opts.sortName.split(',');
+                    var orders = opts.sortOrder.split(',');
+                    state.allRows.sort(function(r1,r2){
+                        var r = 0;
+                        for(var i=0; i<names.length; i++){
+                            var sn = names[i];
+                            var so = orders[i];
+                            var col = $(target).treegrid('getColumnOption', sn);
+                            var sortFunc = col.sorter || function(a,b){
+                                        return a==b ? 0 : (a>b?1:-1);
+                                    };
+                            r = sortFunc(r1[sn], r2[sn]) * (so=='asc'?1:-1);
+                            if (r != 0){
+                                return r;
+                            }
+                        }
+                        return r;
+                    });
+                }
+                var topRows = [];
+                var childRows = [];
+                $.map(state.allRows, function(row){
+                    row._parentId ? childRows.push(row) : topRows.push(row);
+                    row.children = null;
+                });
+                data.total = topRows.length;
+                var pager = tg.treegrid('getPager');
+                pager.pagination('refresh', {
+                    total: data.total,
+                    pageNumber: opts.pageNumber
+                });
+                opts.pageNumber = pager.pagination('options').pageNumber || 1;
+                var start = (opts.pageNumber-1)*parseInt(opts.pageSize);
+                var end = start + parseInt(opts.pageSize);
+                data.rows = topRows.slice(start, end).concat(childRows);
+                return data;
+            }
+
+            var appendMethod = $.fn.treegrid.methods.append;
+            var removeMethod = $.fn.treegrid.methods.remove;
+            var loadDataMethod = $.fn.treegrid.methods.loadData;
+            $.extend($.fn.treegrid.methods, {
+                clientPaging: function(jq){
+                    return jq.each(function(){
+                        var tg = $(this);
+                        var state = tg.data('treegrid');
+                        var opts = state.options;
+                        opts.loadFilter = pagerFilter;
+                        var onBeforeLoad = opts.onBeforeLoad;
+                        opts.onBeforeLoad = function(row,param){
+                            state.allRows = null;
+                            return onBeforeLoad.call(this, row, param);
+                        }
+                        var pager = tg.treegrid('getPager');
+                        pager.pagination({
+                            onSelectPage:function(pageNum, pageSize){
+                                opts.pageNumber = pageNum;
+                                opts.pageSize = pageSize;
+                                pager.pagination('refresh',{
+                                    pageNumber:pageNum,
+                                    pageSize:pageSize
+                                });
+                                tg.treegrid('loadData',state.allRows);
+                            }
+                        });
+                        tg.treegrid('loadData', state.data);
+                        if (opts.url){
+                            tg.treegrid('reload');
+                        }
+                    });
+                },
+                loadData: function(jq, data){
+                    jq.each(function(){
+                        $(this).data('treegrid').allRows = null;
+                    });
+                    return loadDataMethod.call($.fn.treegrid.methods, jq, data);
+                },
+                append: function(jq, param){
+                    return jq.each(function(){
+                        var state = $(this).data('treegrid');
+                        if (state.options.loadFilter == pagerFilter){
+                            $.map(param.data, function(row){
+                                row._parentId = row._parentId || param.parent;
+                                state.allRows.push(row);
+                            });
+                            $(this).treegrid('loadData', state.allRows);
+                        } else {
+                            appendMethod.call($.fn.treegrid.methods, $(this), param);
+                        }
+                    })
+                },
+                remove: function(jq, id){
+                    return jq.each(function(){
+                        if ($(this).treegrid('find', id)){
+                            removeMethod.call($.fn.treegrid.methods, $(this), id);
+                        }
+                        var state = $(this).data('treegrid');
+                        if (state.options.loadFilter == pagerFilter){
+                            for(var i=0; i<state.allRows.length; i++){
+                                if (state.allRows[i][state.options.idField] == id){
+                                    state.allRows.splice(i,1);
+                                    break;
+                                }
+                            }
+                            $(this).treegrid('loadData', state.allRows);
+                        }
+                    })
+                },
+                getAllRows: function(jq){
+                    return jq.data('treegrid').allRows;
+                }
+            });
+
+        })(jQuery);
+
+        function formatProgress(value){
+            if (value){
+                var s = '<div style="width:100%;border:1px solid #ccc">' +
+                        '<div style="width:' + value + '%;background:#cc0000;color:#fff">' + value + '%' + '</div>'
+                '</div>';
+                return s;
+            } else {
+                return '';
+            }
+        }
+
+        $(function(){
+            $('#tg1').treegrid().treegrid('clientPaging');
+        })
+    </script>
+
+    <h2>Editable TreeGrid</h2>
+    <p>Select one node and click edit button to perform editing.</p>
+    <div style="margin:20px 0;">
+        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="edit()">Edit</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="save()">Save</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="cancel()">Cancel</a>
+    </div>
+    <table id="tg4" class="easyui-treegrid" title="Editable TreeGrid" style="width:700px;height:250px"
+           data-options="
+				iconCls: 'icon-ok',
+				rownumbers: true,
+				animate: true,
+				collapsible: true,
+				fitColumns: true,
+				url: 'treegrid_data2.json',
+				method: 'get',
+				idField: 'id',
+				treeField: 'name',
+				showFooter: true
+			">
+        <thead>
+        <tr>
+            <th data-options="field:'name',width:180,editor:'text'">Task Name</th>
+            <th data-options="field:'persons',width:60,align:'right',editor:'numberbox'">Persons</th>
+            <th data-options="field:'begin',width:80,editor:'datebox'">Begin Date</th>
+            <th data-options="field:'end',width:80,editor:'datebox'">End Date</th>
+            <th data-options="field:'progress',width:120,formatter:formatProgress,editor:'numberbox'">Progress</th>
+        </tr>
+        </thead>
+    </table>
+    <script type="text/javascript">
+        function formatProgress(value){
+            if (value){
+                var s = '<div style="width:100%;border:1px solid #ccc">' +
+                        '<div style="width:' + value + '%;background:#cc0000;color:#fff">' + value + '%' + '</div>'
+                '</div>';
+                return s;
+            } else {
+                return '';
+            }
+        }
+        var editingId;
+        function edit(){
+            if (editingId != undefined){
+                $('#tg4').treegrid('select', editingId);
+                return;
+            }
+            var row = $('#tg4').treegrid('getSelected');
+            if (row){
+                editingId = row.id
+                $('#tg4').treegrid('beginEdit', editingId);
+            }
+        }
+        function save(){
+            if (editingId != undefined){
+                var t = $('#tg4');
+                t.treegrid('endEdit', editingId);
+                editingId = undefined;
+                var persons = 0;
+                var rows = t.treegrid('getChildren');
+                for(var i=0; i<rows.length; i++){
+                    var p = parseInt(rows[i].persons);
+                    if (!isNaN(p)){
+                        persons += p;
+                    }
+                }
+                var frow = t.treegrid('getFooterRows')[0];
+                frow.persons = persons;
+                t.treegrid('reloadFooter');
+            }
+        }
+        function cancel(){
+            if (editingId != undefined){
+                $('#tg4').treegrid('cancelEdit', editingId);
+                editingId = undefined;
+            }
+        }
+    </script>
+
+
+    <h2>Fluid TreeGrid</h2>
+    <p>This example shows how to assign percentage width to a column in TreeGrid.</p>
+    <div style="margin:20px 0;"></div>
+    <table title="Fluid Browser" class="easyui-treegrid" style="width:100%;height:250px"
+           data-options="
+				url: 'treegrid_data1.json',
+				method: 'get',
+				idField: 'id',
+				treeField: 'name'
+			">
+        <thead>
+        <tr>
+            <th data-options="field:'name'" width="50%">Name(50%)</th>
+            <th data-options="field:'size'" width="20%" align="right">Size(20%)</th>
+            <th data-options="field:'date'" width="30%">Modified Date(30%)</th>
+        </tr>
+        </thead>
+    </table>
+
+    <h2>TreeGrid with Footer</h2>
+    <p>Show summary information on TreeGrid footer.</p>
+    <div style="margin:20px 0;"></div>
+    <table id="tg5"></table>
+    <script type="text/javascript">
+        $(function(){
+            $('#tg5').treegrid({
+                title:'TreeGrid with Footer',
+                iconCls:'icon-ok',
+                width:700,
+                height:250,
+                rownumbers: true,
+                animate:true,
+                collapsible:true,
+                fitColumns:true,
+                url:'treegrid_data2.json',
+                method: 'get',
+                idField:'id',
+                treeField:'name',
+                showFooter:true,
+                columns:[[
+                    {title:'Task Name',field:'name',width:180},
+                    {field:'persons',title:'Persons',width:60,align:'right'},
+                    {field:'begin',title:'Begin Date',width:80},
+                    {field:'end',title:'End Date',width:80},
+                    {field:'progress',title:'Progress',width:120,
+                        formatter:function(value){
+                            if (value){
+                                var s = '<div style="width:100%;border:1px solid #ccc">' +
+                                        '<div style="width:' + value + '%;background:#cc0000;color:#fff">' + value + '%' + '</div>'
+                                '</div>';
+                                return s;
+                            } else {
+                                return '';
+                            }
+                        }
+                    }
+                ]]
+            });
+        })
+    </script>
+
+
+    <h2>TreeGrid Lines</h2>
+    <p>This example shows how to show treegrid lines.</p>
+    <div style="margin:20px 0;"></div>
+    <table title="TreeGrid Lines" class="easyui-treegrid" style="width:700px;height:250px"
+           data-options="
+				url: 'treegrid_data1.json',
+				method: 'get',
+				lines: true,
+				rownumbers: true,
+				idField: 'id',
+				treeField: 'name'
+			">
+        <thead>
+        <tr>
+            <th data-options="field:'name'" width="220">Name</th>
+            <th data-options="field:'size'" width="100" align="right">Size</th>
+            <th data-options="field:'date'" width="150">Modified Date</th>
+        </tr>
+        </thead>
+    </table>
+
+
+    <h2>Reports using TreeGrid</h2>
+    <p>Using TreeGrid to show complex reports.</p>
+    <div style="margin:20px 0;"></div>
+    <table title="Reports using TreeGrid" class="easyui-treegrid" style="width:700px;height:250px"
+           data-options="
+				url: 'treegrid_data3.json',
+				method: 'get',
+				rownumbers: true,
+				showFooter: true,
+				idField: 'id',
+				treeField: ''
+			">
+        <thead frozen="true">
+        <tr>
+            <th field="region" width="200">Region</th>
+        </tr>
+        </thead>
+        <thead>
+        <tr>
+            <th colspan="4">2009</th>
+            <th colspan="4">2010</th>
+        </tr>
+        <tr>
+            <th field="f1" width="60" align="right">1st qrt.</th>
+            <th field="f2" width="60" align="right">2st qrt.</th>
+            <th field="f3" width="60" align="right">3st qrt.</th>
+            <th field="f4" width="60" align="right">4st qrt.</th>
+            <th field="f5" width="60" align="right">1st qrt.</th>
+            <th field="f6" width="60" align="right">2st qrt.</th>
+            <th field="f7" width="60" align="right">3st qrt.</th>
+            <th field="f8" width="60" align="right">4st qrt.</th>
+        </tr>
+        </thead>
+    </table>
+
+
+    <script>
+        $(function () {
+            changeLinkButtonIcon();
+        })
+    </script>
+
+</body>
+</html>

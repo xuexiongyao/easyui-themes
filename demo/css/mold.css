@@ -1,0 +1,321 @@
+@charset "UTF-8";
+/**
+ * 获取颜色map方法
+ * @param $key 颜色的key值
+ */
+/**
+ * 获取字体map方法
+ * @param $key 颜色的key值
+ */
+/**
+ * 获取字体大小map方法
+ * @param $key 颜色的key值
+ */
+/**
+ * 获取行高map方法
+ * @param $key 颜色的key值
+ */
+/**
+ * 获取圆角map方法
+ * @param $key 颜色的key值
+ */
+/**
+ * 获取z-index map方法
+ * @param $key 颜色的key值
+ */
+/**!
+ * @author christ
+ * 本配置基于sass框架compass,在运用时请注意是否安装sass,compass
+ */
+body {
+  font-family: "Microsoft Yahei", "微软雅黑";
+  font-size: 12px; }
+
+/*按钮移入渐变*/
+/*disabled btn*/
+/*selected button*/
+::-webkit-scrollbar {
+  background-color: #fff;
+  width: 5px;
+  height: 10px; }
+
+::-webkit-scrollbar-track {
+  background-color: #fff; }
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(128, 128, 128, 0.65); }
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "SinSun", 宋体;
+  color: #000; }
+
+ul, li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0; }
+
+.song {
+  font-family: '宋体'; }
+
+.fang-song, .stub li > span, .stub li > p > span {
+  font-family: '仿宋','Adobe 仿宋 Std R'; }
+
+.founder {
+  font-family: '方正'; }
+
+.chu-hao {
+  font-size: 56px; }
+
+.xiao-chu {
+  font-size: 48px; }
+
+.yi-hao {
+  font-size: 34.66666667px; }
+
+.xiao-yi {
+  font-size: 32px; }
+
+.er-hao {
+  font-size: 29.3333333px; }
+
+.xiao-er {
+  font-size: 24px; }
+
+.san-hao {
+  font-size: 21.33333333px; }
+
+.xiao-san {
+  font-size: 20px; }
+
+.si-hao {
+  font-size: 18.66666667px; }
+
+.xiao-si {
+  font-size: 16px; }
+
+.wu-hao, .stub li, .stub li > p > span {
+  font-size: 14px; }
+
+.xiao-wu {
+  font-size: 12px; }
+
+.bold {
+  font-weight: bold; }
+
+.italic {
+  font-style: italic; }
+
+.under-line {
+  text-decoration: underline; }
+
+.line-through {
+  text-decoration: line-through; }
+
+.align-center {
+  text-align: center; }
+
+.align-left {
+  text-align: left; }
+
+.align-right {
+  text-align: right; }
+
+.align-both {
+  text-align: justify; }
+
+.v-middle {
+  vertical-align: middle; }
+
+.align-top {
+  vertical-align: top; }
+
+.align-bottom {
+  vertical-align: bottom; }
+
+.lp-1 {
+  letter-spacing: 1px; }
+
+.lp-2 {
+  letter-spacing: 2px; }
+
+.lp-3 {
+  letter-spacing: 3px; }
+
+.lp-4 {
+  letter-spacing: 4px; }
+
+.lp-5 {
+  letter-spacing: 5px; }
+
+.lp-6 {
+  letter-spacing: 6px; }
+
+.lp-7 {
+  letter-spacing: 7px; }
+
+.lp-8 {
+  letter-spacing: 8px; }
+
+.lp-9 {
+  letter-spacing: 9px; }
+
+.lp-10 {
+  letter-spacing: 10px; }
+
+.lp-15 {
+  letter-spacing: 15px; }
+
+.lp-20 {
+  letter-spacing: 20px; }
+
+.lp-30 {
+  letter-spacing: 30px; }
+
+.lp-40 {
+  letter-spacing: 40px; }
+
+.blank {
+  content: '';
+  width: 100%;
+  margin: 0;
+  padding: 0; }
+
+.blank-10 {
+  height: 10px; }
+
+.blank-20 {
+  height: 20px; }
+
+.hr {
+  border-color: #c0c2cc;
+  border-style: solid;
+  border-width: 1px; }
+
+.text-indent {
+  text-indent: 2em; }
+
+.stamp-right {
+  padding-right: 100px; }
+
+.date-right {
+  padding-right: 70px; }
+
+.date-left {
+  padding-left: 70px; }
+
+input {
+  outline: none;
+  margin: 0;
+  padding: 0;
+  display: table-cell;
+  border-color: #000;
+  border-style: solid;
+  border-width: 0 0 1px 0;
+  vertical-align: bottom;
+  background: transparent; }
+
+textarea {
+  outline: none;
+  margin: 0;
+  padding: 0;
+  border-color: #000;
+  border-style: solid;
+  border-width: 0 0 1px 0;
+  resize: none;
+  height: auto;
+  vertical-align: bottom;
+  overflow: hidden;
+  background: transparent; }
+
+.noborder {
+  border: 0; }
+
+.mold-Container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #c0c2cc;
+  padding: 20px 0; }
+
+.mold-a4 {
+  position: relative;
+  width: 210mm;
+  height: 297mm;
+  background: #fff;
+  color: #000;
+  margin: 0 auto;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  -o-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  -ms-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); }
+
+@page {
+  size: 5.5in 8.5in; }
+@page {
+  size: A4; }
+@media print {
+  hr {
+    display: none; } }
+.container {
+  border: 5px solid #000;
+  position: absolute;
+  overflow: hidden;
+  left: 50%;
+  top: 50%; }
+  .container .container-inner {
+    margin: 1px;
+    border: 1px solid #000; }
+
+.container-stub {
+  width: 343px;
+  height: 878px;
+  margin-left: -171.5px;
+  margin-top: -439px; }
+  .container-stub .container-stub-inner {
+    width: 329px;
+    height: 864px;
+    padding: 5px; }
+
+.container-warrant {
+  width: 600px;
+  height: 878px;
+  margin-left: -300px;
+  margin-top: -439px; }
+  .container-warrant .container-warrant-inner {
+    width: 586px;
+    height: 864px;
+    padding: 5px; }
+
+.stub li {
+  *zoom: 1;
+  height: auto;
+  margin: 20px 0; }
+  .stub li:before, .stub li:after {
+    content: " ";
+    display: table; }
+  .stub li:after {
+    clear: both;
+    overflow: hidden; }
+  .stub li > span {
+    float: left;
+    width: 23%;
+    text-align: right;
+    display: block;
+    line-height: 20px;
+    height: auto; }
+  .stub li > p {
+    float: right;
+    margin: 0;
+    width: 75%;
+    height: auto;
+    overflow-x: hidden; }
+
+.warrant li > p {
+  line-height: 40px; }
+  .warrant li > p textarea, .warrant li > p input {
+    vertical-align: middle; }
+
+/*# sourceMappingURL=mold.css.map */

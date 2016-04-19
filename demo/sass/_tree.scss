@@ -1,0 +1,159 @@
+@charset "utf-8";
+
+/*tree*/
+//----------------------------------
+.tree {
+    @include attrMarginPadding;
+    list-style-type: none;
+    li {
+        white-space: nowrap;
+        ul {
+            list-style-type: none;
+            @include attrMarginPadding;
+        }
+    }
+}
+.tree-node {
+    height: 18px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+.tree-hit {
+    cursor: pointer;
+}
+.tree-expanded, .tree-collapsed, .tree-folder, .tree-file, .tree-checkbox, .tree-indent {
+    @include inline-block(top);
+    @include size(16px,18px);
+    overflow: hidden;
+}
+.tree-expanded {
+    background: url('images/tree_icons.png') no-repeat -18px 0;
+}
+.tree-expanded-hover {
+    background: url('images/tree_icons.png') no-repeat -50px 0;
+}
+.tree-collapsed {
+    background: url('images/tree_icons.png') no-repeat 0 0;
+}
+.tree-collapsed-hover {
+    background: url('images/tree_icons.png') no-repeat -32px 0;
+}
+.tree-lines{
+    .tree-expanded{
+        background: url('images/tree_icons.png') no-repeat -144px 0;
+    }
+    .tree-collapsed{
+        background: url('images/tree_icons.png') no-repeat -128px 0;
+    }
+    .tree-root-first{
+        .tree-expanded {
+            background: url('images/tree_icons.png') no-repeat -144px 0;
+        }
+        .tree-collapsed {
+            background: url('images/tree_icons.png') no-repeat -128px 0;
+        }
+    }
+    .tree-node-last{
+        .tree-expanded {
+            background: url('images/tree_icons.png') no-repeat -80px 0;
+        }
+        .tree-collapsed {
+            background: url('images/tree_icons.png') no-repeat -64px 0;
+        }
+    }
+    .tree-root-one{
+        @extend .tree-node-last;
+    }
+}
+.tree-line {
+    background: url('images/tree_icons.png') no-repeat -176px 0;
+}
+.tree-join {
+    background: url('images/tree_icons.png') no-repeat -192px 0;
+}
+.tree-joinbottom {
+    background: url('images/tree_icons.png') no-repeat -160px 0;
+}
+.tree-folder {
+    background: url('images/tree_icons.png') no-repeat -208px 0;
+}
+.tree-folder-open {
+    background: url('images/tree_icons.png') no-repeat -224px 0;
+}
+.tree-file {
+    background: url('images/tree_icons.png') no-repeat -240px 0;
+}
+.tree-loading {
+    background: url('images/loading.gif') no-repeat center center;
+}
+.tree-checkbox0 {
+    background: url('images/tree_icons.png') no-repeat -208px -18px;
+}
+.tree-checkbox1 {
+    background: url('images/tree_icons.png') no-repeat -224px -18px;
+}
+.tree-checkbox2 {
+    background: url('images/tree_icons.png') no-repeat -240px -18px;
+}
+.tree-title {
+    font-size: fontSize(small);
+    @include inline-block(top);
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 0 2px;
+    @include text-vertical-center(18px);
+}
+.tree-node-proxy {
+    font-size: fontSize(small);
+    line-height: 20px;
+    padding: 0 2px 0 20px;
+    @include border(1px,solid,colors(borderColor));
+    z-index: 9900000;
+    background-color: colors(white);
+    color: colors(black);
+}
+.tree-dnd-icon {
+    display: inline-block;
+    position: absolute;
+    width: 16px;
+    height: 18px;
+    left: 2px;
+    top: 50%;
+    margin-top: -9px;
+}
+.tree-dnd-yes {
+    background: url('images/tree_icons.png') no-repeat -256px 0;
+}
+.tree-dnd-no {
+    background: url('images/tree_icons.png') no-repeat -256px -18px;
+}
+.tree-node-top {
+    border-top: 1px dashed colors(red);
+}
+.tree-node-bottom {
+    border-bottom: 1px dashed colors(red);
+}
+.tree-node-append .tree-title {
+    border: 1px dashed colors(red);
+}
+.tree-editor {
+    @include border(1px,solid,colors(borderColor));
+    font-size: fontSize(small);
+    height: 14px !important;
+    line-height: 14px;
+    padding: 1px 2px;
+    width: 80px;
+    position: absolute;
+    top: 0;
+}
+.tree-node-hover {
+    background: colors(lightBlueBg);
+    color: colors(balck);
+}
+.tree-node-selected {
+    background: colors(primary);
+    color: colors(white);
+}
+.tree-node-hidden {
+    display: none;
+}

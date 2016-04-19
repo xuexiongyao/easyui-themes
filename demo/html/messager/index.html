@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Basic TextBox - jQuery EasyUI Demo</title>
+    <link rel="stylesheet" type="text/css" href="../../css/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../css/icon.css">
+    <link rel="stylesheet" type="text/css" href="../../css/iconHover.css">
+    <script type="text/javascript" src="../../../jquery.min.js"></script>
+    <script type="text/javascript" src="../../../jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../../../common.js"></script>
+</head>
+<body>
+    <!--<h2>Alert Messager</h2>-->
+    <!--<p>Click on each button to display different alert message box.</p>-->
+    <!--<div style="margin:20px 0;">-->
+        <!--<a href="#" class="easyui-linkbutton" onclick="alert1()">Alert</a>-->
+        <!--<a href="#" class="easyui-linkbutton" onclick="alert2()">Error</a>-->
+        <!--<a href="#" class="easyui-linkbutton" onclick="alert3()">Info</a>-->
+        <!--<a href="#" class="easyui-linkbutton" onclick="alert4()">Question</a>-->
+        <!--<a href="#" class="easyui-linkbutton" onclick="alert5()">Warning</a>-->
+    <!--</div>-->
+    <!--<script>-->
+        <!--function alert1(){-->
+            <!--$.messager.alert('My Title','Here is a message!');-->
+        <!--}-->
+        <!--function alert2(){-->
+            <!--$.messager.alert('My Title','Here is a error message!','error');-->
+        <!--}-->
+        <!--function alert3(){-->
+            <!--$.messager.alert('My Title','Here is a info message!','info');-->
+        <!--}-->
+        <!--function alert4(){-->
+            <!--$.messager.alert('My Title','Here is a question message!','question');-->
+        <!--}-->
+        <!--function alert5(){-->
+            <!--$.messager.alert('My Title','Here is a warning message!','warning');-->
+        <!--}-->
+    <!--</script>-->
+
+    <!--<h2>Basic Messager</h2>-->
+    <!--<p>Click on each button to see a distinct message box.</p>-->
+    <!--<div style="margin:20px 0;">-->
+        <!--<a href="#" class="easyui-linkbutton" onclick="show()">Show</a>-->
+        <!--<a href="#" class="easyui-linkbutton" onclick="slide()">Slide</a>-->
+        <!--<a href="#" class="easyui-linkbutton" onclick="fade()">Fade</a>-->
+        <!--<a href="#" class="easyui-linkbutton" onclick="progress()">Progress</a>-->
+    <!--</div>-->
+    <!--<script type="text/javascript">-->
+        <!--function show(){-->
+            <!--$.messager.show({-->
+                <!--title:'My Title',-->
+                <!--msg:'Message will be closed after 4 seconds.',-->
+                <!--showType:'show'-->
+            <!--});-->
+        <!--}-->
+        <!--function slide(){-->
+            <!--$.messager.show({-->
+                <!--title:'My Title',-->
+                <!--msg:'Message will be closed after 5 seconds.',-->
+                <!--timeout:5000,-->
+                <!--showType:'slide'-->
+            <!--});-->
+        <!--}-->
+        <!--function fade(){-->
+            <!--$.messager.show({-->
+                <!--title:'My Title',-->
+                <!--msg:'Message never be closed.',-->
+                <!--timeout:0,-->
+                <!--showType:'fade'-->
+            <!--});-->
+        <!--}-->
+        <!--function progress(){-->
+            <!--var win = $.messager.progress({-->
+                <!--title:'Please waiting',-->
+                <!--msg:'Loading data...'-->
+            <!--});-->
+            <!--setTimeout(function(){-->
+                <!--$.messager.progress('close');-->
+            <!--},5000)-->
+        <!--}-->
+    <!--</script>-->
+
+    <h2>Interactive Messager</h2>
+    <p>Click on each button to display interactive message box.</p>
+    <div style="margin:20px 0;">
+        <a href="#" class="easyui-linkbutton c6" onclick="confirm1();">Confirm</a>
+        <a href="#" class="easyui-linkbutton c6" onclick="prompt1()">Prompt</a>
+    </div>
+    <script>
+        function confirm1(){
+            $.messager.confirm('My Title', 'Are you confirm this?', function(r){
+                if (r){
+                    alert('confirmed: '+r);
+                }
+            });
+        }
+        function prompt1(){
+            $.messager.prompt('My Title', 'Please type something', function(r){
+                if (r){
+                    alert('you type: '+r);
+                }
+            });
+        }
+    </script>
+
+    <h2>Message Box Position</h2>
+    <p>Click the buttons below to display message box on different position.</p>
+    <div style="margin:20px 0;">
+        <p>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="topLeft();">TopLeft</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="topCenter()">TopCenter</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="topRight()">TopRight</a>
+        </p>
+        <p>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="centerLeft()">CenterLeft</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="center()">Center</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="centerRight()">CenterRight</a>
+        </p>
+        <p>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="bottomLeft()">BottomLeft</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="bottomCenter()">BottomCenter</a>
+            <a href="javascript:void(0)" class="easyui-linkbutton" onclick="bottomRight()">BottomRight</a>
+        </p>
+    </div>
+    <script>
+        function topLeft(){
+            $.messager.show({
+                title:'My Title',
+                msg:'The message content',
+                showType:'show',
+                style:{
+                    right:'',
+                    left:0,
+                    top:document.body.scrollTop+document.documentElement.scrollTop,
+                    bottom:''
+                }
+            });
+        }
+        function topCenter(){
+            $.messager.show({
+                title:'My Title',
+                msg:'The message content',
+                showType:'slide',
+                style:{
+                    right:'',
+                    top:document.body.scrollTop+document.documentElement.scrollTop,
+                    bottom:''
+                }
+            });
+        }
+        function topRight(){
+            $.messager.show({
+                title:'My Title',
+                msg:'The message content',
+                showType:'show',
+                timeout: 3000,
+                style:{
+                    left:'',
+                    right:0,
+                    top:document.body.scrollTop+document.documentElement.scrollTop,
+                    bottom:''
+                }
+            });
+        }
+        function centerLeft(){
+            $.messager.show({
+                title:'My Title',
+                msg:'The message content',
+                showType:'fade',
+                style:{
+                    left:0,
+                    right:'',
+                    bottom:''
+                }
+            });
+        }
+        function center(){
+            $.messager.show({
+                title:'My Title',
+                msg:'The message content',
+                showType:'fade',
+                style:{
+                    right:'',
+                    bottom:''
+                }
+            });
+        }
+        function centerRight(){
+            $.messager.show({
+                title:'My Title',
+                msg:'The message content',
+                showType:'fade',
+                style:{
+                    left:'',
+                    right:0,
+                    bottom:''
+                }
+            });
+        }
+        function bottomLeft(){
+            $.messager.show({
+                title:'My Title',
+                msg:'The message content',
+                showType:'show',
+                style:{
+                    left:0,
+                    right:'',
+                    top:'',
+                    bottom:-document.body.scrollTop-document.documentElement.scrollTop
+                }
+            });
+        }
+        function bottomCenter(){
+            $.messager.show({
+                title:'My Title',
+                msg:'The message content',
+                showType:'slide',
+                style:{
+                    right:'',
+                    top:'',
+                    bottom:-document.body.scrollTop-document.documentElement.scrollTop
+                }
+            });
+        }
+        function bottomRight(){
+            $.messager.show({
+                title:'My Title',
+                msg:'The message content',
+                showType:'show'
+            });
+        }
+    </script>
+
+    <script>
+        $(function () {
+            changeLinkButtonIcon();
+        })
+    </script>
+
+</body>
+</html>

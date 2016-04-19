@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @page {
+            size: 5.5in 8.5in;
+        }
+        @page {
+            size: A4;
+        }
+        @page {
+            size: A4 landscape;
+        }
+        @page :left {
+            margin-left: 3cm;
+            @bottom-left {
+                /*content: counter(page);*/
+                content: 'Page'counter(page)'of'counter(pages);
+            }
+        }
+        @page :right {
+            margin-right: 4cm;
+            @bottom-right{
+                content: counter(page);
+            }
+        }
+        @page :first {
+
+        }
+        @page :blank {
+            @top-center {
+                content: 'This page is intentionally left blank';
+            }
+        }
+        @page :right {
+            @bottom-left {
+                margin: 10pt 0 30pt 0;
+                border-top: .25pt solid #666;
+                content: 'My Book';
+                font-size: 9pt;
+                color: #333;
+            }
+        }
+        h1{
+            page-break-before:always;
+        }
+        h1,h2,h3,h4,h5{
+            page-break-after:avoid;
+        }
+        table,figure{
+            page-break-inside:avoid;
+        }
+    </style>
+</head>
+<body>
+    <div class="frontcover">
+    </div>
+    <div class="contents">
+        <h1>Extracts from Our Cats and All About Them by Harrison Weir</h1>
+
+        <ul class="toc">
+            <li><a href="#ch1">The First Cat Show</a></li>
+            <li><a href="#ch2">Trained Cats</a></li>
+            <li><a href="#ch3">General Management</a></li>
+            <li><a href="#ch4">Superstition and Witchcraft</a></li>
+        </ul>
+
+    </div>
+
+    <h1 id="ch1" class="chapter">The First Cat Show</h1>
+    <p>… </p>
+
+    <h1 id="ch2" class="chapter">Trained Cats</h1>
+    <p>… </p>
+
+    <h1 id="ch3" class="chapter">General Management</h1>
+    <p>… </p>
+
+    <h1 id="ch4" class="chapter">Superstition and Witchcraft</h1>
+    <p>… </p>
+
+</body>
+</html>

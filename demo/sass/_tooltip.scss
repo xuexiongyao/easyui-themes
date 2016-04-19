@@ -1,0 +1,92 @@
+@charset "utf-8";
+
+/*tooltip*/
+//------------------------------------
+.tooltip {
+    position: absolute;
+    display: none;
+    z-index: zindex(tooltip);
+    outline: none;
+    padding: 5px 8px;
+    @include opacity(1);
+    @include border(1px,solid,colors(borderColor));
+    @include prefix(border,radius,5px);
+    background-color: colors(white);
+    color: colors(textColor);
+    @include box-shadow(0 5px 10px rgba(0,0,0,0.2));
+}
+//.tooltipBlack{
+//    background-color: colors(black);
+//    color: colors(white);
+//}
+.tooltip-content {
+    font-size: fontSize(small);
+}
+.tooltip-arrow-outer, .tooltip-arrow {
+    position: absolute;
+    @include square(0);
+    line-height: 0;
+    font-size: 0;
+    @include border(6px,solid,transparent);
+    _border-color: tomato;
+    _filter: chroma(color=tomato);
+}
+.tooltip-arrow {
+    display: none \9;
+}
+.tooltip-right{
+    .tooltip-arrow-outer{
+        left: 0;
+        top: 50%;
+        margin: -6px 0 0 -13px;
+        //border-right-color: colors(borderColor);
+    }
+    .tooltip-arrow {
+        left: 0;
+        top: 50%;
+        margin: -6px 0 0 -12px;
+        //border-right-color: colors(white);
+    }
+}
+.tooltip-left{
+    .tooltip-arrow-outer {
+        right: 0;
+        top: 50%;
+        margin: -6px -13px 0 0;
+        //border-left-color: colors(borderColor);
+    }
+    .tooltip-arrow {
+        right: 0;
+        top: 50%;
+        margin: -6px -12px 0 0;
+        //border-left-color: colors(white);
+    }
+}
+.tooltip-top{
+    .tooltip-arrow-outer {
+        bottom: 0;
+        left: 50%;
+        margin: 0 0 -13px -6px;
+        //border-top-color: colors(borderColor);
+    }
+    .tooltip-arrow {
+        bottom: 0;
+        left: 50%;
+        margin: 0 0 -12px -6px;
+        //border-top-color: colors(white);
+    }
+}
+.tooltip-bottom{
+    .tooltip-arrow-outer {
+        top: 0;
+        left: 50%;
+        margin: -13px 0 0 -6px;
+        //border-bottom-color: colors(borderColor);
+    }
+    .tooltip-arrow {
+        top: 0;
+        left: 50%;
+        margin: -12px 0 0 -6px;
+        //border-bottom-color: colors(white);
+    }
+}

@@ -1,0 +1,77 @@
+@charset "utf-8";
+
+/*window*/
+//-------------------------------
+.window {
+    @include containerBox(absolute);
+    //padding: 5px;
+    @include border(1px,solid,lighten(colors(borderColor),10));
+    @include box-shadow(0 5px 15px rgba(0,0,0,0.5));
+    @include prefix(border,radius,5px);
+    background: colors(white);
+    .window-header {
+        background: transparent;
+        //background: colors(primary);
+        border: 0;
+        padding: 10px;
+        border-bottom: 1px solid colors(borderColor);
+        .panel-icon{
+            top: 50%;
+            margin-top: -8px;
+            left: 10px;
+        }
+        .panel-tool{
+            top: 50%;
+            margin-top: -8px;
+            right: 10px;
+        }
+        .panel-with-icon {
+            padding-left: 18px;
+        }
+        //处理白色字体
+        .panel-title{
+            color: colors(textColor);
+            font-weight:bold;
+        }
+    }
+    .window-body {
+        //@include border(1px,solid,colors(borderColor));
+        border-top-width: 0;
+    }
+    .window-body-noheader {
+        border-top-width: 1px;
+    }
+    .panel-body-nobottom {
+        border-bottom-width: 0;
+    }
+    .panel-footer {
+        //border: 1px solid colors(borderColor);
+        position: relative;
+        top: -1px;
+        padding: 5px 10px;
+        border:0;
+    }
+}
+.window-proxy {
+    @include containerBox(absolute);
+    border: 1px dashed colors(white);
+}
+.window-proxy-mask {
+    position: absolute;
+    @include opacity(0.5);
+    background: colors(white);
+}
+.window-mask {
+    @include containerBox(absolute);
+    left: 0;
+    top: 0;
+    @include square(100%);
+    @include opacity(0.4);
+    font-size: 1px;
+    background: colors(black);
+}
+.window-shadow {
+    position: absolute;
+    @include prefix(border,radius,5px);
+    @include box-shadow(0 5px 15px rgba(0,0,0,0.5));
+}

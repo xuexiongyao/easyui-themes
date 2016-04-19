@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Basic TextBox - jQuery EasyUI Demo</title>
+    <link rel="stylesheet" type="text/css" href="../../css/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../css/icon.css">
+    <link rel="stylesheet" type="text/css" href="../../css/iconHover.css">
+    <script type="text/javascript" src="../../../jquery.min.js"></script>
+    <script type="text/javascript" src="../../../jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../../../common.js"></script>
+</head>
+<body style="margin: 100px 10px;">
+
+    <h2>Basic Tree</h2>
+    <p>Click the arrow on the left to expand or collapse nodes.</p>
+    <div style="margin:20px 0;"></div>
+    <div class="easyui-panel" style="padding:5px">
+    <ul class="easyui-tree">
+        <li>
+            <span>My Documents</span>
+            <ul>
+                <li data-options="state:'closed'">
+                    <span>Photos</span>
+                    <ul>
+                        <li>
+                            <span>Friend</span>
+                        </li>
+                        <li>
+                            <span>Wife</span>
+                        </li>
+                        <li>
+                            <span>Company</span>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <span>Program Files</span>
+                    <ul>
+                        <li>Intel</li>
+                        <li>Java</li>
+                        <li>Microsoft Office</li>
+                        <li>Games</li>
+                    </ul>
+                </li>
+                <li>index.html</li>
+                <li>about.html</li>
+                <li>welcome.html</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+    <h2>Tree Actions</h2>
+    <p>Click the buttons below to perform actions.</p>
+    <div style="margin:20px 0;">
+        <a href="#" class="easyui-linkbutton" onclick="collapseAll()">CollapseAll</a>
+        <a href="#" class="easyui-linkbutton" onclick="expandAll()">ExpandAll</a>
+        <a href="#" class="easyui-linkbutton" onclick="expandTo()">ExpandTo</a>
+        <a href="#" class="easyui-linkbutton" onclick="getSelected()">GetSelected</a>
+    </div>
+    <div class="easyui-panel" style="padding:5px">
+        <ul id="tt" class="easyui-tree" data-options="url:'tree_data1.json',method:'get',animate:true"></ul>
+    </div>
+    <script type="text/javascript">
+        function collapseAll(){
+            $('#tt').tree('collapseAll');
+        }
+        function expandAll(){
+            $('#tt').tree('expandAll');
+        }
+        function expandTo(){
+            var node = $('#tt').tree('find',113);
+            $('#tt').tree('expandTo', node.target).tree('select', node.target);
+        }
+        function getSelected(){
+            var node = $('#tt').tree('getSelected');
+            if (node){
+                var s = node.text;
+                if (node.attributes){
+                    s += ","+node.attributes.p1+","+node.attributes.p2;
+                }
+                alert(s);
+            }
+        }
+    </script>
+
+    <h2>Animation Tree</h2>
+    <p>Apply 'animate' property to true to enable animation effect.</p>
+    <div style="margin:20px 0;"></div>
+    <div class="easyui-panel" style="padding:5px">
+        <ul class="easyui-tree" data-options="url:'tree_data1.json',method:'get',animate:true"></ul>
+    </div>
+
+    <h2>CheckBox Tree</h2>
+    <p>Tree nodes with check boxes.</p>
+    <div style="margin:20px 0;">
+        <a href="#" class="easyui-linkbutton" onclick="getChecked()">GetChecked</a>
+    </div>
+    <div style="margin:10px 0">
+        <input type="checkbox" checked onchange="$('#tt1').tree({cascadeCheck:$(this).is(':checked')})">CascadeCheck
+        <input type="checkbox" onchange="$('#tt1').tree({onlyLeafCheck:$(this).is(':checked')})">OnlyLeafCheck
+    </div>
+    <div class="easyui-panel" style="padding:5px">
+        <ul id="tt1" class="easyui-tree" data-options="url:'tree_data1.json',method:'get',animate:true,checkbox:true"></ul>
+    </div>
+    <script type="text/javascript">
+        function getChecked(){
+            var nodes = $('#tt1').tree('getChecked');
+            var s = '';
+            for(var i=0; i<nodes.length; i++){
+                if (s != '') s += ',';
+                s += nodes[i].text;
+            }
+            alert(s);
+        }
+    </script>
+
+    <!--<h2>Tree Context Menu</h2>-->
+    <!--<p>Right click on a node to display context menu.</p>-->
+    <!--<div style="margin:20px 0;"></div>-->
+    <!--<div class="easyui-panel" style="padding:5px">-->
+        <!--<ul id="tt2" class="easyui-tree" data-options="-->
+				<!--url: 'tree_data1.json',-->
+				<!--method: 'get',-->
+				<!--animate: true,-->
+				<!--onContextMenu: function(e,node){-->
+					<!--e.preventDefault();-->
+					<!--$(this).tree('select',node.target);-->
+					<!--$('#mm').menu('show',{-->
+						<!--left: e.pageX,-->
+						<!--top: e.pageY-->
+					<!--});-->
+				<!--}-->
+			<!--"></ul>-->
+    <!--</div>-->
+    <!--<div id="mm" class="easyui-menu" style="width:120px;">-->
+        <!--<div onclick="append()" data-options="iconCls:'icon-add'">Append</div>-->
+        <!--<div onclick="removeit()" data-options="iconCls:'icon-remove'">Remove</div>-->
+        <!--<div class="menu-sep"></div>-->
+        <!--<div onclick="expand()">Expand</div>-->
+        <!--<div onclick="collapse()">Collapse</div>-->
+    <!--</div>-->
+    <!--<script type="text/javascript">-->
+        <!--function append(){-->
+            <!--var t = $('#tt2');-->
+            <!--var node = t.tree('getSelected');-->
+            <!--t.tree('append', {-->
+                <!--parent: (node?node.target:null),-->
+                <!--data: [{-->
+                    <!--text: 'new item1'-->
+                <!--},{-->
+                    <!--text: 'new item2'-->
+                <!--}]-->
+            <!--});-->
+        <!--}-->
+        <!--function removeit(){-->
+            <!--var node = $('#tt2').tree('getSelected');-->
+            <!--$('#tt2').tree('remove', node.target);-->
+        <!--}-->
+        <!--function collapse(){-->
+            <!--var node = $('#tt2').tree('getSelected');-->
+            <!--$('#tt2').tree('collapse',node.target);-->
+        <!--}-->
+        <!--function expand(){-->
+            <!--var node = $('#tt2').tree('getSelected');-->
+            <!--$('#tt2').tree('expand',node.target);-->
+        <!--}-->
+    <!--</script>-->
+
+    <h2>Drag Drop Tree Nodes</h2>
+    <p>Press mouse down and drag a node to another position.</p>
+    <div style="margin:20px 0;"></div>
+    <div class="easyui-panel" style="padding:5px">
+        <ul id="tt3" class="easyui-tree" data-options="method:'get',animate:true,dnd:true"></ul>
+    </div>
+
+    <script>
+        $('#tt3').tree({
+            url: 'tree_data1.json',
+            checkbox: true,
+            loadFilter: function(data,parent){
+                if (data.d){
+                    return data.d;
+                } else {
+                    return data;
+                }
+            },
+            onClick:function(node){
+
+            }
+        });
+
+    </script>
+
+    <h2>Editable Tree</h2>
+    <p>Click the node to begin edit, press enter key to stop edit or esc key to cancel edit.</p>
+    <div style="margin:20px 0;"></div>
+    <div class="easyui-panel" style="padding:5px">
+        <ul id="tt4" class="easyui-tree" data-options="
+				url: 'tree_data1.json',
+				method: 'get',
+				animate: true,
+				onClick: function(node){
+					$(this).tree('beginEdit',node.target);
+				}
+			"></ul>
+    </div>
+
+    <h2>Formatting Tree Nodes</h2>
+    <p>This example shows how to display extra information on nodes.</p>
+    <div style="margin:20px 0;"></div>
+    <div class="easyui-panel" style="padding:5px">
+        <ul class="easyui-tree" data-options="
+					url:'tree_data1.json',
+					method:'get',
+					animate:true,
+					formatter:function(node){
+						var s = node.text;
+						if (node.children){
+							s += '&nbsp;<span style=\'color:red\'>(' + node.children.length + ')</span>';
+						}
+						return s;
+					}
+				">
+        </ul>
+    </div>
+
+    <h2>Tree Node Icons</h2>
+    <p>This sample illustrates how to add icons to tree node.</p>
+    <div style="margin:20px 0;"></div>
+    <div class="easyui-panel" style="padding:5px">
+        <ul class="easyui-tree" data-options="url:'tree_data2.json',method:'get',animate:true"></ul>
+    </div>
+
+    <h2>Lazy Load Tree Nodes</h2>
+    <p>Get full hierarchical tree data but lazy load nodes level by level.</p>
+    <div style="margin:20px 0;"></div>
+    <div class="easyui-panel" style="padding:5px">
+        <ul class="easyui-tree" data-options="url:'tree_data1.json',method:'get',loadFilter:myLoadFilter,checkbox:true"></ul>
+    </div>
+    <script>
+        function myLoadFilter(data, parent){
+            var state = $.data(this, 'tree');
+
+            function setData(){
+                var serno = 1;
+                var todo = [];
+                for(var i=0; i<data.length; i++){
+                    todo.push(data[i]);
+                }
+                while(todo.length){
+                    var node = todo.shift();
+                    if (node.id == undefined){
+                        node.id = '_node_' + (serno++);
+                    }
+                    if (node.children){
+                        node.state = 'closed';
+                        node.children1 = node.children;
+                        node.children = undefined;
+                        todo = todo.concat(node.children1);
+                    }
+                }
+                state.tdata = data;
+            }
+            function find(id){
+                var data = state.tdata;
+                var cc = [data];
+                while(cc.length){
+                    var c = cc.shift();
+                    for(var i=0; i<c.length; i++){
+                        var node = c[i];
+                        if (node.id == id){
+                            return node;
+                        } else if (node.children1){
+                            cc.push(node.children1);
+                        }
+                    }
+                }
+                return null;
+            }
+
+            setData();
+
+            var t = $(this);
+            var opts = t.tree('options');
+            opts.onBeforeExpand = function(node){
+                var n = find(node.id);
+                if (n.children && n.children.length){return}
+                if (n.children1){
+                    var filter = opts.loadFilter;
+                    opts.loadFilter = function(data){return data;};
+                    t.tree('append',{
+                        parent:node.target,
+                        data:n.children1
+                    });
+                    opts.loadFilter = filter;
+                    n.children = n.children1;
+                }
+            };
+            return data;
+        }
+    </script>
+
+    <h2>Tree Lines</h2>
+    <p>This sample shows how to show tree lines.</p>
+    <div style="margin:10px 0;"></div>
+    <div class="easyui-panel" style="padding:5px">
+        <ul class="easyui-tree" data-options="url:'tree_data1.json',method:'get',animate:true,lines:true,checkbox:true"></ul>
+    </div>
+
+    <script>
+        $(function () {
+            changeLinkButtonIcon();
+        })
+    </script>
+
+</body>
+</html>

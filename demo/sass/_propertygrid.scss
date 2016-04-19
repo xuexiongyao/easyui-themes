@@ -1,0 +1,37 @@
+@charset "utf-8";
+
+/*propertygrid*/
+//------------------------
+.propertygrid{
+    .datagrid-view1{
+        .datagrid-body{
+            background: colors(white);
+            td{
+                padding-bottom: 1px;
+                border-width: 0 1px 0 0;
+                border-color: colors(borderColor);
+            }
+        }
+        .datagrid-group {
+            border-color: colors(borderColor);
+        }
+        .datagrid-row-over,.datagrid-row-selected{
+            background: colors(white);
+        }
+    }
+    .datagrid-view2{
+        .datagrid-group {
+            border-color: colors(borderColor);
+        }
+    }
+    .datagrid-group {
+        background: colors(tableHeadHover);
+        height: 21px;
+        overflow: hidden;
+        border-width: 0 0 1px 0;
+        border-style: solid;
+        span {
+            font-weight: bold;
+        }
+    }
+}

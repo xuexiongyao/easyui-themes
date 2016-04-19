@@ -1,0 +1,54 @@
+@charset "utf-8";
+
+/*numberspinner*/
+//-----------------------------
+.spinner {
+    @include inline-block;
+    white-space: nowrap;
+    @include attrMarginPadding;
+    @include border(1px,solid,colors(borderColor));
+    overflow: hidden;
+    .spinner-text {
+        font-size: fontSize(small);
+        @include attrMarginBorder;
+        padding: 0 2px;
+        @include inline-block(baseline);
+    }
+    .textbox-icon-disabled {
+        @include opacity(0.6);
+        .spinner-arrow-up:hover,.spinner-arrow-down:hover{
+            @include opacity(0.6);
+            background-color: colors(white);
+            cursor: default;
+        }
+    }
+}
+.spinner-arrow {
+    background-color: colors(inputColor);
+    @include inline-block(top);
+    overflow: hidden;
+    @include attrMarginPadding;
+    @include opacity(1.0);
+    width: 18px;
+}
+.spinner-arrow-up{
+    @include opacity(0.6);
+    display: block;
+    font-size: 1px;
+    @include size(100%,50%);
+    color: colors(textColor);
+    outline-style: none;
+    background-color: colors(inputColor);
+    background: url('images/spinner_arrows.png') no-repeat 1px center;
+    &:hover{
+        @include opacity(1.0);
+    }
+}
+.spinner-arrow-down{
+    @extend .spinner-arrow-up;
+    background: url('images/spinner_arrows.png') no-repeat -15px center;
+}
+.spinner-arrow-hover {
+    background-color: colors(white);
+    @include opacity(1.0);
+}

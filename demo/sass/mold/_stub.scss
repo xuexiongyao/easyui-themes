@@ -1,0 +1,45 @@
+@charset "utf-8";
+
+//--------------------------
+//stub  存根
+.stub{
+    li{
+        @include clearfix;
+        height:auto;
+        margin:20px 0;
+        @extend .wu-hao;
+        >span{
+            @extend .fang-song;
+            float: left;
+            width:23%;
+            text-align: right;
+            display: block;
+            line-height: 20px;
+            height:auto;
+        }
+        >p{
+            float: right;
+            margin:0;
+            width:75%;
+            height:auto;
+            overflow-x: hidden;
+            >span{
+                @extend .wu-hao;
+                @extend .fang-song;
+            }
+        }
+    }
+}
+
+//--------------------------
+//warrant 拘留证
+.warrant{
+    li{
+        >p{
+            line-height: 40px;
+            textarea,input{
+                vertical-align: middle;
+            }
+        }
+    }
+}

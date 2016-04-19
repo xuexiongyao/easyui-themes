@@ -1,0 +1,83 @@
+@charset "utf-8";
+
+/*pagination*/
+//------------------------------
+.pagination {
+    zoom: 1;
+    table {
+        float: left;
+        height: 30px;
+    }
+    td {
+        border: 0;
+    }
+    .pagination-num {
+        @include border(1px,solid,colors(borderColor));
+        margin: 0 2px;
+        padding: 2px;
+        @include size(2em,auto);
+    }
+    span {
+        font-size: fontSize(small);
+    }
+}
+.pagination-btn-separator {
+    @include float(left);
+    height: 24px;
+    border-left: 1px solid colors(borderColor);
+    border-right: 1px solid colors(borderColor);
+    margin: 3px 1px;
+}
+.pagination-page-list {
+    margin: 0 6px;
+    padding: 1px 2px;
+    @include square(auto);
+    @include border(1px,solid,colors(borderColor));
+}
+.pagination-info {
+    @include float(right);
+    margin: 0 6px 0 0;
+    padding: 0;
+    @include text-vertical-center(30px);
+    font-size: fontSize(small);
+}
+.pagination-link{
+    .l-btn-text {
+        width: 24px;
+        text-align: center;
+        margin: 0;
+    }
+}
+.pagination-first {
+    background: url('images/pagination_icons.png') no-repeat 0 center;
+}
+.pagination-first-hover {
+    background: url('images/paginationhover_icons.png') no-repeat 0 center;
+}
+.pagination-prev {
+    background: url('images/pagination_icons.png') no-repeat -16px center;
+}
+.pagination-prev-hover {
+    background: url('images/paginationhover_icons.png') no-repeat -16px center;
+}
+.pagination-next {
+    background: url('images/pagination_icons.png') no-repeat -32px center;
+}
+.pagination-next-hover {
+    background: url('images/paginationhover_icons.png') no-repeat -32px center;
+}
+.pagination-last {
+    background: url('images/pagination_icons.png') no-repeat -48px center;
+}
+.pagination-last-hover {
+    background: url('images/paginationhover_icons.png') no-repeat -48px center;
+}
+.pagination-load {
+    background: url('images/pagination_icons.png') no-repeat -64px center;
+}
+.pagination-load-hover {
+    background: url('images/paginationhover_icons.png') no-repeat -64px center;
+}
+.pagination-loading {
+    background: url('images/loading.gif') no-repeat center center;
+}

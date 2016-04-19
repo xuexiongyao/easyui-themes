@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Basic TextBox - jQuery EasyUI Demo</title>
+    <link rel="stylesheet" type="text/css" href="../../css/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../css/icon.css">
+    <link rel="stylesheet" type="text/css" href="../../css/iconHover.css">
+    <script type="text/javascript" src="../../../jquery.min.js"></script>
+    <script type="text/javascript" src="../../../jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../../../common.js"></script>
+</head>
+<body>
+<!--<h2>Basic DateBox</h2>-->
+<!--<p>Click the calendar image on the right side.</p>-->
+<!--<div style="margin:20px 0;"></div>-->
+<!--<input class="easyui-datebox" style="">-->
+
+
+<!--<h2>DateBox Buttons</h2>-->
+<!--<p>This example shows how to customize the datebox buttons underneath the calendar.</p>-->
+<!--<div style="margin:20px 0;"></div>-->
+<!--<input class="easyui-datebox">-->
+<!--<input class="easyui-datebox" data-options="buttons:buttons">-->
+<!--<script>-->
+<!--var buttons = $.extend([], $.fn.datebox.defaults.buttons);-->
+<!--buttons.splice(1, 0, {-->
+<!--text: 'MyBtn',-->
+<!--handler: function(target){-->
+<!--alert('click MyBtn');-->
+<!--}-->
+<!--});-->
+<!--</script>-->
+
+<!--<h2>Clone DateBox</h2>-->
+<!--<p>Click the 'Clone' button to clone datebox components from the exiting datebox.</p>-->
+<!--<div style="margin:20px 0;">-->
+<!--<a href="javascript:void(0)" class="easyui-linkbutton" onclick="cloneDatebox()">Clone</a>-->
+<!--</div>-->
+<!--<input id="dt" class="easyui-datebox">-->
+<!--<div id="cc" style="margin-top:10px"></div>-->
+<!--<script type="text/javascript">-->
+<!--function cloneDatebox(){-->
+<!--var dt = $('<input>').appendTo('#cc');-->
+<!--dt.datebox('cloneFrom', '#dt');-->
+<!--}-->
+<!--</script>-->
+
+<!--<h2>Date Format</h2>-->
+<!--<p>Different date formats are applied to different DateBox components.</p>-->
+<!--<div style="margin:20px 0;"></div>-->
+<!--<input class="easyui-datebox">-->
+<!--<input class="easyui-datebox" data-options="formatter:myformatter,parser:myparser">-->
+<!--<script type="text/javascript">-->
+<!--function myformatter(date){-->
+<!--var y = date.getFullYear();-->
+<!--var m = date.getMonth()+1;-->
+<!--var d = date.getDate();-->
+<!--return y+'-'+(m<10?('0'+m):m)+'-'+(d<10?('0'+d):d);-->
+<!--}-->
+<!--function myparser(s){-->
+<!--if (!s) return new Date();-->
+<!--var ss = (s.split('-'));-->
+<!--var y = parseInt(ss[0],10);-->
+<!--var m = parseInt(ss[1],10);-->
+<!--var d = parseInt(ss[2],10);-->
+<!--if (!isNaN(y) && !isNaN(m) && !isNaN(d)){-->
+<!--return new Date(y,m-1,d);-->
+<!--} else {-->
+<!--return new Date();-->
+<!--}-->
+<!--}-->
+<!--</script>-->
+
+<!--<h2>DateBox Events</h2>-->
+<!--<p>Click the calendar image on the right side.</p>-->
+<!--<div style="margin:20px 0;"></div>-->
+<!--<input class="easyui-datebox" data-options="onSelect:onSelect">-->
+<!--<div style="margin:10px 0">-->
+<!--<span>Selected Date: </span>-->
+<!--<span id="result"></span>-->
+<!--</div>-->
+<!--<script>-->
+<!--function onSelect(date){-->
+<!--$('#result').text(date)-->
+<!--}-->
+<!--</script>-->
+
+<!--<h2>Fluid DateBox</h2>-->
+<!--<p>This example shows how to set the width of DateBox to a percentage of its parent container.</p>-->
+<!--<div style="margin:20px 0;"></div>-->
+<!--<p>width: 50%</p>-->
+<!--<input class="easyui-datebox" data-options="" style="width:50%">-->
+<!--<p>width: 30%</p>-->
+<!--<input class="easyui-datebox" style="width:30%">-->
+
+<!--<h2>Restrict Date Range in DateBox</h2>-->
+<!--<p>This example shows how to restrict the user to select only ten days from now.</p>-->
+<!--<div style="margin:20px 0;"></div>-->
+<!--<input id="dd">-->
+<!--<script>-->
+    <!--$(function () {-->
+        <!--$('#dd').datebox().datebox('calendar').calendar({-->
+            <!--validator: function (date) {-->
+                <!--var now = new Date();-->
+                <!--var d1 = new Date(now.getFullYear(), now.getMonth(), now.getDate());-->
+                <!--var d2 = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 10);-->
+                <!--return d1 <= date && date <= d2;-->
+            <!--}-->
+        <!--});-->
+    <!--});-->
+<!--</script>-->
+
+<!--<h2>Shared Calendar in DateBox</h2>-->
+<!--<p>Multiple datebox components can share a calendar and use it to pick dates.</p>-->
+<!--<div style="margin:20px 0;"></div>-->
+<!--<table>-->
+<!--<tr>-->
+<!--<td>Start Date:</td>-->
+<!--<td>-->
+<!--<input class="easyui-datebox" data-options="sharedCalendar:'#cc1'">-->
+<!--</td>-->
+<!--<td>End Date:</td>-->
+<!--<td>-->
+<!--<input class="easyui-datebox" data-options="sharedCalendar:'#cc1'">-->
+<!--</td>-->
+<!--</tr>-->
+<!--</table>-->
+<!--<div id="cc1" class="easyui-calendar"></div>-->
+
+<!--<h2>Validate DateBox</h2>-->
+<!--<p>When the selected date is greater than specified date. The field validator will raise an error.</p>-->
+<!--<div style="margin:20px 0;"></div>-->
+<!--<input class="easyui-datebox" required data-options="validType:'md[\'10/11/2012\']'">-->
+<!--<script>-->
+<!--$.extend($.fn.validatebox.defaults.rules, {-->
+<!--md: {-->
+<!--validator: function(value, param){-->
+<!--var d1 = $.fn.datebox.defaults.parser(param[0]);-->
+<!--var d2 = $.fn.datebox.defaults.parser(value);-->
+<!--return d2<=d1;-->
+<!--},-->
+<!--message: 'The date must be less than or equals to {0}.'-->
+<!--}-->
+<!--})-->
+<!--</script>-->
+
+start time：<input id="st" class="easyui-datebox" data-options="">
+end time：<input id="et" class="easyui-datebox" data-options="disabled:true">
+
+
+<script>
+    var v = $("#st").datebox('getValue');
+    console.log(v);
+
+//    $("#st").datebox({
+//        onSelect: function () {
+//            var st = new Date($("#st").datebox('getValue'));
+//            $("#et").datebox({
+//                disabled:false
+//            }).datebox('calendar').calendar({
+//                validator: function (date) {
+//                    var today = new Date();
+//                    return date <= today  && date >= st ;
+//                }
+//            });
+//        }
+//    }).datebox('calendar').calendar({
+//        validator: function (date) {
+//            var now = new Date();
+//            return date <= now;
+//        }
+//    });
+</script>
+
+<script>
+    $(function () {
+//            $("input.easyui-datebox").datebox({
+//                onSelect: function () {
+//                    var st = new Date($("#st").datebox('getValue'));
+//                    return st;
+//                }
+//            });
+
+
+
+
+//        $("input.easyui-datebox").datebox({
+//            onSelect: function (date) {
+//                var st = new Date($("#st").datebox('getValue'));
+//                console.log(st);
+//                var et = new Date(st);
+//                console.log(st);
+//                if (et < st) {
+//                    $("#et").datebox('setValue', '').datebox('showPanel');
+//                }
+//            }
+//        });
+
+
+        changeLinkButtonIcon();
+    });
+
+    //        function select(e){
+    //            var st = $("#st").datebox('getValue');
+    //            console.log(st)
+    //            var isst = this.id =='st',
+    //                    st =isst? e:new Date($('#st').datebox('getValue')),
+    //                    et = isst? new Date($('#et').datebox('getValue')) : e;
+    //            console.log(st);
+    //            if(et<st){
+    //                alert('结束日期小于开始日期');
+    //                $('#et').datebox('setValue', '').datebox('showPanel');
+    //            }
+    //        }
+
+</script>
+
+</body>
+</html>

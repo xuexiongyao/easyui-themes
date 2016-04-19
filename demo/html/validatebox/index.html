@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Basic TextBox - jQuery EasyUI Demo</title>
+    <link rel="stylesheet" type="text/css" href="../../css/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../css/icon.css">
+    <link rel="stylesheet" type="text/css" href="../../css/iconHover.css">
+    <script type="text/javascript" src="../../../jquery.min.js"></script>
+    <script type="text/javascript" src="../../../jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../../../common.js"></script>
+</head>
+<body>
+    <h2>Basic ValidateBox</h2>
+    <p>It's easy to add validate logic to a input box.</p>
+    <div style="margin:20px 0;"></div>
+    <div class="easyui-panel" title="Register" style="width:400px;padding:10px 60px 20px 60px">
+        <table cellpadding="5">
+            <tr>
+                <td>User Name:</td>
+                <td><input class="easyui-validatebox textbox" data-options="prompt:'please enter correct info',required:true,validType:'length[3,10]'"></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input class="easyui-validatebox textbox" data-options="prompt:'please enter correct email',required:true,validType:'email'"></td>
+            </tr>
+            <tr>
+                <td>Birthday:</td>
+                <td><input class="easyui-datebox textbox" data-options=""></td>
+            </tr>
+            <tr>
+                <td>URL:</td>
+                <td><input class="easyui-validatebox textbox" data-options="prompt:'please enter correct url',required:true,validType:'url'"></td>
+            </tr>
+            <tr>
+                <td>Phone:</td>
+                <td><input class="easyui-validatebox textbox" data-options="prompt:'please enter correct number',required:true,validType:'number'"></td>
+            </tr>
+        </table>
+    </div>
+    <style scoped="scoped">
+        .textbox{
+            height:20px;
+            margin:0;
+            padding:0 2px;
+            box-sizing:content-box;
+        }
+    </style>
+
+    <script>
+        $(function () {
+            $("input.easyui-validatebox").validatebox({
+                tipOptions:{
+                    showEvent:'mouseenter',
+                    hideEvent:'mouseleave',
+                    showDelay:200,
+                    hideDelay:100,
+                    zIndex:'',
+                    onShow: function (e) {
+                        if(!$(this).hasClass('easyui-validatebox')){
+                            if($(this).tooltip('options').prompt){
+                                $(this).tooltip('update',$(this).tooltip('options').prompt);
+                            }else{
+                                $(this).tooltip('hide');
+                            }
+                        }else{
+                            $(this).tooltip('tip').css({
+                                color: '#fff',
+                                borderColor: '#000',
+                                backgroundColor: '#000'
+                            });
+                        }
+                    },
+                    onHide: function () {
+                        if(!$(this).tooltip('options').prompt){
+                            $(this).tooltip('destroy');
+                        }
+                    }
+                }
+            }).tooltip({
+                position:'right',
+                content: function () {
+                    var opt = $(this).validatebox('options');
+                    return opt.prompt;
+                },
+                onShow: function () {
+                    $(this).tooltip('tip').css({
+                        color: '#fff',
+                        borderColor: '#000',
+                        backgroundColor: '#000'
+                    })
+                }
+            })
+        })
+    </script>
+
+    <h2>Validate On Blur</h2>
+    <p>Active validation on first blur event.</p>
+    <div style="margin:20px 0;"></div>
+    <div class="easyui-panel" title="Register" style="width:400px;padding:10px 60px 20px 60px">
+        <table cellpadding="5">
+            <tr>
+                <td>User Name:</td>
+                <td><input class="easyui-validatebox textbox" data-options="prompt:'This filed is required',required:true,validType:'length[3,10]',novalidate:true"></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input class="easyui-validatebox textbox" data-options="prompt:'This filed is required',required:true,validType:'email',novalidate:true"></td>
+            </tr>
+            <tr>
+                <td>Birthday:</td>
+                <td><input class="easyui-datebox textbox" data-options="prompt:'This filed is required',required:true,novalidate:true"></td>
+            </tr>
+            <tr>
+                <td>URL:</td>
+                <td><input class="easyui-validatebox textbox" data-options="prompt:'This filed is required',required:true,validType:'url',novalidate:true"></td>
+            </tr>
+            <tr>
+                <td>Phone:</td>
+                <td><input class="easyui-validatebox textbox" data-options="prompt:'This filed is required',required:true,novalidate:true"></td>
+            </tr>
+        </table>
+    </div>
+    <script type="text/javascript">
+        $(function(){
+            $('.validatebox-text').on('blur', function(){
+                $(this).validatebox('enableValidation').validatebox('validate');
+            });
+        })
+    </script>
+
+    <script>
+        $(function () {
+            changeLinkButtonIcon();
+        })
+    </script>
+
+</body>
+</html>

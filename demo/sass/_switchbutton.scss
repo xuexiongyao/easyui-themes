@@ -1,0 +1,62 @@
+@charset "utf-8";
+
+/*switch button*/
+//-----------------------------
+.switchbutton {
+    text-decoration: none;
+    @include inline-block;
+    overflow: hidden;
+    @include attrMarginPadding;
+    cursor: pointer;
+    background: #bbb;
+    @include border(1px,solid,colors(borderColor));
+    @include prefix(border,radius,3px);
+}
+.switchbutton-inner {
+    display: inline-block;
+    @include containerBox;
+    top: -1px;
+    left: -1px;
+}
+.switchbutton-on, .switchbutton-off, .switchbutton-handle {
+    display: inline-block;
+    text-align: center;
+    height: 100%;
+    float: left;
+    font-size: fontSize(small);
+    @include prefix(border,radius,3px);
+}
+.switchbutton-on{
+    background: colors(red);
+    color: colors(white);
+}
+.switchbutton-off {
+    background-color: colors(white);
+    color: colors(black);
+}
+.switchbutton-on, .switchbutton-reversed .switchbutton-off {
+    @include prefix-all-round(border,radius,3px,0,0,3px);
+}
+.switchbutton-off, .switchbutton-reversed .switchbutton-on {
+    @include prefix-all-round(border,radius,0,3px,3px,0);
+}
+.switchbutton-handle {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    background-color: colors(white);
+    color: colors(black);
+    @include border(1px,solid,colors(borderColor));
+    @include box-shadow(0 0 15px rgba(0,0,0,0.5));
+}
+.switchbutton-value {
+    position: absolute;
+    top: 0;
+    left: -5000px;
+}
+.switchbutton-disabled {
+    @include opacity(0.5);
+}
+.switchbutton-disabled, .switchbutton-readonly {
+    cursor: not-allowed;
+}

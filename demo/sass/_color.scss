@@ -1,0 +1,92 @@
+@charset "utf-8";
+
+/*colors*/
+//------------------------------
+.c1{
+    color: colors(white);
+    border-color: colors(green);
+    background: colors(green);
+    @include animation-name(disNoneAnimation);
+    @include disableBtn;
+    &:hover{
+        background: darken(colors(green),5);
+        filter: none;
+    }
+}
+.c2{
+    color: colors(white);
+    border-color: colors(grayBgcolor);
+    background: colors(grayBgcolor);
+    @include animation-name(disNoneAnimation);
+    @include disableBtn;
+    &:hover{
+        background: darken(colors(grayBgcolor),5);
+        filter: none;
+    }
+}
+.c3{
+    color: colors(white);
+    border-color: colors(pink);
+    background: colors(pink);
+    @include animation-name(disNoneAnimation);
+    @include disableBtn;
+    &:hover{
+        background: darken(colors(pink),5);
+        filter: none;
+    }
+}
+.c4{
+    color: colors(white);
+    border-color: colors(lightQing);
+    background: colors(lightQing);
+    @include animation-name(disNoneAnimation);
+    @include disableBtn;
+    &:hover{
+        background: darken(colors(lightQing),5);
+        filter: none;
+    }
+}
+.c5{
+    color: colors(white);
+    border-color: colors(red);
+    background: colors(red);
+    @include animation-name(disNoneAnimation);
+    @include disableBtn;
+    &:hover{
+        background: darken(colors(red),5);
+        filter: none;
+    }
+}
+.c6{
+    color: colors(white);
+    border-color: colors(primary);
+    background: colors(primary);
+    @include animation-name(disNoneAnimation);
+    @include disableBtn;
+    &:hover{
+        background: darken(colors(primary),5);
+        filter: none;
+    }
+}
+.c7{
+    color: colors(white);
+    border-color: colors(yellow);
+    background: colors(yellow);
+    @include animation-name(disNoneAnimation);
+    @include disableBtn;
+    &:hover{
+        background: darken(colors(yellow),5);
+        filter: none;
+    }
+}
+.c8{
+    color: colors(white);
+    border-color: colors(lightblue);
+    background: colors(lightblue);
+    @include animation-name(disNoneAnimation);
+    @include disableBtn;
+    &:hover{
+        background: darken(colors(lightblue),5);
+        filter: none;
+    }
+}

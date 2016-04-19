@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Basic TextBox - jQuery EasyUI Demo</title>
+    <link rel="stylesheet" type="text/css" href="../../css/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../css/icon.css">
+    <link rel="stylesheet" type="text/css" href="../../css/iconHover.css">
+    <script type="text/javascript" src="../../../jquery.min.js"></script>
+    <script type="text/javascript" src="../../../jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../../../common.js"></script>
+</head>
+<body>
+
+    <!--<h2>Basic Dialog</h2>-->
+    <!--<p>Click below button to open or close dialog.</p>-->
+    <!--<div style="margin:20px 0;">-->
+        <!--<a href="javascript:void(0)" class="easyui-linkbutton" onclick="$('#dlg').dialog('open')">Open</a>-->
+        <!--<a href="javascript:void(0)" class="easyui-linkbutton" onclick="$('#dlg').dialog('close')">Close</a>-->
+    <!--</div>-->
+    <!--<div id="dlg" class="easyui-dialog" title="Basic Dialog" data-options="iconCls:'icon-save'" style="width:400px;height:200px;padding:10px">-->
+        <!--The dialog content.-->
+    <!--</div>-->
+
+    <h2>Complex Toolbar on Dialog</h2>
+    <p>This sample shows how to create complex toolbar on dialog.</p>
+    <div style="margin:20px 0;">
+        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="$('#dlg').dialog('open')">Open</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="$('#dlg').dialog('close')">Close</a>
+    </div>
+    <div id="dlg" class="easyui-dialog" title="Complex Toolbar on Dialog" style="width:400px;height:200px;padding:10px"
+         data-options="
+				iconCls: 'icon-save',
+				toolbar: '#dlg-toolbar',
+				buttons: '#dlg-buttons'
+			">
+        The dialog content.
+    </div>
+    <div id="dlg-toolbar" style="padding:2px 0">
+        <table cellpadding="0" cellspacing="0" style="width:100%">
+            <tr>
+                <td style="padding-left:2px">
+                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-edit',plain:true">Edit</a>
+                    <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-help',plain:true">Help</a>
+                </td>
+                <td style="text-align:right;padding-right:2px">
+                    <input class="easyui-searchbox" data-options="prompt:'Please input somthing'" style="width:150px"></input>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="dlg-buttons">
+        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="javascript:alert('save')">Save</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="javascript:$('#dlg').dialog('close')">Close</a>
+    </div>
+
+    <h2>Fluid Dialog</h2>
+    <p>This example shows how to set the width of Dialog to a percentage of its parent container.</p>
+    <div style="margin:20px 0;"></div>
+    <div class="easyui-dialog" title="Fluid Dialog" style="width:80%;height:200px;max-width:800px;padding:10px" data-options="
+			iconCls:'icon-save',
+			onResize:function(){
+				$(this).dialog('center');
+			}">
+        <p>width: 80%; height: 200px</p>
+    </div>
+
+    <h2>Toolbar and Buttons</h2>
+    <p>The toolbar and buttons can be added to dialog.</p>
+    <div style="margin:20px 0;">
+        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="$('#dlg').dialog('open')">Open</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="$('#dlg').dialog('close')">Close</a>
+    </div>
+    <div id="dlg" class="easyui-dialog" title="Toolbar and Buttons" style="width:400px;height:200px;padding:10px"
+         data-options="
+				iconCls: 'icon-save',
+				toolbar: [{
+					text:'Add',
+					iconCls:'icon-add',
+					handler:function(){
+						alert('add')
+					}
+				},'-',{
+					text:'Save',
+					iconCls:'icon-save',
+					handler:function(){
+						alert('save')
+					}
+				}],
+				buttons: [{
+					text:'Ok',
+					iconCls:'icon-ok',
+					handler:function(){
+						alert('ok');
+					}
+				},{
+					text:'Cancel',
+					handler:function(){
+						alert('cancel');;
+					}
+				}]
+			">
+        The dialog content.
+    </div>
+
+    <script>
+        $(function () {
+            changeLinkButtonIcon();
+        })
+    </script>
+
+</body>
+</html>

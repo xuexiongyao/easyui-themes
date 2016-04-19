@@ -1,0 +1,76 @@
+@charset "utf-8";
+
+//Triangle
+//--------------------------------------
+
+//Define @mixin content
+@mixin content{
+    content: '';
+    display: block;
+    width:0;
+    height:0;
+}
+
+%content{
+    @include content;
+}
+
+//--------------------------------------
+//Define @mixin triangle
+//--------------------------------------
+
+//默认值定义
+$size: 30px !default; // $size 三角形大小 默认值 30px
+$color: #000 !default; // $color 三角形颜色 默认值 #000
+$bgColor: #111 !default; // $bgColor 内嵌三角形颜色 默认值 #111
+$direction: up !default; // $direction 三角形的方向 默认值 up
+$inner: false !default; // $inner 三角形是否内嵌  默认值false 表示不内嵌
+$transparent: false !default; // $transparent 三角形是否透明  默认值false 表示不透明
+
+
+@mixin triangle($size,$bgColor,$color,$direction,$inner,$transparent){
+    //使用border制作三角形，有可能使用伪类生成
+    @extend %content;
+
+    position: absolute;//其父元素需要定义position:relative
+
+    //判断三角形形状
+    //三角形为 up | right | down | left
+
+    @if ($direction == up) or ($direction == right) or ($direction == down) or ($direction == left){
+        //设置边框
+        border: ($size/2) solid transparent;
+
+        //三角朝上
+        @if($direction == up){
+            @if $inner{
+                border-color: $bgColor transparent transparent transparent;
+                border-bottom-width: 0;
+                top:0;
+            } @else {
+                border-color: transparent transparent $color transparent;
+                border-top-width:0;
+                bottom: 100%;
+            }
+
+            //透明
+            @if $transparent{
+                border-color: transparent $color $color $color;
+                border-top-width: $size /2;
+                border-bottom-width: 0;
+            }
+        }
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+

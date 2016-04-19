@@ -1,0 +1,110 @@
+@charset "utf-8";
+/*panel*/
+.panel{
+    overflow: hidden;
+    @include attr(margin,0);
+    @include attr(border,0);
+    @include text-align(left);
+    @include prefix(border,radius,0);
+}
+
+.panel-body{
+    background-color: colors(white);
+    color: colors(black);
+    font-size: fontSize(base);
+    @include border(1px,solid,colors(borderColor));
+    @include attr(padding,0);
+    @include attr(border-top-width,0);
+    overflow: auto;
+}
+.panel-body-noheader {
+    @include attr(border-top-width,1px);
+}
+.panel-body-noborder, .panel-header-noborder{
+    @include attr(border,0);
+}
+.panel-body-nobottom {
+    @include attr(border-bottom-width,0);
+}
+.panel-header{
+    background-color: colors(accordionColor);//纯色背景
+    @include border(1px,solid,colors(borderColor));
+    @include attr(padding,5px);
+    position: relative;
+}
+.panel-title{
+    font-size: fontSize(base);
+    color: colors(black);
+    height: 20px;
+    line-height:lineHeight(base);
+}
+.panel-with-icon{
+    @include attr-fx(padding,left,18px);
+}
+.panel-icon{
+    @include div-vertical-center;
+    margin-top: -8px;
+    @include square(16px);
+    overflow: hidden;
+    left: 5px;
+}
+.panel-tool{
+    @include div-vertical-center;
+    margin-top: -8px;
+    @include size(auto,16px);
+    overflow: hidden;
+    right: 5px;
+    a{
+        @include inline-block(top);
+        @include square(16px);
+        @include opacity(0.6);
+        @include attr-all-around(margin,0,0,0,2px);
+        &:hover{
+            @extend %opaque;
+            background-color:colors(white);
+            @include prefix(border,radius,3px);
+        }
+    }
+}
+.panel-loading {
+    background: url('images/loading.gif') no-repeat 10px 10px;
+    @include attr-all-around(padding,11px,0,10px,30px);
+}
+.panel-tool-close {
+    background: url('images/panel_tools.png') no-repeat -16px 0px;
+}
+.panel-tool-min {
+    background: url('images/panel_tools.png') no-repeat 0px 0px;
+}
+.panel-tool-max {
+    background: url('images/panel_tools.png') no-repeat 0px -16px;
+}
+.panel-tool-restore {
+    background: url('images/panel_tools.png') no-repeat -16px -16px;
+}
+.panel-tool-collapse {
+    background: url('images/panel_tools.png') no-repeat -32px 0;
+}
+.panel-tool-expand {
+    background: url('images/panel_tools.png') no-repeat -32px -16px;
+}
+.panel-noscroll {
+    overflow: hidden;
+}
+.panel-fit, .panel-fit body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+}
+.panel-footer {
+    @include border(1px,solid,colors(borderColor));
+    overflow: hidden;
+    background: colors(footerBgcolor);
+    padding: 5px;
+    font-size:fontSize(small);
+}
+.panel-footer-noborder {
+    border-top-width: 1px;
+}

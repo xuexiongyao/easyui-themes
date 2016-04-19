@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+/**/
+//---------------------------------
+.numberspinner-arrow-up{
+    @include opacity(0.6);
+    display: block;
+    font-size: 1px;
+    @include size(100%,50%);
+    color: colors(textColor);
+    outline-style: none;
+    background-color: colors(inputColor);
+    background: url('images/spinner_arrows.png') no-repeat 1px center;
+    &:hover{
+        @include opacity(1.0);
+    }
+}
+.numberspinner-arrow-down{
+    @extend .spinner-arrow-up;
+    background: url('images/spinner_arrows.png') no-repeat -15px center;
+}
+.numberspinner-arrow-hover {
+    background-color: colors(white);
+    @include opacity(1.0);
+}

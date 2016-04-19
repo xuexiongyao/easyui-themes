@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Basic TextBox - jQuery EasyUI Demo</title>
+    <link rel="stylesheet" type="text/css" href="../../css/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../css/icon.css">
+    <link rel="stylesheet" type="text/css" href="../../css/iconHover.css">
+    <script type="text/javascript" src="../../../jquery.min.js"></script>
+    <script type="text/javascript" src="../../../jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../../../common.js"></script>
+</head>
+<body style="margin: 100px 10px;">
+    <h2>Basic Tooltip</h2>
+    <p>Hover the links to display tooltip message.</p>
+    <div style="margin:20px 0;"></div>
+    <p>The tooltip can use each elements title attribute.
+        <a href="#" title="This is the tooltip message." class="easyui-tooltip">Hover me</a> to display tooltip.
+    </p>
+
+    <h2>Ajax Tooltip</h2>
+    <p>The tooltip content can be loaded via AJAX.</p>
+    <div style="margin:20px 0;"></div>
+    <a href="#" class="easyui-tooltip" data-options="
+			content: $('<div></div>'),
+			onShow: function(){
+				$(this).tooltip('arrow').css('left', 20);
+				$(this).tooltip('tip').css('left', $(this).offset().left);
+			},
+			onUpdate: function(cc){
+				cc.panel({
+					width: 500,
+					height: 'auto',
+					border: false,
+					href: '_content.html'
+				});
+			}
+		">Hove me</a> to display tooltip content via AJAX.
+
+    <h2>Custom Tooltip Content</h2>
+    <p>Access to each elements attribute to get the tooltip content.</p>
+    <div style="margin:20px 0;"></div>
+    <div class="easyui-panel">
+        <div id="pg" data-options="total:114"></div>
+    </div>
+
+    <script>
+        $(function(){
+            $('#pg').pagination().find('a.l-btn').tooltip({
+                content: function(){
+                    var cc = $(this).find('span.l-btn-icon').attr('class').split(' ');
+                    var icon = cc[1].split('-')[1];
+                    return icon + ' page';
+                }
+            });
+        });
+    </script>
+
+    <h2>Custom Tooltip Style</h2>
+    <p>This sample shows how to change the tooltip style.</p>
+    <div style="margin:s0px 0;"></div>
+    <div style="padding:10px 200px">
+        <div id="pp1" class="easyui-panel" style="width:100px;padding:5px">Hover Me</div>
+    </div>
+    <div style="padding:10px 200px">
+        <div id="pp2" class="easyui-panel" style="width:100px;padding:5px">Hover Me</div>
+    </div>
+    <script>
+        $(function(){
+            $('#pp1').tooltip({
+                position: 'right',
+                content: '<span style="color:#fff">This is the tooltip message.</span>',
+                onShow: function(){
+                    $(this).tooltip('tip').css({
+                        backgroundColor: '#666',
+                        borderColor: '#666'
+                    });
+                }
+            });
+            $('#pp2').tooltip({
+                position: 'bottom',
+                content: '<div style="padding:5px;background:#eee;color:#000">This is the tooltip message.</div>',
+                onShow: function(){
+                    $(this).tooltip('tip').css({
+                        backgroundColor: '#fff000',
+                        borderColor: '#ff0000',
+                        boxShadow: '1px 1px 3px #292929'
+                    });
+                },
+                onPosition: function(){
+                    $(this).tooltip('tip').css('left', $(this).offset().left);
+                    $(this).tooltip('arrow').css('left', 20);
+                }
+            });
+        });
+    </script>
+
+    <h2>Tooltip Position</h2>
+    <p>Click the drop-down list below to change where the tooltip appears.</p>
+    <div style="margin:20px 0;"></div>
+    <span>Select position:</span>
+    <select onchange="changePosition(this.value)">
+        <option value="bottom">Bottom</option>
+        <option value="top">Top</option>
+        <option value="left">Left</option>
+        <option value="right">Right</option>
+    </select>
+    <div style="padding:10px 200px">
+        <div id="pp" class="easyui-panel easyui-tooltip" title="This is the tooltip message." style="width:100px;padding:5px">Hover Me</div>
+    </div>
+    <script type="text/javascript">
+        function changePosition(pos){
+            $('#pp').tooltip({
+                position: pos
+            });
+        }
+    </script>
+
+    <h2>Tooltip as Toolbar</h2>
+    <p>This sample shows how to create a tooltip style toolbar.</p>
+    <div style="margin:20px 0;"></div>
+    <div style="padding:10px 200px">
+        <p><a id="dd" href="javascript:void(0)" class="easyui-tooltip" data-options="
+					hideEvent: 'none',
+					content: function(){
+						return $('#toolbar');
+					},
+					onShow: function(){
+						var t = $(this);
+						t.tooltip('tip').focus().unbind().bind('blur',function(){
+							t.tooltip('hide');
+						});
+					}
+				">Hover me</a> to display toolbar.</p>
+    </div>
+    <div style="display:none">
+        <div id="toolbar">
+            <a href="#" class="easyui-linkbutton easyui-tooltip" title="Add" data-options="iconCls:'icon-add',plain:true"></a>
+            <a href="#" class="easyui-linkbutton easyui-tooltip" title="Cut" data-options="iconCls:'icon-cut',plain:true"></a>
+            <a href="#" class="easyui-linkbutton easyui-tooltip" title="Remove" data-options="iconCls:'icon-remove',plain:true"></a>
+            <a href="#" class="easyui-linkbutton easyui-tooltip" title="Undo" data-options="iconCls:'icon-undo',plain:true"></a>
+            <a href="#" class="easyui-linkbutton easyui-tooltip" title="Redo" data-options="iconCls:'icon-redo',plain:true"></a>
+        </div>
+    </div>
+
+    <h2>Tooltip Dialog</h2>
+    <p>This sample shows how to create a tooltip dialog.</p>
+    <div style="margin:20px 0;"></div>
+    <div style="padding:10px 200px">
+        <p><a id="dd2" href="javascript:void(0)">Click here</a> to see the tooltip dialog.
+    </div>
+    <script>
+        $(function(){
+            $('#dd2').tooltip({
+                content: $('<div></div>'),
+                showEvent: 'click',
+                onUpdate: function(content){
+                    content.panel({
+                        width: 200,
+                        border: false,
+                        title: 'Login',
+                        href: '_dialog.html'
+                    });
+                },
+                onShow: function(){
+                    var t = $(this);
+                    t.tooltip('tip').unbind().bind('mouseenter', function(){
+                        t.tooltip('show');
+                    }).bind('mouseleave', function(){
+                        t.tooltip('hide');
+                    });
+                }
+            });
+        });
+    </script>
+
+    <script>
+        $(function () {
+            changeLinkButtonIcon();
+        })
+    </script>
+
+</body>
+</html>
