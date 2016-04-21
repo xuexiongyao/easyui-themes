@@ -1,0 +1,115 @@
+@charset "utf-8";
+
+@import "sass/mixins/triangle";
+
+//设置元素基本变量
+//$bgColor:#000;
+//$color:#fff;
+$unit:30px;
+$color: #0e6595;
+
+//基本样式
+.wrap{
+    position: relative;
+    display: inline-block;
+    background: $color;
+    margin:$unit;
+    padding:0 $unit/6;
+    width: auto;
+    height:$unit*1.5;
+    line-height:$unit*1.5;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+}
+.wrap-no-radius{
+    border-radius: 0;
+}
+
+//调用triangle
+.up{
+    &:before{
+        @include triangle(20px,$bgColor,$color,up,false,false);
+    }
+}
+.up-inner {
+    &:before {
+        @include triangle(20px,#fff,$color,up,true,false);
+    }
+}
+.up-transparent{
+    &:before {
+        @include triangle(20px,$bgColor,$color,up,false,true);
+    }
+}
+.right{
+    &:before{
+        @include triangle(20px,$bgColor,$color,right,false,false);
+    }
+}
+.right-inner{
+    &:before{
+        @include triangle(20px,#fff,$color,right,true,false);
+    }
+}
+.right-transparent{
+    &:before{
+        @include triangle(20px,$bgColor,$color,right,false,true);
+    }
+}
+.down{
+    &:before{
+        @include triangle(20px,$bgColor,$color,down,false,false);
+    }
+}
+.down-inner{
+    &:before{
+        @include triangle(20px,#fff,$color,down,true,false);
+    }
+}
+.down-transparent{
+    &:before{
+        @include triangle(20px,$bgColor,$color,down,false,true);
+    }
+}
+.left{
+    &:before{
+        @include triangle(20px,$bgColor,$color,left,false,false);
+    }
+}
+.left-inner{
+    &:before{
+        @include triangle(20px,#fff,$color,left,true,false);
+    }
+}
+.left-transparent{
+    &:before{
+        @include triangle(20px,$bgColor,$color,left,false,true);
+    }
+}
+.up-left-right{
+    &:before{
+        @include triangle(10px,$bgColor,darken($color,15%),up-left,false,false);
+    }
+    &:after{
+        @include triangle(10px,$bgColor,darken($color,15%),up-right,false,false);
+    }
+}
+.up-left{
+    &:before{
+        @include triangle(10px,$bgColor,darken($color,15%),up-right,false,false);
+    }
+}
+.up-right{
+    &:before{
+        @include triangle(10px,$bgColor,darken($color,15%),up-left,false,false);
+    }
+}
+.down-left-right{
+    &:before{
+        @include triangle(10px,$bgColor,darken($color,15%),down-left,false,false);
+    }
+    &:after{
+        @include triangle(10px,$bgColor,darken($color,15%),down-right,false,false);
+    }
+}

@@ -2549,8 +2549,8 @@ body {
 .slider-v {
   width: 22px; }
   .slider-v .slider-inner {
-    width: 6px;
-    left: 7px;
+    width: 0;
+    left: 10.5px;
     top: 0;
     float: left; }
   .slider-v .slider-handle {
@@ -2562,7 +2562,7 @@ body {
   .slider-v .slider-rule {
     float: left;
     top: 0;
-    left: 16px; }
+    left: 20px; }
     .slider-v .slider-rule span {
       width: 5px;
       height: 'auto';
@@ -2571,14 +2571,16 @@ body {
   .slider-v .slider-rulelabel {
     float: left;
     top: 0;
-    left: 23px; }
+    left: 27px; }
 
 .slider-inner {
   position: relative;
-  height: 6px;
-  top: 7px;
+  height: 0;
+  top: 10.5px;
   background: #fff;
   border: 1px solid #ccc;
+  border-bottom-width: 0;
+  border-left-width: 0;
   border-radius: 3px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -2624,6 +2626,58 @@ body {
     display: inline-block;
     font-size: 12px;
     color: #000; }
+
+.slider {
+  position: relative;
+  z-index: 1; }
+
+.ends-circle {
+  position: absolute;
+  z-index: 0;
+  width: 9px;
+  height: 9px;
+  border-radius: 100%;
+  border: 1px solid #ccc; }
+  .ends-circle span {
+    position: absolute;
+    z-index: 0;
+    display: block; }
+
+.ends-circle-l {
+  top: 5.5px;
+  left: -20px; }
+  .ends-circle-l span {
+    right: -10px;
+    width: 10px;
+    top: 4px;
+    border-bottom: 1px solid #ccc; }
+
+.ends-circle-r {
+  top: 5.5px;
+  right: -20px; }
+  .ends-circle-r span {
+    left: -10px;
+    width: 10px;
+    top: 4px;
+    border-bottom: 1px solid #ccc; }
+
+.ends-circle-t {
+  top: -20px;
+  left: 5.5px; }
+  .ends-circle-t span {
+    bottom: -10px;
+    height: 10px;
+    left: 4px;
+    border-left: 1px solid #ccc; }
+
+.ends-circle-b {
+  bottom: -20px;
+  left: 5.5px; }
+  .ends-circle-b span {
+    top: -10px;
+    height: 10px;
+    left: 4px;
+    border-left: 1px solid #ccc; }
 
 /*split button*/
 .s-btn:hover .m-btn-line, .s-btn-active .m-btn-line, .s-btn-plain-active .m-btn-line {

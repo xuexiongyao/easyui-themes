@@ -11,8 +11,8 @@
 .slider-v {
     width: 22px;
     .slider-inner {
-        width: 6px;
-        left: 7px;
+        width: 0;
+        left: 10.5px;
         top: 0;
         float: left;
     }
@@ -27,7 +27,7 @@
     .slider-rule {
         float: left;
         top: 0;
-        left: 16px;
+        left: 20px;
         span {
             width: 5px;
             height: 'auto';
@@ -38,15 +38,17 @@
     .slider-rulelabel {
         float: left;
         top: 0;
-        left: 23px;
+        left: 27px;
     }
 }
 .slider-inner {
     position: relative;
-    height: 6px;
-    top: 7px;
+    height: 0;
+    top: 10.5px;
     background: colors(white);
     @include border(1px,solid,colors(borderColor));
+    border-bottom-width:0;
+    border-left-width: 0;
     @include prefix(border,radius,3px);
 }
 .slider-handle {
@@ -84,5 +86,76 @@
         @include positionDisplay(absolute,inline-block);
         font-size: fontSize(small);
         color: colors(black);
+    }
+}
+.slider{
+    position: relative;
+    z-index: 1;
+}
+////slider-box
+//.slider-box{
+//    position: relative;
+//    width:auto;
+//    height:auto;
+//    display: block;
+//}
+//.slider-box-h{
+//    padding: 0 20px;
+//}
+//.slider-box-v{
+//    padding: 20px 0;
+//}
+
+//slider ends circle
+.ends-circle{
+    position: absolute;
+    z-index: 0;
+    @include square(9px);
+    border-radius: 100%;
+    @include border(1px,solid,colors(borderColor));
+    span{
+        position: absolute;
+        z-index: 0;
+        display: block;
+    }
+}
+.ends-circle-l{
+    top:5.5px;
+    left:-20px;
+    span{
+        right:-10px;
+        width: 10px;
+        top: 4px;
+        border-bottom:1px solid colors(borderColor);
+    }
+}
+.ends-circle-r{
+    top:5.5px;
+    right:-20px;
+    span{
+        left:-10px;
+        width: 10px;
+        top: 4px;
+        border-bottom:1px solid colors(borderColor);
+    }
+}
+.ends-circle-t{
+    top: -20px;
+    left: 5.5px;
+    span{
+        bottom: -10px;
+        height:10px;
+        left: 4px;
+        border-left:1px solid colors(borderColor);
+    }
+}
+.ends-circle-b{
+    bottom:-20px;
+    left: 5.5px;
+    span{
+        top: -10px;
+        height:10px;
+        left: 4px;
+        border-left:1px solid colors(borderColor);
     }
 }

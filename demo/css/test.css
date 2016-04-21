@@ -1,0 +1,183 @@
+.up:before, .up-inner:before, .up-transparent:before, .right:before, .right-inner:before, .right-transparent:before, .down:before, .down-inner:before, .down-transparent:before, .left:before, .left-inner:before, .left-transparent:before, .up-left-right:before, .up-left-right:after, .up-left:before, .up-right:before, .down-left-right:before, .down-left-right:after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0; }
+
+.wrap {
+  position: relative;
+  display: inline-block;
+  background: #0e6595;
+  margin: 30px;
+  padding: 0 5px;
+  width: auto;
+  height: 45px;
+  line-height: 45px;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px; }
+
+.wrap-no-radius {
+  border-radius: 0; }
+
+.up:before {
+  position: absolute;
+  border: 10px solid transparent;
+  border-color: transparent transparent #0e6595 transparent;
+  border-top-width: 0;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -10px; }
+
+.up-inner:before {
+  position: absolute;
+  border: 10px solid transparent;
+  border-color: #fff transparent transparent transparent;
+  border-bottom-width: 0;
+  top: 0;
+  left: 50%;
+  margin-left: -10px; }
+
+.up-transparent:before {
+  position: absolute;
+  border: 10px solid transparent;
+  border-color: transparent transparent #0e6595 transparent;
+  border-top-width: 0;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -10px;
+  border-color: transparent #0e6595 #0e6595 #0e6595;
+  border-top-width: 10px;
+  border-bottom-width: 0; }
+
+.right:before {
+  position: absolute;
+  border: 10px solid transparent;
+  border-color: transparent transparent transparent #0e6595;
+  border-right-width: 0;
+  left: 100%;
+  top: 50%;
+  margin-top: -10px; }
+
+.right-inner:before {
+  position: absolute;
+  border: 10px solid transparent;
+  border-color: transparent #fff transparent transparent;
+  border-left-width: 0;
+  right: 0;
+  top: 50%;
+  margin-top: -10px; }
+
+.right-transparent:before {
+  position: absolute;
+  border: 10px solid transparent;
+  border-color: transparent transparent transparent #0e6595;
+  border-right-width: 0;
+  left: 100%;
+  top: 50%;
+  margin-top: -10px;
+  border-color: #0e6595 transparent #0e6595 #0e6595;
+  border-right-width: 10px;
+  border-left-width: 0; }
+
+.down:before {
+  position: absolute;
+  border: 10px solid transparent;
+  border-color: #0e6595 transparent transparent transparent;
+  border-bottom-width: 0;
+  top: 100%;
+  left: 50%;
+  margin-left: -10px; }
+
+.down-inner:before {
+  position: absolute;
+  border: 10px solid transparent;
+  border-color: transparent transparent #fff transparent;
+  border-top-width: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -10px; }
+
+.down-transparent:before {
+  position: absolute;
+  border: 10px solid transparent;
+  border-color: #0e6595 transparent transparent transparent;
+  border-bottom-width: 0;
+  top: 100%;
+  left: 50%;
+  margin-left: -10px;
+  border-color: #0e6595 #0e6595 transparent #0e6595;
+  border-bottom-width: 10px;
+  border-top-width: 0; }
+
+.left:before {
+  position: absolute;
+  border: 10px solid transparent;
+  border-color: transparent #0e6595 transparent transparent;
+  border-left-width: 0;
+  right: 100%;
+  top: 50%;
+  margin-top: -10px; }
+
+.left-inner:before {
+  position: absolute;
+  border: 10px solid transparent;
+  border-color: transparent transparent transparent #fff;
+  border-right-width: 0;
+  left: 0;
+  top: 50%;
+  margin-top: -10px; }
+
+.left-transparent:before {
+  position: absolute;
+  border: 10px solid transparent;
+  border-color: transparent #0e6595 transparent transparent;
+  border-left-width: 0;
+  right: 100%;
+  top: 50%;
+  margin-top: -10px;
+  border-color: #0e6595 #0e6595 #0e6595 transparent;
+  border-left-width: 10px;
+  border-right-width: 0; }
+
+.up-left-right:before {
+  position: absolute;
+  border-top: 10px solid #07364f;
+  top: 100%;
+  border-right: 10px solid transparent;
+  right: 0; }
+.up-left-right:after {
+  position: absolute;
+  border-top: 10px solid #07364f;
+  top: 100%;
+  border-left: 10px solid transparent;
+  left: 0; }
+
+.up-left:before {
+  position: absolute;
+  border-top: 10px solid #07364f;
+  top: 100%;
+  border-left: 10px solid transparent;
+  left: 0; }
+
+.up-right:before {
+  position: absolute;
+  border-top: 10px solid #07364f;
+  top: 100%;
+  border-right: 10px solid transparent;
+  right: 0; }
+
+.down-left-right:before {
+  position: absolute;
+  border-bottom: 10px solid #07364f;
+  bottom: 100%;
+  border-right: 10px solid transparent;
+  right: 0; }
+.down-left-right:after {
+  position: absolute;
+  border-bottom: 10px solid #07364f;
+  bottom: 100%;
+  border-left: 10px solid transparent;
+  left: 0; }
+
+/*# sourceMappingURL=test.css.map */

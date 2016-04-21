@@ -10,20 +10,21 @@
     <script type="text/javascript" src="../../../jquery.easyui.min.js"></script>
     <script type="text/javascript" src="../../../common.js"></script>
 </head>
-<body>
+<body style="background: #004e00;padding: 0 50px;">
 
     <h2>Basic Slider</h2>
     <p>Drag the slider to change value.</p>
     <div style="margin:20px 0 50px 0;"></div>
-    <input class="easyui-slider" style="width:300px" data-options="showTip:true">
+        <input class="easyui-slider" value="50" style="width:300px" data-options="showTip:true">
 
     <h2>Fluid Slider</h2>
     <p>This example shows how to set the width of Slider to a percentage of its parent container.</p>
     <div style="margin:20px 0 50px 0;"></div>
     <p>width: 50%</p>
-    <input class="easyui-slider" value="50" data-options="showTip:true" style="width:50%;">
+        <input class="easyui-slider" value="50" data-options="showTip:true" style="width:50%;">
+
     <p>width: 30%</p>
-    <input class="easyui-slider" value="50" data-options="showTip:true" style="width:30%;">
+        <input class="easyui-slider" value="50" data-options="showTip:true" style="width:30%;">
 
 
     <h2>Format Tip Information</h2>
@@ -44,7 +45,6 @@
     <h2>Non Linear Slider</h2>
     <p>This example shows how to create a slider with a non-linear scale.</p>
     <div style="margin:20px 0 50px 0;"></div>
-    <div style="padding:2px">
         <input class="easyui-slider" style="width:400px" data-options="
 			showTip:true,
 			rule: [0,'PI/4','PI/2'],
@@ -71,7 +71,6 @@
 				p.css(opts.reversed?'right':'left', pos);
 			}
 			">
-    </div>
     <div style="margin-bottom:30px"></div>
     <div id="cc" class="easyui-panel" style="position:relative;width:404px;height:304px;">
     </div>
@@ -100,27 +99,48 @@
     <h2>Slider Rule</h2>
     <p>This sample shows how to define slider rule.</p>
     <div style="margin:20px 0 50px 0;"></div>
-    <input class="easyui-slider" style="width:300px" data-options="
+        <input class="easyui-slider" style="width:500px" data-options="
 				showTip:true,
 				rule: [0,'|',25,'|',50,'|',75,'|',100]
 			">
 
+
     <h2>Vertical Slider</h2>
     <p>This sample shows how to create a vertical slider.</p>
     <div style="margin:20px 0 50px 0;"></div>
-    <div style="margin:0 50px">
-        <input class="easyui-slider" style="height:300px" data-options="
+        <input class="easyui-slider" style="height:100px" data-options="
 				showTip: true,
 				mode: 'v',
 				reversed: false,
 				rule: [0,'|',25,'|',50,'|',75,'|',100]
 			">
-    </div>
 
     <script>
         $(function () {
+            sliderEndsCircle();
             changeLinkButtonIcon();
-        })
+        });
+
+        //添加滑块两端圆圈方法
+        function sliderEndsCircle(){
+            var sliderItem = $(".easyui-slider");//所有的滑块组件
+            var slider = $('.slider');//获得滑块组件
+
+            for (var i=0;i<sliderItem.length;i++){
+                var mode = $(sliderItem[i]).slider('options').mode;//获取滑块的方向
+                if(mode == 'h'){//横向滑块
+                    var strL = '<div class="ends-circle ends-circle-l"><span></span></div>';
+                    var strR = '<div class="ends-circle ends-circle-r"><span></span></div>';
+                    $(slider[i]).prepend(strL);
+                    $(slider[i]).prepend(strR);
+                }else if(mode == 'v'){//垂直滑块
+                    var strT = '<div class="ends-circle ends-circle-t"><span></span></div>';
+                    var strB = '<div class="ends-circle ends-circle-b"><span></span></div>';
+                    $(slider[i]).prepend(strT);
+                    $(slider[i]).prepend(strB);
+                }
+            }
+        }
     </script>
 
 </body>
