@@ -13,202 +13,215 @@
 </head>
 <body style="margin: 50px 10px;">
 
-    <h2>Basic DataGrid</h2>
-    <p>The DataGrid is created from markup, no JavaScript code needed.</p>
-    <div style="margin:20px 0;"></div>
+    <!--<h2>Basic DataGrid</h2>-->
+    <!--<p>The DataGrid is created from markup, no JavaScript code needed.</p>-->
+    <!--<div style="margin:20px 0;"></div>-->
 
-    <table class="easyui-datagrid" title="Basic DataGrid" style="width:700px;height:250px"
-           data-options="sortOrder:'asc',singleSelect:true,collapsible:true,url:'datagrid_data1.json',method:'get'">
-        <thead>
-        <tr>
-            <th data-options="sortable:true,field:'itemid',width:80">Item ID</th>
-            <th data-options="sortable:true,field:'productid',width:100">Product</th>
-            <th data-options="sortable:true,field:'listprice',width:80,align:'right'">List Price</th>
-            <th data-options="sortable:true,field:'unitcost',width:80,align:'right'">Unit Cost</th>
-            <th data-options="sortable:true,field:'attr1',width:250">Attribute</th>
-            <th data-options="sortable:true,field:'status',width:60,align:'center'">Status</th>
-        </tr>
-        </thead>
-    </table>
+    <!--<table class="easyui-datagrid" title="Basic DataGrid" style="width:700px;height:400px"-->
+           <!--data-options="-->
+           <!--sortOrder:'asc',-->
+           <!--singleSelect:true,-->
+           <!--collapsible:true,-->
+           <!--url:'datagrid_data1.json',-->
+           <!--method:'get',-->
+           <!--noheader:'true',-->
+           <!--border:false">-->
+        <!--<thead>-->
+        <!--<tr>-->
+            <!--<th data-options="sortable:true,field:'itemid',width:80">Item ID</th>-->
+            <!--<th data-options="sortable:true,field:'productid',width:100">Product</th>-->
+            <!--<th data-options="sortable:true,field:'listprice',width:80,align:'right'">List Price</th>-->
+            <!--<th data-options="sortable:true,field:'unitcost',width:80,align:'right'">Unit Cost</th>-->
+            <!--<th data-options="sortable:true,field:'attr1',width:250">Attribute</th>-->
+            <!--<th data-options="sortable:true,field:'status',width:60,align:'center'">Status</th>-->
+        <!--</tr>-->
+        <!--</thead>-->
+    <!--</table>-->
 
-    <h2>Aligning Columns in DataGrid</h2>
-    <p>Use align and halign properties to set the alignment of the columns and their header.</p>
-    <div style="margin:20px 0;"></div>
+    <!--<h2>Aligning Columns in DataGrid</h2>-->
+    <!--<p>Use align and halign properties to set the alignment of the columns and their header.</p>-->
+    <!--<div style="margin:20px 0;"></div>-->
 
-    <table class="easyui-datagrid" title="Aligning Columns in DataGrid" style="width:700px;height:250px"
-           data-options="singleSelect:true,collapsible:true,url:'datagrid_data1.json',method:'get'">
-        <thead>
-        <tr>
-            <th data-options="field:'itemid',width:80,halign:'center'">Item ID</th>
-            <th data-options="field:'productid',width:100,halign:'center'">Product</th>
-            <th data-options="field:'listprice',width:80,align:'right',halign:'center'">List Price</th>
-            <th data-options="field:'unitcost',width:80,align:'right',halign:'center'">Unit Cost</th>
-            <th data-options="field:'attr1',width:250,halign:'center'">Attribute</th>
-            <th data-options="field:'status',width:60,align:'center',halign:'center'">Status</th>
-        </tr>
-        </thead>
-    </table>
+    <!--<table class="easyui-datagrid" title="Aligning Columns in DataGrid" style="width:700px;height:250px"-->
+           <!--data-options="singleSelect:true,collapsible:true,url:'datagrid_data1.json',method:'get'">-->
+        <!--<thead>-->
+        <!--<tr>-->
+            <!--<th data-options="field:'itemid',width:80,halign:'center'">Item ID</th>-->
+            <!--<th data-options="field:'productid',width:100,halign:'center'">Product</th>-->
+            <!--<th data-options="field:'listprice',width:80,align:'right',halign:'center'">List Price</th>-->
+            <!--<th data-options="field:'unitcost',width:80,align:'right',halign:'center'">Unit Cost</th>-->
+            <!--<th data-options="field:'attr1',width:250,halign:'center'">Attribute</th>-->
+            <!--<th data-options="field:'status',width:60,align:'center',halign:'center'">Status</th>-->
+        <!--</tr>-->
+        <!--</thead>-->
+    <!--</table>-->
 
-    <h2>Cell Editing in DataGrid</h2>
-    <p>Click a cell to start editing.</p>
-    <div style="margin:20px 0;"></div>
+    <!--<h2>Cell Editing in DataGrid</h2>-->
+    <!--<p>Click a cell to start editing.</p>-->
+    <!--<div style="margin:20px 0;"></div>-->
 
-    <table id="dg" title="Cell Editing in DataGrid" style="width:700px;height:auto"
-           data-options="
-				iconCls: 'icon-edit',
-				singleSelect: true,
-				url: 'datagrid_data1.json',
-				method:'get'
-			">
-        <thead>
-        <tr>
-            <th data-options="field:'itemid',width:80">Item ID</th>
-            <th data-options="field:'productid',width:100,editor:'text'">Product</th>
-            <th data-options="field:'listprice',width:80,align:'right',editor:{type:'numberbox',options:{precision:1}}">List Price</th>
-            <th data-options="field:'unitcost',width:80,align:'right',editor:'numberbox'">Unit Cost</th>
-            <th data-options="field:'attr1',width:250,editor:'text'">Attribute</th>
-            <th data-options="field:'status',width:60,align:'center',editor:{type:'checkbox',options:{on:'P',off:''}}">Status</th>
-        </tr>
-        </thead>
-    </table>
+    <!--<table id="dg" title="Cell Editing in DataGrid" style="width:700px;height:auto"-->
+           <!--data-options="-->
+				<!--iconCls: 'icon-edit',-->
+				<!--singleSelect: true,-->
+				<!--url: 'datagrid_data1.json',-->
+				<!--method:'get'-->
+			<!--">-->
+        <!--<thead>-->
+        <!--<tr>-->
+            <!--<th data-options="field:'itemid',width:80">Item ID</th>-->
+            <!--<th data-options="field:'productid',width:100,editor:'text'">Product</th>-->
+            <!--<th data-options="field:'listprice',width:80,align:'right',editor:{type:'numberbox',options:{precision:1}}">List Price</th>-->
+            <!--<th data-options="field:'unitcost',width:80,align:'right',editor:'numberbox'">Unit Cost</th>-->
+            <!--<th data-options="field:'attr1',width:250,editor:'text'">Attribute</th>-->
+            <!--<th data-options="field:'status',width:60,align:'center',editor:{type:'checkbox',options:{on:'P',off:''}}">Status</th>-->
+        <!--</tr>-->
+        <!--</thead>-->
+    <!--</table>-->
 
-    <script type="text/javascript">
-        $.extend($.fn.datagrid.methods, {
-            editCell: function(jq,param){
-                return jq.each(function(){
-                    var opts = $(this).datagrid('options');
-                    var fields = $(this).datagrid('getColumnFields',true).concat($(this).datagrid('getColumnFields'));
-                    for(var i=0; i<fields.length; i++){
-                        var col = $(this).datagrid('getColumnOption', fields[i]);
-                        col.editor1 = col.editor;
-                        if (fields[i] != param.field){
-                            col.editor = null;
-                        }
-                    }
-                    $(this).datagrid('beginEdit', param.index);
-                    var ed = $(this).datagrid('getEditor', param);
-                    if (ed){
-                        if ($(ed.target).hasClass('textbox-f')){
-                            $(ed.target).textbox('textbox').focus();
-                        } else {
-                            $(ed.target).focus();
-                        }
-                    }
-                    for(var i=0; i<fields.length; i++){
-                        var col = $(this).datagrid('getColumnOption', fields[i]);
-                        col.editor = col.editor1;
-                    }
-                });
-            },
-            enableCellEditing: function(jq){
-                return jq.each(function(){
-                    var dg = $(this);
-                    var opts = dg.datagrid('options');
-                    opts.oldOnClickCell = opts.onClickCell;
-                    opts.onClickCell = function(index, field){
-                        if (opts.editIndex != undefined){
-                            if (dg.datagrid('validateRow', opts.editIndex)){
-                                dg.datagrid('endEdit', opts.editIndex);
-                                opts.editIndex = undefined;
-                            } else {
-                                return;
-                            }
-                        }
-                        dg.datagrid('selectRow', index).datagrid('editCell', {
-                            index: index,
-                            field: field
-                        });
-                        opts.editIndex = index;
-                        opts.oldOnClickCell.call(this, index, field);
-                    }
-                });
-            }
-        });
+    <!--<script type="text/javascript">-->
+        <!--$.extend($.fn.datagrid.methods, {-->
+            <!--editCell: function(jq,param){-->
+                <!--return jq.each(function(){-->
+                    <!--var opts = $(this).datagrid('options');-->
+                    <!--var fields = $(this).datagrid('getColumnFields',true).concat($(this).datagrid('getColumnFields'));-->
+                    <!--for(var i=0; i<fields.length; i++){-->
+                        <!--var col = $(this).datagrid('getColumnOption', fields[i]);-->
+                        <!--col.editor1 = col.editor;-->
+                        <!--if (fields[i] != param.field){-->
+                            <!--col.editor = null;-->
+                        <!--}-->
+                    <!--}-->
+                    <!--$(this).datagrid('beginEdit', param.index);-->
+                    <!--var ed = $(this).datagrid('getEditor', param);-->
+                    <!--if (ed){-->
+                        <!--if ($(ed.target).hasClass('textbox-f')){-->
+                            <!--$(ed.target).textbox('textbox').focus();-->
+                        <!--} else {-->
+                            <!--$(ed.target).focus();-->
+                        <!--}-->
+                    <!--}-->
+                    <!--for(var i=0; i<fields.length; i++){-->
+                        <!--var col = $(this).datagrid('getColumnOption', fields[i]);-->
+                        <!--col.editor = col.editor1;-->
+                    <!--}-->
+                <!--});-->
+            <!--},-->
+            <!--enableCellEditing: function(jq){-->
+                <!--return jq.each(function(){-->
+                    <!--var dg = $(this);-->
+                    <!--var opts = dg.datagrid('options');-->
+                    <!--opts.oldOnClickCell = opts.onClickCell;-->
+                    <!--opts.onClickCell = function(index, field){-->
+                        <!--if (opts.editIndex != undefined){-->
+                            <!--if (dg.datagrid('validateRow', opts.editIndex)){-->
+                                <!--dg.datagrid('endEdit', opts.editIndex);-->
+                                <!--opts.editIndex = undefined;-->
+                            <!--} else {-->
+                                <!--return;-->
+                            <!--}-->
+                        <!--}-->
+                        <!--dg.datagrid('selectRow', index).datagrid('editCell', {-->
+                            <!--index: index,-->
+                            <!--field: field-->
+                        <!--});-->
+                        <!--opts.editIndex = index;-->
+                        <!--opts.oldOnClickCell.call(this, index, field);-->
+                    <!--}-->
+                <!--});-->
+            <!--}-->
+        <!--});-->
 
-        $(function(){
-            $('#dg').datagrid().datagrid('enableCellEditing');
-        })
-    </script>
+        <!--$(function(){-->
+            <!--$('#dg').datagrid().datagrid('enableCellEditing');-->
+        <!--})-->
+    <!--</script>-->
 
-    <h2>DataGrid Cell Style</h2>
-    <p>The cells which listprice value is less than 30 are highlighted.</p>
-    <div style="margin:20px 0;"></div>
-    <table class="easyui-datagrid" title="DataGrid Cell Style" style="width:700px;height:250px"
-           data-options="
-				singleSelect: true,
-				iconCls: 'icon-save',
-				url: 'datagrid_data1.json',
-				method: 'get'
-			">
-        <thead>
-        <tr>
-            <th data-options="field:'itemid',width:80">Item ID</th>
-            <th data-options="field:'productid',width:100">Product</th>
-            <th data-options="field:'listprice',width:80,align:'right',styler:cellStyler">List Price</th>
-            <th data-options="field:'unitcost',width:80,align:'right'">Unit Cost</th>
-            <th data-options="field:'attr1',width:250">Attribute</th>
-            <th data-options="field:'status',width:60,align:'center'">Status</th>
-        </tr>
-        </thead>
-    </table>
-    <script type="text/javascript">
-        function cellStyler(value,row,index){
-            if (value < 30){
-                return 'background-color:#ed4848;color:#fff;';
-            }
-        }
-    </script>
+    <!--<h2>DataGrid Cell Style</h2>-->
+    <!--<p>The cells which listprice value is less than 30 are highlighted.</p>-->
+    <!--<div style="margin:20px 0;"></div>-->
+    <!--<table class="easyui-datagrid" title="DataGrid Cell Style" style="width:700px;height:250px"-->
+           <!--data-options="-->
+				<!--singleSelect: true,-->
+				<!--iconCls: 'icon-save',-->
+				<!--url: 'datagrid_data1.json',-->
+				<!--method: 'get'-->
+			<!--">-->
+        <!--<thead>-->
+        <!--<tr>-->
+            <!--<th data-options="field:'itemid',width:80">Item ID</th>-->
+            <!--<th data-options="field:'productid',width:100">Product</th>-->
+            <!--<th data-options="field:'listprice',width:80,align:'right',styler:cellStyler">List Price</th>-->
+            <!--<th data-options="field:'unitcost',width:80,align:'right'">Unit Cost</th>-->
+            <!--<th data-options="field:'attr1',width:250">Attribute</th>-->
+            <!--<th data-options="field:'status',width:60,align:'center'">Status</th>-->
+        <!--</tr>-->
+        <!--</thead>-->
+    <!--</table>-->
+    <!--<script type="text/javascript">-->
+        <!--function cellStyler(value,row,index){-->
+            <!--if (value < 30){-->
+                <!--return 'background-color:#ed4848;color:#fff;';-->
+            <!--}-->
+        <!--}-->
+    <!--</script>-->
 
-    <h2>CheckBox Selection on DataGrid</h2>
-    <p>Click the checkbox on header to select or unselect all selections.</p>
-    <div style="margin:20px 0;"></div>
+    <!--<h2>CheckBox Selection on DataGrid</h2>-->
+    <!--<p>Click the checkbox on header to select or unselect all selections.</p>-->
+    <!--<div style="margin:20px 0;"></div>-->
 
-    <table id="dg1" class="easyui-datagrid" title="CheckBox Selection on DataGrid" style="width:700px;height:250px"
-           data-options="selectOnCheck:false,checkOnSelect:false,rownumbers:false,singleSelect:true,url:'datagrid_data1.json',method:'get'">
-        <thead>
-        <tr>
-            <th data-options="field:'ck',checkbox:true"></th>
-            <th data-options="field:'itemid',width:80">Item ID</th>
-            <th data-options="field:'productid',width:100">Product</th>
-            <th data-options="field:'listprice',width:80,align:'right'">List Price</th>
-            <th data-options="field:'unitcost',width:80,align:'right'">Unit Cost</th>
-            <th data-options="field:'attr1',width:220">Attribute</th>
-            <th data-options="field:'status',width:60,align:'center'">Status</th>
-        </tr>
-        </thead>
-    </table>
-    <div style="margin:10px 0;">
-        <span>Selection Mode: </span>
-        <select onchange="$('#dg1').datagrid({singleSelect:(this.value==0)})">
-            <option value="0">Single Row</option>
-            <option value="1">Multiple Rows</option>
-        </select><br/>
-        SelectOnCheck: <input type="checkbox" onchange="$('#dg1').datagrid({selectOnCheck:$(this).is(':checked')})"><br/>
-        CheckOnSelect: <input type="checkbox" onchange="$('#dg1').datagrid({checkOnSelect:$(this).is(':checked')})">
-    </div>
+    <!--<table id="dg1" class="easyui-datagrid" title="CheckBox Selection on DataGrid" style="width:700px;"-->
+           <!--data-options="-->
+           <!--selectOnCheck:false,-->
+           <!--checkOnSelect:false,-->
+           <!--rownumbers:false,-->
+           <!--singleSelect:true,-->
+           <!--url:'datagrid_data1.json',-->
+           <!--method:'get',-->
+           <!--border:false,-->
+           <!--pagination:true,-->
+           <!--pageNumber:1,-->
+           <!--pageSize:3,-->
+           <!--pageList:[3,6,9,12,15,18,21],-->
+           <!--noheader:true">-->
+        <!--<thead>-->
+        <!--<tr>-->
+            <!--<th data-options="field:'ck',checkbox:true"></th>-->
+            <!--<th data-options="field:'itemid',width:80">Item ID</th>-->
+            <!--<th data-options="field:'productid',width:100">Product</th>-->
+            <!--<th data-options="field:'listprice',width:80,align:'right'">List Price</th>-->
+            <!--<th data-options="field:'unitcost',width:80,align:'right'">Unit Cost</th>-->
+            <!--<th data-options="field:'attr1',width:220">Attribute</th>-->
+            <!--<th data-options="field:'status',width:60,align:'center'">Status</th>-->
+        <!--</tr>-->
+        <!--</thead>-->
+    <!--</table>-->
+    <!--<div style="margin:10px 0;">-->
+        <!--<span>Selection Mode: </span>-->
+        <!--<select onchange="$('#dg1').datagrid({singleSelect:(this.value==0)})">-->
+            <!--<option value="0">Single Row</option>-->
+            <!--<option value="1">Multiple Rows</option>-->
+        <!--</select><br/>-->
+        <!--SelectOnCheck: <input type="checkbox" onchange="$('#dg1').datagrid({selectOnCheck:$(this).is(':checked')})"><br/>-->
+        <!--CheckOnSelect: <input type="checkbox" onchange="$('#dg1').datagrid({checkOnSelect:$(this).is(':checked')})">-->
+    <!--</div>-->
 
     <h2>Client Side Pagination in DataGrid</h2>
     <p>This sample shows how to implement client side pagination in DataGrid.</p>
     <div style="margin:20px 0;"></div>
 
-    <table id="dg2" title="Client Side Pagination" style="width:700px;height:800px" data-options="
-				rownumbers:true,
-				singleSelect:true,
-				autoRowHeight:false,
-				pagination:true,
-				pageSize:10">
-        <thead>
-        <tr>
-            <th field="inv" width="80">Inv No</th>
-            <th field="date" width="100">Date</th>
-            <th field="name" width="80">Name</th>
-            <th field="amount" width="80" align="right">Amount</th>
-            <th field="price" width="80" align="right">Price</th>
-            <th field="cost" width="100" align="right">Cost</th>
-            <th field="note" width="110">Note</th>
-        </tr>
-        </thead>
-    </table>
+    <div style="width: 100px;height: 200px;">
+        <table id="dg2" title="Client Side Pagination" style="width:700px;" data-options=""></table>
+    </div>
+    <div style="margin:50px 0;">
+        <span>Selection Mode: </span>
+        <select onchange="$('#dg2').datagrid({singleSelect:(this.value==0)})">
+            <option value="0">Single Row</option>
+            <option value="1">Multiple Rows</option>
+        </select><br/>
+        SelectOnCheck: <input type="checkbox" onchange="$('#dg2').datagrid({selectOnCheck:$(this).is(':checked')})"><br/>
+        CheckOnSelect: <input type="checkbox" onchange="$('#dg2').datagrid({checkOnSelect:$(this).is(':checked')})">
+    </div>
     <script>
         (function($){
             function pagerFilter(data){
@@ -313,7 +326,7 @@
 
         function getData(){
             var rows = [];
-            for(var i=1; i<=800; i++){
+            for(var i=1; i<=80; i++){
                 var amount = Math.floor(Math.random()*1000);
                 var price = Math.floor(Math.random()*1000);
                 rows.push({
@@ -330,70 +343,89 @@
         }
 
         $(function(){
-            $('#dg2').datagrid({data:getData()}).datagrid('clientPaging');
+            $('#dg2').datagrid({
+                columns:[[
+                    {field:'id'},
+                    {title:'Inv No',field:'inv'},
+                    {title:'Date',field:'date'},
+                    {title:'Name',field:'name'},
+                    {title:'Amount',field:'amount'},
+                    {title:'Price',field:'price'},
+                    {title:'Cost',field:'cost'},
+                    {title:'Note',field:'note'}
+                ]],
+                selectOnCheck:false,
+                checkOnSelect:false,
+                rownumbers:false,
+                singleSelect:true,
+                noheader:true,
+                pagination:true,
+                pageSize:10,
+                data:getData()
+            }).datagrid('clientPaging');
         });
     </script>
 
-    <h2>Footer Rows in DataGrid</h2>
-    <p>The summary informations can be displayed in footer rows.</p>
-    <div style="margin:20px 0;"></div>
-    <table class="easyui-datagrid" title="Footer Rows in DataGrid" style="width:700px;height:500px"
-           data-options="
-				url: 'datagrid_data2.json',
-				method: 'get',
-				fitColumns: true,
-				singleSelect: true,
-				rownumbers: true,
-				showFooter: true
-			">
-        <thead>
-        <tr>
-            <th data-options="field:'itemid',width:80">Item ID</th>
-            <th data-options="field:'productid',width:120">Product ID</th>
-            <th data-options="field:'listprice',width:80,align:'right'">List Price</th>
-            <th data-options="field:'unitcost',width:80,align:'right'">Unit Cost</th>
-            <th data-options="field:'attr1',width:250">Attribute</th>
-            <th data-options="field:'status',width:60,align:'center'">Status</th>
-        </tr>
+    <!--<h2>Footer Rows in DataGrid</h2>-->
+    <!--<p>The summary informations can be displayed in footer rows.</p>-->
+    <!--<div style="margin:20px 0;"></div>-->
+    <!--<table class="easyui-datagrid" title="Footer Rows in DataGrid" style="width:700px;height:500px"-->
+           <!--data-options="-->
+				<!--url: 'datagrid_data2.json',-->
+				<!--method: 'get',-->
+				<!--fitColumns: true,-->
+				<!--singleSelect: true,-->
+				<!--rownumbers: true,-->
+				<!--showFooter: true-->
+			<!--">-->
+        <!--<thead>-->
+        <!--<tr>-->
+            <!--<th data-options="field:'itemid',width:80">Item ID</th>-->
+            <!--<th data-options="field:'productid',width:120">Product ID</th>-->
+            <!--<th data-options="field:'listprice',width:80,align:'right'">List Price</th>-->
+            <!--<th data-options="field:'unitcost',width:80,align:'right'">Unit Cost</th>-->
+            <!--<th data-options="field:'attr1',width:250">Attribute</th>-->
+            <!--<th data-options="field:'status',width:60,align:'center'">Status</th>-->
+        <!--</tr>-->
 
-        </thead>
-    </table>
+        <!--</thead>-->
+    <!--</table>-->
 
 
-    <h2>Row Border in DataGrid</h2>
-    <p>This sample shows how to change the row border style of datagrid.</p>
-    <div style="margin:20px 0;">
-        <!--<span>Border:</span>-->
-        <!--<select onchange="changeBorder(this.value)">-->
-            <!--<option value="lines-both">Both</option>-->
-            <!--<option value="lines-no">No Border</option>-->
-            <!--<option value="lines-right">Right Border</option>-->
-            <!--<option value="lines-bottom">Bottom Border</option>-->
-        <!--</select>-->
-        <!--<span>Striped:</span>-->
-        <!--<input type="checkbox" onclick="$('#dg5').datagrid({striped:$(this).is(':checked')})">-->
-    </div>
-    <table id="dg5" class="easyui-datagrid" title="Row Border in DataGrid" style="width:700px;height:250px"
-           data-options="singleSelect:true,fitColumns:true,url:'datagrid_data1.json',method:'get',border:false">
-        <thead>
-        <tr>
-            <th data-options="field:'itemid',width:80">Item ID</th>
-            <th data-options="field:'productid',width:100">Product</th>
-            <th data-options="field:'listprice',width:80,align:'right'">List Price</th>
-            <th data-options="field:'unitcost',width:80,align:'right'">Unit Cost</th>
-            <th data-options="field:'attr1',width:250">Attribute</th>
-            <th data-options="field:'status',width:60,align:'center'">Status</th>
-        </tr>
-        </thead>
-    </table>
-    <script type="text/javascript">
-        $(function () {
-            $('#dg5').datagrid('getPanel').addClass('datagrid-border-right');
-        });
-//        function changeBorder(cls){
-//            $('#dg5').datagrid('getPanel').removeClass('lines-both lines-no lines-right lines-bottom').addClass(cls);
-//        }
-    </script>
+    <!--<h2>Row Border in DataGrid</h2>-->
+    <!--<p>This sample shows how to change the row border style of datagrid.</p>-->
+    <!--<div style="margin:20px 0;">-->
+        <!--&lt;!&ndash;<span>Border:</span>&ndash;&gt;-->
+        <!--&lt;!&ndash;<select onchange="changeBorder(this.value)">&ndash;&gt;-->
+            <!--&lt;!&ndash;<option value="lines-both">Both</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;<option value="lines-no">No Border</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;<option value="lines-right">Right Border</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;<option value="lines-bottom">Bottom Border</option>&ndash;&gt;-->
+        <!--&lt;!&ndash;</select>&ndash;&gt;-->
+        <!--&lt;!&ndash;<span>Striped:</span>&ndash;&gt;-->
+        <!--&lt;!&ndash;<input type="checkbox" onclick="$('#dg5').datagrid({striped:$(this).is(':checked')})">&ndash;&gt;-->
+    <!--</div>-->
+    <!--<table id="dg5" class="easyui-datagrid" title="Row Border in DataGrid" style="width:700px;height:250px"-->
+           <!--data-options="singleSelect:true,fitColumns:true,url:'datagrid_data1.json',method:'get',border:false">-->
+        <!--<thead>-->
+        <!--<tr>-->
+            <!--<th data-options="field:'itemid',width:80">Item ID</th>-->
+            <!--<th data-options="field:'productid',width:100">Product</th>-->
+            <!--<th data-options="field:'listprice',width:80,align:'right'">List Price</th>-->
+            <!--<th data-options="field:'unitcost',width:80,align:'right'">Unit Cost</th>-->
+            <!--<th data-options="field:'attr1',width:250">Attribute</th>-->
+            <!--<th data-options="field:'status',width:60,align:'center'">Status</th>-->
+        <!--</tr>-->
+        <!--</thead>-->
+    <!--</table>-->
+    <!--<script type="text/javascript">-->
+        <!--$(function () {-->
+            <!--$('#dg5').datagrid('getPanel').addClass('datagrid-border-right');-->
+        <!--});-->
+<!--//        function changeBorder(cls){-->
+<!--//            $('#dg5').datagrid('getPanel').removeClass('lines-both lines-no lines-right lines-bottom').addClass(cls);-->
+<!--//        }-->
+    <!--</script>-->
     <!--<style type="text/css">-->
         <!--.lines-both .datagrid-body td{-->
         <!--}-->

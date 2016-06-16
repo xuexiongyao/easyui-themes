@@ -17,7 +17,7 @@
 		<table cellpadding="5">
 			<tr>
 				<td>User Name:</td>
-				<td><input class="easyui-validatebox textbox" data-options="required:true,validType:'length[3,10]',novalidate:true"></td>
+				<td><input class="easyui-validatebox textbox" data-options="required:true,validType:'length[3,10]',novalidate:true,invalidMessage:'sdsssss'"></td>
 			</tr>
 			<tr>
 				<td>Email:</td>
@@ -40,7 +40,7 @@
 	<script type="text/javascript">
 		$(function(){
 			$('.validatebox-text').bind('blur', function(){
-				$(this).validatebox('enableValidation').validatebox('validate');
+				$(this).validatebox('enableValidation').validatebox('validate').validatebox('show');
 			});
 		})
 	</script>

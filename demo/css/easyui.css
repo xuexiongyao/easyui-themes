@@ -1226,7 +1226,7 @@ body {
 
 /*validatebox*/
 .validatebox-invalid {
-  border-color: #ed4848;
+  border-color: #ed4848 !important;
   background-color: #fff;
   color: #5a5a5a; }
 
@@ -1845,10 +1845,10 @@ body {
     font-weight: bold; }
 .datagrid .panel-body {
   position: relative;
-  overflow: hidden; }
+  overflow: hidden;
+  border: 0; }
 .datagrid .datagrid-pager {
   display: block;
-  margin: 0;
   border-width: 1px 0 0 0;
   border-style: solid;
   border-color: #ccc; }
@@ -1932,14 +1932,10 @@ body {
   font-weight: bold;
   overflow: hidden;
   cursor: default;
-  border-width: 0 0 1px 0;
-  border-style: solid;
-  border-color: #ccc;
-  background-color: #eee; }
+  border-width: 0 0 0 0;
+  background-color: #eef1f6; }
   .datagrid-header td {
-    border-width: 0 1px 1px 0;
-    border-style: solid;
-    border-color: #ccc;
+    border-width: 0;
     margin: 0;
     padding: 0; }
   .datagrid-header td.datagrid-header-over {
@@ -1961,15 +1957,19 @@ body {
 
 .datagrid-body {
   margin: 0;
-  padding: 0;
+  padding: 5px 0;
   overflow: auto;
   zoom: 1; }
   .datagrid-body td {
-    border-width: 0 1px 1px 0;
-    border-style: solid;
+    border-width: 0 1px 0 0;
+    border-style: dotted;
     border-color: #ccc;
     margin: 0;
     padding: 0; }
+  .datagrid-body td[field='id'] {
+    border: 0; }
+  .datagrid-body td:last-child {
+    border: 0; }
   .datagrid-body .datagrid-editable {
     margin: 0;
     padding: 0; }
@@ -1997,7 +1997,7 @@ body {
     border-width: 0 1px 1px 0;
     border-style: solid;
     border-color: #ccc;
-    background: #eee;
+    background: #eef1f6;
     margin: 0;
     padding: 0; }
 
@@ -2012,7 +2012,8 @@ body {
 .datagrid-cell i {
   font-size: 14px;
   cursor: pointer;
-  margin: 0 4px; }
+  margin: 0 4px;
+  color: #0e6595 !important; }
 .datagrid-cell i.details {
   color: #5bc0de; }
 .datagrid-cell i.remove {
@@ -2117,13 +2118,12 @@ body {
   background: #fafafa; }
 
 .datagrid-row-over, .datagrid-header td.datagrid-header-over {
-  background: #ecf4f7;
+  background: #dce9f7;
   color: #000;
   cursor: default; }
 
 .datagrid-row-selected {
-  background: #0e6595;
-  color: #fff; }
+  background: #b7d6ed; }
 
 /*datelist*/
 .datalist .datagrid-header {
@@ -2269,7 +2269,7 @@ body {
 .propertygrid .datagrid-view2 .datagrid-group {
   border-color: #ccc; }
 .propertygrid .datagrid-group {
-  background: #ecf4f7;
+  background: #dce9f7;
   height: 21px;
   overflow: hidden;
   border-width: 0 0 1px 0;

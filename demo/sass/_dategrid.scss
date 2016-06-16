@@ -12,10 +12,11 @@
     }
     .panel-body {
         @include containerBox;
+        border:0;
     }
     .datagrid-pager {
         display: block;
-        margin: 0;
+        //margin: 5px 0 0 0;
         border-width: 1px 0 0 0;
         border-style: solid;
         border-color: colors(borderColor);
@@ -92,10 +93,11 @@
     font-weight:bold;
     overflow: hidden;
     cursor: default;
-    border-width: 0 0 1px 0;
-    border-style: solid;
-    border-color: colors(borderColor);
+    border-width: 0 0 0 0;
+    //border-style: solid;
+    //border-color: colors(borderColor);
     background-color: colors(tableBgcolor);
+    //margin-bottom: 5px;
     //background: -webkit-linear-gradient(top,#F9F9F9 0,#efefef 100%);
     //background: -moz-linear-gradient(top,#F9F9F9 0,#efefef 100%);
     //background: -o-linear-gradient(top,#F9F9F9 0,#efefef 100%);
@@ -103,9 +105,9 @@
     //background-repeat: repeat-x;
     //filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#F9F9F9,endColorstr=#efefef,GradientType=0);
     td{
-        border-width: 0 1px 1px 0;
-        border-style: solid;
-        border-color: colors(borderColor);
+        border-width: 0;
+        //border-style: solid;
+        //border-color: colors(borderColor);
         @include attrMarginPadding;
     }
     td.datagrid-header-over {
@@ -128,14 +130,21 @@
     height: 30px;
 }
 .datagrid-body{
-    @include attrMarginPadding;
+    margin: 0;
+    padding:5px 0;
     overflow: auto;
     zoom: 1;
     td {
-        border-width: 0 1px 1px 0;
-        border-style: solid;
+        border-width: 0 1px 0 0;
+        border-style: dotted;
         border-color: colors(borderColor);
         @include attrMarginPadding;
+    }
+    td[field='id']{
+        border:0;
+    }
+    td:last-child{
+        border:0;
     }
     .datagrid-editable {
         @include attrMarginPadding;
@@ -196,6 +205,7 @@
         font-size: fontSize(base);
         cursor: pointer;
         margin: 0 4px;
+        color: colors(primary)!important;
     }
     //详情
     i.details{
@@ -321,6 +331,5 @@
     cursor: default;
 }
 .datagrid-row-selected {
-    background: colors(primary);
-    color: colors(white);
+    background: colors(tableSelected);
 }
