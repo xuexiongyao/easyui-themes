@@ -19,7 +19,7 @@
         }
         li.tabs-selected {
             a.tabs-inner {
-                background: colors(lightblueBg);
+                background: colors(lightBlueBg);
                 color: colors(textColor);
                 filter: none;
                 border-color: colors(borderColor);
@@ -222,7 +222,7 @@
         li.tabs-selected {
             a.tabs-inner {
                 background-repeat: repeat-x;
-                background-color: colors(lightblueBg);
+                background-color: colors(lightBlueBg);
                 //border-top: 1px solid colors(white);
             }
         }
@@ -280,7 +280,7 @@
         li.tabs-selected{
             a.tabs-inner {
                 background-repeat: repeat-y;
-                background: colors(lightblueBg);
+                background: colors(lightBlueBg);
                 //border-right: 1px solid colors(white);
             }
         }
@@ -333,7 +333,7 @@
         li.tabs-selected{
             a.tabs-inner {
                 background-repeat: repeat-y;
-                background: colors(lightblueBg);
+                background: colors(lightBlueBg);
                 //border-left: 1px solid colors(white);
             }
         }

@@ -649,6 +649,7 @@ body {
     -o-border-radius: 3px;
     -ms-border-radius: 3px; }
   .tabs-header .tabs-pill li.tabs-selected a.tabs-inner {
+    background: #9cd2e8;
     color: #5a5a5a;
     filter: none;
     border-color: #ccc; }
@@ -840,7 +841,8 @@ body {
         -o-border-radius: 0 0 3px 3px;
         -ms-border-radius: 0 0 3px 3px; }
     .tabs-header-bottom .tabs li.tabs-selected a.tabs-inner {
-      background-repeat: repeat-x; }
+      background-repeat: repeat-x;
+      background-color: #9cd2e8; }
   .tabs-header-bottom .tabs-tool {
     top: 0; }
   .tabs-header-bottom .tabs-scroller-left, .tabs-header-bottom .tabs-scroller-right {
@@ -884,7 +886,8 @@ body {
       -o-border-radius: 3px 0 0 3px;
       -ms-border-radius: 3px 0 0 3px; }
   .tabs-header-left .tabs li.tabs-selected a.tabs-inner {
-    background-repeat: repeat-y; }
+    background-repeat: repeat-y;
+    background: #9cd2e8; }
   .tabs-header-left .tabs-pill {
     padding-right: 3px; }
   .tabs-header-left .tabs-narrow {
@@ -924,7 +927,8 @@ body {
       -o-border-radius: 0 3px 3px 0;
       -ms-border-radius: 0 3px 3px 0; }
   .tabs-header-right .tabs li.tabs-selected a.tabs-inner {
-    background-repeat: repeat-y; }
+    background-repeat: repeat-y;
+    background: #9cd2e8; }
   .tabs-header-right .tabs-pill {
     padding-left: 3px; }
   .tabs-header-right .tabs-narrow {
@@ -2327,10 +2331,14 @@ body {
   background: url("images/tree_icons.png") no-repeat -144px 0; }
 .tree-lines .tree-root-first .tree-collapsed {
   background: url("images/tree_icons.png") no-repeat -128px 0; }
-.tree-lines .tree-node-last .tree-expanded, .tree-lines .tree-root-one .tree-expanded {
+.tree-lines .tree-node-last .tree-expanded {
   background: url("images/tree_icons.png") no-repeat -80px 0; }
-.tree-lines .tree-node-last .tree-collapsed, .tree-lines .tree-root-one .tree-collapsed {
+.tree-lines .tree-node-last .tree-collapsed {
   background: url("images/tree_icons.png") no-repeat -64px 0; }
+.tree-lines .tree-root-one .tree-expanded {
+  background: url("images/tree_icons_root.png") no-repeat -16px 0; }
+.tree-lines .tree-root-one .tree-collapsed {
+  background: url("images/tree_icons_root.png") no-repeat 0 0; }
 
 .tree-line {
   background: url("images/tree_icons.png") no-repeat -176px 0; }
@@ -2419,7 +2427,8 @@ body {
   top: 0; }
 
 .tree-node-hover {
-  background: #9cd2e8; }
+  background: #9cd2e8;
+  color: #000; }
 
 .tree-node-selected {
   background: #0e6595;

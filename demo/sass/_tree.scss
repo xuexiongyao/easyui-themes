@@ -62,7 +62,12 @@
         }
     }
     .tree-root-one{
-        @extend .tree-node-last;
+        .tree-expanded {
+            background: url("images/tree_icons_root.png") no-repeat -16px 0;
+        }
+        .tree-collapsed{
+            background: url("images/tree_icons_root.png") no-repeat 0 0;
+        }
     }
 }
 .tree-line {
@@ -148,7 +153,7 @@
 }
 .tree-node-hover {
     background: colors(lightBlueBg);
-    color: colors(balck);
+    color: colors(black);
 }
 .tree-node-selected {
     background: colors(primary);
