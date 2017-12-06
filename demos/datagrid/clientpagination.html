@@ -14,14 +14,10 @@
 	<p>This sample shows how to implement client side pagination in DataGrid.</p>
 	<div style="margin:20px 0;"></div>
 	
-	<table id="dg" title="Client Side Pagination" style="width:700px;height:300px" data-options="
-				rownumbers:true,
-				singleSelect:true,
-				autoRowHeight:false,
-				pagination:true,
-				pageSize:10">
+	<table id="dg" title="Client Side Pagination" style="width:700px;height:300px">
 		<thead>
 			<tr>
+				<th field='id' data-options="checkbox:true"></th>
 				<th field="inv" width="80">Inv No</th>
 				<th field="date" width="100">Date</th>
 				<th field="name" width="80">Name</th>
@@ -32,6 +28,8 @@
 			</tr>
 		</thead>
 	</table>
+    <a href="#" id="get">获取选中行数据</a>
+    <div class="box"></div>
 	<script>
 		(function($){
 			function pagerFilter(data){
@@ -136,10 +134,11 @@
 
 		function getData(){
 			var rows = [];
-			for(var i=1; i<=800; i++){
+			for(var i=1; i<=100; i++){
 				var amount = Math.floor(Math.random()*1000);
 				var price = Math.floor(Math.random()*1000);
 				rows.push({
+					id:i,
 					inv: 'Inv No '+i,
 					date: $.fn.datebox.defaults.formatter(new Date()),
 					name: 'Name '+i,
@@ -151,10 +150,76 @@
 			}
 			return rows;
 		}
+
+		//分页多选
+        var checkedItems = [];
+        function ischeckItem() {
+            for (var i = 0; i < checkedItems.length; i++) {
+                $('#dg').datagrid('selectRecord', checkedItems[i]); //根据id选中行
+            }
+        }
+
+        function findCheckedItem(ID) {
+            for (var i = 0; i < checkedItems.length; i++) {
+                if (checkedItems[i].id == ID) return i;
+            }
+            return -1;
+        }
+
+        function addcheckItem() {
+            var row = $('#dg').datagrid('getChecked');
+            for (var i = 0; i < row.length; i++) {
+                if (findCheckedItem(row[i].id) == -1) {
+                    checkedItems.push(row[i]);
+                }
+            }
+            console.log(checkedItems);
+        }
+        function removeAllItem(rows) {
+            for (var i = 0; i < rows.length; i++) {
+                var k = findCheckedItem(rows[i].id);
+                if (k != -1) {
+                    checkedItems.splice(i, 1);
+                }
+            }
+            console.log(checkedItems);
+        }
+        function removeSingleItem(rowIndex, rowData) {
+            var k = findCheckedItem(rowData.id);
+            if (k != -1) {
+                checkedItems.splice(k, 1);
+            }
+            console.log(checkedItems);
+        }
 		
 		$(function(){
-			$('#dg').datagrid({data:getData()}).datagrid('clientPaging');
-		});
+			$('#dg').datagrid({
+                data:getData(),
+                rownumbers:true,
+                singleSelect:false,
+                selectOnCheck : true,
+                checkOnSelect : true,
+                autoRowHeight:false,
+                pagination : true,
+                pageSize : 5,
+                pageList : [5,10,20,50,100,200], //rows
+                pageNumber : 1,//显示在第几页
+                pagePosition : 'bottom',
+                idField: 'id',
+                view: fileview,
+                onCheckAll: addcheckItem,
+                onCheck:addcheckItem,
+                onUncheckAll: removeAllItem,
+                onUncheck: removeSingleItem
+			}).datagrid('clientPaging');
+
+
+            var fileview = $.extend({}, $.fn.datagrid.defaults.view, {
+                onAfterRender: function (target) {
+                    ischeckItem();
+                }
+            });
+        });
 	</script>
 </body>
 </html>
