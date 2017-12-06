@@ -157,11 +157,12 @@
             for (var i = 0; i < checkedItems.length; i++) {
                 $('#dg').datagrid('selectRecord', checkedItems[i]); //根据id选中行
             }
+            console.log(checkedItems)
         }
 
         function findCheckedItem(ID) {
             for (var i = 0; i < checkedItems.length; i++) {
-                if (checkedItems[i].id == ID) return i;
+                if (checkedItems[i] == ID) return i;
             }
             return -1;
         }
@@ -170,10 +171,10 @@
             var row = $('#dg').datagrid('getChecked');
             for (var i = 0; i < row.length; i++) {
                 if (findCheckedItem(row[i].id) == -1) {
-                    checkedItems.push(row[i]);
+                    checkedItems.push(row[i].id);
                 }
             }
-            console.log(checkedItems);
+            console.log(checkedItems)
         }
         function removeAllItem(rows) {
             for (var i = 0; i < rows.length; i++) {
@@ -182,14 +183,14 @@
                     checkedItems.splice(i, 1);
                 }
             }
-            console.log(checkedItems);
+            console.log(checkedItems)
         }
         function removeSingleItem(rowIndex, rowData) {
             var k = findCheckedItem(rowData.id);
             if (k != -1) {
                 checkedItems.splice(k, 1);
             }
-            console.log(checkedItems);
+            console.log(checkedItems)
         }
 		
 		$(function(){
