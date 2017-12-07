@@ -162,7 +162,7 @@
 
         function findCheckedItem(ID) {
             for (var i = 0; i < checkedItems.length; i++) {
-                if (checkedItems[i] == ID) return i;
+                if (checkedItems[i].id == ID) return i;
             }
             return -1;
         }
@@ -171,7 +171,7 @@
             var row = $('#dg').datagrid('getChecked');
             for (var i = 0; i < row.length; i++) {
                 if (findCheckedItem(row[i].id) == -1) {
-                    checkedItems.push(row[i].id);
+                    checkedItems.push(row[i]);
                 }
             }
             console.log(checkedItems)
